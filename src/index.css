@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 145 100% 39%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 26%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 5% 16%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 24 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 145 100% 39%;
+
+    --radius: 0.75rem;
+
+    --gold: 45 61% 53%;
+    --surface: 0 0% 7%;
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 145 100% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 24 100% 50%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 145 100% 39%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .heading-display {
+    @apply font-black tracking-tighter uppercase;
+    text-wrap: balance;
+  }
+
+  .text-body {
+    @apply font-normal leading-relaxed text-muted-foreground;
+    text-wrap: pretty;
+  }
+
+  .card-glass {
+    @apply bg-card rounded-xl;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
+  }
+
+  .btn-cta {
+    @apply h-14 rounded-full bg-primary text-primary-foreground font-bold px-10 uppercase tracking-wide;
+    transition: all 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .btn-cta:hover {
+    @apply bg-[hsl(145,100%,45%)];
+    transform: scale(1.02);
+  }
+
+  .btn-cta:active {
+    transform: scale(0.98);
+  }
+
+  .border-accent-thin {
+    box-shadow: 0 0 0 1px hsl(var(--accent));
+  }
+
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+
+  .bg-surface {
+    background-color: hsl(var(--surface));
+  }
+
+  .text-accent-orange {
+    color: hsl(var(--accent));
+  }
+
+  .bg-accent-orange {
+    background-color: hsl(var(--accent));
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
