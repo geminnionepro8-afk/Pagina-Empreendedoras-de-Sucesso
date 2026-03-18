@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Montserrat', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -61,6 +61,14 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
+        },
+        flf: {
+          dark: "#000000",
+          green: "#00C853",
+          orange: "#FF6600",
+          gold: "#D4AF37",
+          gray: "#333333",
+          lightGray: "#888888"
         },
       },
       borderRadius: {
