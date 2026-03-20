@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, HelpCircle } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -10,45 +16,89 @@ const fadeUp = {
 
 const faqs = [
   {
-    q: "Quantos palestrantes serão?",
-    a: "Contaremos em nosso evento com 6 palestrantes exclusivos; Até o momento podemos divulgar para o público \"apenas\" o Flávio Augusto, mas calma aí que vou te contar mais sobre ele: Ele foi o Fundador da rede de escola de línguas Wise Up e Ex-proprietário do time de futebol Orlando City; divide seu tempo administrando seus negócios e repassando todos os seus ensinamentos e aprendizados.",
+    q: "Onde será realizado o evento?",
+    a: "O I Fórum de Estética e Performance será realizado no UNIFACEX - Campus Capim Macio, em Natal - RN. O campus oferece infraestrutura moderna, auditório climatizado, poltronas confortáveis e estacionamento seguro.",
   },
   {
-    q: "Qual o horário de início e término do evento?",
-    a: "Nosso evento terá início às 08:00 e seu término às 18:00; Ahh, para aqueles que adquirirem os ingressos PRIVATE, acompanhe as orientações que serão postadas em nosso Instagram, sua programação se estenderá um pouco mais 😉",
+    q: "Quais os horários do evento?",
+    a: "No dia 17 de Abril iniciaremos às 17:00 com o credenciamento e palestras até as 21:30. No dia 18 de Abril, a programação será o dia todo, iniciando as 08:00 e finalizando o evento oficial às 17:00.",
+  },
+  {
+    q: "Haverá emissão de certificado?",
+    a: "Sim! Todos os participantes receberão um certificado digital de participação que reforça seu engajamento em saúde integrativa e gestão de alta performance.",
+  },
+  {
+    q: "A quem se destina o Fórum?",
+    a: "Mulheres empreendedoras, líderes de equipe, profissionais da saúde e estética avançada, e qualquer mulher que deseje blindar sua saúde contra o Burnout enquanto acelera sua carreira.",
+  },
+  {
+    q: "Como funciona a Taxa Social e Formas de Pagamento?",
+    a: "Para viabilizar acesso em massa, o Instituto Mulheres de Sucesso Brasileiras adotou uma Taxa Social de apenas R$ 49,00. O pagamento é realizado através da plataforma segura Kiwify, diretamente via PIX para o CNPJ do Instituto.",
   },
 ];
 
 const FAQSection = () => (
-  <section className="bg-background py-24">
-    <div className="section-container">
-      <motion.div {...fadeUp} className="text-center mb-12">
-        <span className="text-2xl font-black tracking-[0.3em] text-foreground">
-          <span className="font-black">FLF</span><span className="font-light">EZTIVAL</span>
-        </span>
-        <p className="text-foreground font-bold uppercase tracking-wider mt-2">PERGUNTAS FREQUENTES</p>
+  <section className="bg-background py-24 relative overflow-hidden">
+    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#ee6983]/5 blur-[100px] rounded-full pointer-events-none" />
+
+    <div className="section-container relative z-10">
+      <motion.div {...fadeUp} className="text-center mb-16 space-y-4">
+        <div className="inline-flex items-center gap-2 bg-[#ee6983]/10 border border-[#ee6983]/20 px-4 py-2 rounded-full mb-4">
+          <HelpCircle className="w-4 h-4 text-[#ee6983]" />
+          <span className="text-[#ee6983] font-bold text-xs uppercase tracking-widest">Tire suas dúvidas</span>
+        </div>
+        <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight">
+          PERGUNTAS <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] to-[#ffc4c4]">FREQUENTES</span>
+        </h2>
+        <p className="text-white/50 max-w-2xl mx-auto text-[15px] pt-4">
+          Tem alguma dúvida sobre o evento? Separamos abaixo as repostas para as questões mais comuns feitas pela nossa comunidade.
+        </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-        {faqs.map((faq, i) => (
-          <motion.div key={i} {...fadeUp} transition={{ delay: i * 0.1 }} className="card-glass p-6 space-y-4">
-            <h3 className="text-foreground font-bold text-lg">{faq.q}</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
-          </motion.div>
-        ))}
+      <div className="max-w-3xl mx-auto mb-20">
+        <Accordion type="single" collapsible className="w-full space-y-4">
+          {faqs.map((faq, i) => (
+            <motion.div 
+              key={i} 
+              {...fadeUp} 
+              transition={{ delay: i * 0.1 }}
+            >
+              <AccordionItem 
+                value={`item-${i}`} 
+                className="bg-[#050505] border border-white/5 rounded-2xl px-6 data-[state=open]:border-[#ee6983]/30 data-[state=open]:bg-white/5 transition-all duration-300"
+              >
+                <AccordionTrigger className="text-left text-[16px] md:text-[18px] font-medium text-white/90 hover:text-white hover:no-underline py-6">
+                  {faq.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-white/60 text-[15px] leading-relaxed pb-6 text-base">
+                  {faq.a}
+                </AccordionContent>
+              </AccordionItem>
+            </motion.div>
+          ))}
+        </Accordion>
       </div>
 
       {/* Contact CTA */}
-      <motion.div {...fadeUp} className="text-center mt-24 space-y-4">
-        <h3 className="text-accent-orange font-bold text-xl uppercase">
-          QUER FALAR COM ALGUÉM PARA TIRAR SUAS DÚVIDAS?
-        </h3>
-        <p className="text-muted-foreground">
-          Toque no botão abaixo e fale com um especialista em transformação financeira
-        </p>
-        <button className="inline-flex items-center gap-2 h-14 rounded-full border border-foreground/20 px-8 text-foreground font-bold uppercase hover:bg-foreground/5 transition-colors">
-          <MessageCircle className="w-5 h-5" /> FALAR COM UM ESPECIALISTA
-        </button>
+      <motion.div {...fadeUp} className="max-w-4xl mx-auto relative group">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#ee6983]/20 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl" />
+        <div className="relative bg-[#0a0a0a] border border-white/10 rounded-3xl p-8 md:p-12 text-center flex flex-col items-center gap-6 shadow-2xl">
+          <div className="w-16 h-16 rounded-full bg-[#ee6983]/10 flex items-center justify-center border border-[#ee6983]/20">
+            <MessageCircle className="w-8 h-8 text-[#ee6983]" />
+          </div>
+          <div className="space-y-2">
+            <h3 className="text-white font-bold text-xl md:text-2xl uppercase tracking-wide">
+              SUA DÚVIDA NÃO FOI RESPONDIDA?
+            </h3>
+            <p className="text-white/60 text-base max-w-lg mx-auto">
+              Nossa equipe de suporte está pronta para te atender e explicar todos os detalhes sobre a experiência do FLFEZTIVAL.
+            </p>
+          </div>
+          <button className="mt-4 bg-gradient-to-r from-[#850e35] to-[#ee6983] hover:opacity-90 text-white px-8 md:px-10 py-4 h-auto rounded-[5%] font-bold uppercase tracking-wider transition-transform hover:scale-105 shadow-[0_0_20px_rgba(238,105,131,0.3)] flex items-center gap-3">
+            <MessageCircle className="w-5 h-5" /> 
+            FALAR COM ESPECIALISTA NO WHATSAPP
+          </button>
+        </div>
       </motion.div>
     </div>
   </section>

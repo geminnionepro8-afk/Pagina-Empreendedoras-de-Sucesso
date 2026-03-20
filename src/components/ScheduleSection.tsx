@@ -7,97 +7,121 @@ const fadeUp = {
   transition: { duration: 0.6 },
 };
 
-interface ScheduleItem {
-  time: string;
-  activity: string;
-  highlight: boolean;
-  isPrivate?: boolean;
-}
-
-const morningSchedule: ScheduleItem[] = [
-  { time: "07:00", activity: "CREDENCIAMENTO", highlight: false },
-  { time: "08:00", activity: "ABERTURA FLFEZTIVAL", highlight: false },
-  { time: "08:30", activity: "LUCIANO POTTER", highlight: true },
-  { time: "09:30", activity: "JOÃO ADIBE", highlight: true },
-  { time: "11:00", activity: "EM BREVE", highlight: false },
-  { time: "12:00", activity: "INTERVALO", highlight: false },
+const scheduleDay1 = [
+  { time: "17:00", event: "CREDENCIAMENTO & NETWORKING" },
+  { time: "17:30", event: "ABERTURA OFICIAL\nLÚCIA LEANDRO", highlight: true },
+  { time: "18:00", event: "MEDICINA INTEGRATIVA\nDRA. MITIA MONTENEGRO" },
+  { time: "19:30", event: "A INFLUÊNCIA DA ESTÉTICA NA AUTOESTIMA (PAINEL)" },
+  { time: "21:30", event: "ENCERRAMENTO DIA 1" },
 ];
 
-const afternoonSchedule: ScheduleItem[] = [
-  { time: "13:30", activity: "ATIVAÇÃO FLF", highlight: false },
-  { time: "14:00", activity: "RENATA VICHI", highlight: true },
-  { time: "15:15", activity: "CARLOS BUSCH", highlight: true },
-  { time: "16:15", activity: "EM BREVE", highlight: false },
-  { time: "17:00", activity: "FLÁVIO AUGUSTO", highlight: true },
-  { time: "18:30", activity: "MENTORIA Q&A FLÁVIO AUGUSTO", highlight: false, isPrivate: true },
+const scheduleDay2 = [
+  { time: "08:00", event: "CAFÉ & CONEXÕES" },
+  { time: "09:00", event: "PRODUTIVIDADE 4.0" },
+  { time: "10:30", event: "WORKSHOP MARCA PESSOAL", highlight: true },
+  { time: "14:00", event: "INTELIGÊNCIA EMOCIONAL" },
+  { time: "16:00", event: "O FUTURO DA CARREIRA\nDRA. ALICE FUSCELLA", highlight: true, isPrivate: true },
+  { time: "17:00", event: "ENCERRAMENTO OFICIAL" },
 ];
 
-const lots = [
-  { label: "LOTE 1", discount: "40%", active: false },
-  { label: "LOTE 2", discount: "30%", active: false },
-  { label: "LOTE 3", discount: "20%", active: false },
-  { label: "LOTE 4", discount: "10%", active: true },
-];
+const ScheduleSection = () => {
+  return (
+    <section className="bg-background py-24 relative overflow-hidden flex flex-col items-center">
+      {/* Subtle Glows */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#ee6983] opacity-[0.02] blur-[150px] rounded-full pointer-events-none" />
 
-const ScheduleSection = () => (
-  <section className="bg-background py-24">
-    <div className="section-container">
-      {/* Schedule header */}
-      <motion.div {...fadeUp} className="mb-12">
-        <div className="bg-primary rounded-full py-3 px-8 text-center max-w-md mx-auto">
-          <span className="text-primary-foreground font-black tracking-wider uppercase">PROGRAMAÇÃO</span>
-        </div>
-      </motion.div>
+      <div className="section-container relative z-10 w-full max-w-5xl">
+        
+        {/* Header Elements */}
+        <motion.div {...fadeUp} className="text-center mb-16 space-y-8 w-full">
+          <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-widest text-center">
+            PROGRAMAÇÃO OFICIAL
+          </h2>
+          
+          {/* Centered Ribbon */}
+          <div className="mx-auto w-full max-w-4xl bg-gradient-to-r from-[#ee6983] to-[#850e35] rounded-[5%] md:rounded-full py-3 shadow-[0_0_30px_rgba(238,105,131,0.2)]">
+            <h3 className="text-center font-black text-white text-sm md:text-base tracking-[0.2em] uppercase">
+              JORNADA DE TRANSFORMAÇÃO
+            </h3>
+          </div>
+        </motion.div>
 
-      {/* Schedule grid */}
-      <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0 max-w-4xl mx-auto">
-        {[morningSchedule, afternoonSchedule].map((schedule, col) => (
-          <div key={col}>
-            {schedule.map((item, i) => (
-              <div key={i} className="flex items-baseline gap-4 py-4 border-b border-border/30">
-                <span className={`text-lg font-medium tabular-nums ${item.highlight ? "text-accent-orange" : "text-muted-foreground"}`}>
+        {/* Schedule Grid Layout - 2 Days */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16 w-full px-4 md:px-8">
+          
+          {/* Column 1: Day 1 */}
+          <div className="w-full">
+            <h3 className="text-xl font-bold text-[#ee6983] mb-6 uppercase tracking-wider border-b border-[#ee6983]/30 pb-4">
+              Dia 1: 17 de Abril <br/>
+              <span className="text-sm font-normal text-white/50">O Despertar da Performance</span>
+            </h3>
+            {scheduleDay1.map((item, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="flex items-center gap-6 py-5 border-b border-white/10 group"
+              >
+                <span className="text-lg md:text-xl font-normal text-white/70 w-16 text-left shrink-0">
                   {item.time}
                 </span>
-                <span className={`font-bold text-lg ${item.isPrivate ? "text-gold" : "text-foreground"}`}>
-                  {item.activity}
-                  {item.isPrivate && (
-                    <span className="block text-xs text-gold font-normal mt-1">EXCLUSIVO ACESSO PRIVATE</span>
-                  )}
+                
+                <span className={`text-base md:text-lg font-black uppercase tracking-wider whitespace-pre-line transition-colors ${item.highlight ? "text-[#ee6983]" : "text-white"}`}>
+                  {item.event}
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
-        ))}
-      </motion.div>
 
-      <motion.div {...fadeUp} className="text-center mt-12 space-y-2">
-        <p className="text-foreground font-bold">EM BREVE PROGRAMAÇÃO COMPLETA</p>
-        <p className="text-muted-foreground text-xs uppercase tracking-wider">
-          CRONOGRAMA PODERÁ SOFRE ALTERAÇÕES ATÉ O DIA DO EVENTO
-        </p>
-      </motion.div>
-
-      {/* Lots */}
-      <motion.div {...fadeUp} className="mt-24">
-        <h3 className="text-accent-orange font-bold text-center text-xl md:text-2xl uppercase mb-12">
-          AJA RÁPIDO E APROVEITE A ÚLTIMA OPORTUNIDADE
-        </h3>
-        <div className="flex flex-wrap justify-center gap-4">
-          {lots.map((lot, i) => (
-            <div
-              key={i}
-              className={`rounded-xl p-6 text-center w-40 ${lot.active ? "card-glass border border-foreground/20" : "bg-secondary/50 opacity-50"}`}
-            >
-              <p className="text-xs font-bold text-muted-foreground mb-2">{lot.label}</p>
-              <p className={`text-4xl font-black ${lot.active ? "text-accent-orange" : "text-muted-foreground"}`}>{lot.discount}</p>
-              <p className="text-xs font-bold text-muted-foreground mt-1">OFF</p>
-              {lot.active && <p className="text-xs font-bold text-foreground mt-2">LOTE ATUAL</p>}
-            </div>
-          ))}
+          {/* Column 2: Day 2 */}
+          <div className="w-full mt-6 lg:mt-0">
+            <h3 className="text-xl font-bold text-[#ee6983] mb-6 uppercase tracking-wider border-b border-[#ee6983]/30 pb-4">
+              Dia 2: 18 de Abril <br/>
+              <span className="text-sm font-normal text-white/50">A Maestria da Liderança</span>
+            </h3>
+            {scheduleDay2.map((item, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="flex items-center gap-6 py-5 border-b border-white/10 group"
+              >
+                <span className="text-lg md:text-xl font-normal text-white/70 w-16 text-left shrink-0">
+                  {item.time}
+                </span>
+                
+                <div className="flex flex-col gap-1 w-full relative">
+                  <span className={`text-base md:text-lg font-black uppercase tracking-wider leading-tight whitespace-pre-line transition-colors ${item.highlight ? "text-[#ee6983]" : item.isPrivate ? "text-[#ffc4c4]" : "text-white"}`}>
+                    {item.event}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
         </div>
-      </motion.div>
-    </div>
-  </section>
-);
+
+        {/* Footer Warning */}
+        <motion.div 
+          {...fadeUp}
+          transition={{ delay: 0.4 }}
+          className="mt-24 text-center space-y-4"
+        >
+          <h4 className="text-white font-black text-xl md:text-2xl uppercase tracking-widest">
+            EM BREVE PROGRAMAÇÃO COMPLETA
+          </h4>
+          <p className="text-white/40 text-[11px] md:text-xs font-medium uppercase tracking-[0.15em]">
+            Cronograma poderá sofrer alterações até o dia do evento
+          </p>
+        </motion.div>
+
+      </div>
+    </section>
+  );
+};
 
 export default ScheduleSection;

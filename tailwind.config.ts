@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
+        display: ['Manrope', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -65,7 +66,7 @@ export default {
         flf: {
           dark: "#000000",
           green: "#00C853",
-          orange: "#FF6600",
+          pink: "#ee6983",
           gold: "#D4AF37",
           gray: "#333333",
           lightGray: "#888888"

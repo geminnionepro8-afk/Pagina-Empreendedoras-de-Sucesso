@@ -1,122 +1,158 @@
 import { motion } from "framer-motion";
-import { Calendar, MapPin } from "lucide-react";
-import { useEffect, useState } from "react";
-import heroBg from "@/assets/hero-bg.jpg";
+import { MoveRight, Calendar, MapPin } from "lucide-react";
+import audienceBg from "@/assets/audience-bg.jpg";
+import speaker1 from "@/assets/speaker-1.jpg";
+import speaker2 from "@/assets/speaker-2.jpg";
+import speaker3 from "@/assets/speaker-3.jpg";
+import speaker4 from "@/assets/speaker-4.jpg";
+import speaker5 from "@/assets/speaker-5.jpg";
 
 const fadeUp = {
-  initial: { opacity: 0, scale: 0.98 },
-  animate: { opacity: 1, scale: 1 },
-  transition: { duration: 0.8 },
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const },
 };
 
-function useCountdown(targetDate: Date) {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  useEffect(() => {
-    const tick = () => {
-      const diff = Math.max(0, targetDate.getTime() - Date.now());
-      setTimeLeft({
-        days: Math.floor(diff / 86400000),
-        hours: Math.floor((diff % 86400000) / 3600000),
-        minutes: Math.floor((diff % 3600000) / 60000),
-        seconds: Math.floor((diff % 60000) / 1000),
-      });
-    };
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, [targetDate]);
-  return timeLeft;
-}
+const fadeRight = {
+  initial: { opacity: 0, x: -30 },
+  whileInView: { opacity: 1, x: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const },
+};
+
+const popIn = {
+  initial: { opacity: 0, scale: 0.8 },
+  whileInView: { opacity: 1, scale: 1 },
+  viewport: { once: true },
+  transition: { duration: 0.8, type: "spring", bounce: 0.4 },
+};
 
 const HeroSection = () => {
-  const target = new Date("2026-11-25T08:00:00-03:00");
-  const { days, hours, minutes, seconds } = useCountdown(target);
-
   return (
-    <section className="relative min-h-screen bg-black overflow-hidden flex flex-col justify-between">
-      {/* Background Image - Full Size */}
+    <section className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden bg-black">
+      {/* Background with cinematic blur */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={heroBg} 
-          alt="FLFEZTIVAL Background" 
-          className="w-full h-full object-cover object-center"
+          src={audienceBg} 
+          alt="Palco Evento FLFEZTIVAL" 
+          className="w-full h-full object-cover opacity-20 grayscale brightness-50" 
         />
-        {/* Gradients to darken the left side and bottom to make everything super readable */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-transparent w-full lg:w-[60%]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
+        {/* Pink Glow in the center/right */}
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-[#ee6983] opacity-[0.08] blur-[120px] rounded-full" />
       </div>
 
-      {/* Main Content Area */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 xl:px-32">
-        <div className="w-full lg:max-w-[45%] flex flex-col items-start gap-8">
+      <div className="section-container relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Logo - Standardized */}
-          <motion.div {...fadeUp} className="mb-2">
-            <span className="text-[28px] font-medium tracking-[0.2em] text-white">
-              FLFEZTIVAL
-            </span>
-          </motion.div>
-
-          <div className="flex flex-col items-start gap-6">
-            {/* Badges - Thin outline, transparent */}
-            <motion.div {...fadeUp} className="flex flex-wrap gap-4">
-              <div className="flex items-center gap-2 px-5 py-2 rounded-lg border border-white/20 bg-transparent text-[13px] font-medium text-white/90">
-                <Calendar className="w-4 h-4 text-[#C16D3A]" />
-                25 de novembro
+          {/* Left Column: Content */}
+          <div className="lg:col-span-6 flex flex-col items-start text-left space-y-8">
+            
+            {/* Logo/Brand */}
+            <motion.div {...fadeRight} className="flex flex-col gap-4">
+              <div className="inline-flex items-center gap-2 bg-[#ee6983]/10 border border-[#ee6983]/30 px-4 py-2 rounded-[5%] w-fit backdrop-blur-sm">
+                <span className="text-[#ee6983] font-bold text-xs uppercase tracking-[0.2em]">Instituto Mulheres de Sucesso</span>
               </div>
-              <div className="flex items-center gap-2 px-5 py-2 rounded-lg border border-white/20 bg-transparent text-[13px] font-medium text-white/90">
-                <MapPin className="w-4 h-4 text-[#C16D3A]" />
-                PUCRS - Porto Alegre/RS
+
+              {/* Row Badges */}
+              <div className="flex flex-wrap gap-3">
+                <div className="flex items-center gap-2 bg-black/40 border border-white/10 px-4 py-2 rounded-[5%] backdrop-blur-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                  <Calendar className="w-4 h-4 text-[#ee6983]" strokeWidth={1.5} />
+                  <span className="text-white/80 text-xs md:text-sm font-bold uppercase tracking-wider">17 e 18 de abril</span>
+                </div>
+                <div className="flex items-center gap-2 bg-black/40 border border-white/10 px-4 py-2 rounded-[5%] backdrop-blur-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                  <MapPin className="w-4 h-4 text-[#ee6983]" strokeWidth={1.5} />
+                  <span className="text-white/80 text-xs md:text-sm font-bold uppercase tracking-wider">UNIFACEX - Natal/RN</span>
+                </div>
               </div>
             </motion.div>
 
-            {/* Headline - Matched styling and font sizes perfectly to reference */}
+            {/* Main Title */}
             <motion.h1 
-              {...fadeUp}
-              className="text-[32px] md:text-[40px] lg:text-[46px] leading-[1.1] font-bold text-white uppercase tracking-tight"
+              {...fadeRight} transition={{ delay: 0.2 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.1] tracking-tight uppercase"
             >
-              <span className="text-[#DE8A56]">O MAIOR EVENTO</span> DE<br />
-              <span className="font-semibold">EMPREENDEDORISMO E</span><br />
-              <span className="font-semibold">NEGÓCIOS DO <span className="text-[#DE8A56]">SUL DO PAÍS</span></span>
+              I FÓRUM DE <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] to-[#850e35]">
+                ESTÉTICA E PERFORMANCE
+              </span> <br />
+              DA MULHER EMPREENDEDORA
             </motion.h1>
-
-            {/* Description - Standard thin elegant font */}
+            
+            {/* Description */}
             <motion.p 
-              {...fadeUp}
-              className="text-white/80 text-[15px] md:text-[17px] font-light leading-[1.6] max-w-lg pr-4"
+              {...fadeRight} transition={{ delay: 0.3 }}
+              className="text-lg md:text-xl text-white/60 max-w-xl font-light leading-relaxed"
             >
-              Um insight pode transformar seu negócio para sempre! Tenha acesso aos maiores empreendedores(as) e empresários(as) do Brasil no FLFEztival 2026.
+              Uma imersão completa na interseção entre saúde integrativa, estética avançada e liderança feminina de alto impacto para mulheres visionárias.
             </motion.p>
-
+            
             {/* CTA Button */}
-            <motion.div {...fadeUp} className="pt-4">
-              <button className="bg-[#00B41E] text-white px-10 py-4 font-bold text-[15px] rounded hover:bg-[#009b1a] transition-all uppercase tracking-wide">
+            <motion.div {...fadeUp} transition={{ delay: 0.5 }} className="w-full sm:w-auto">
+              <button className="group relative overflow-hidden btn-matte text-white px-10 py-5 rounded-[5%] font-black text-sm md:text-base uppercase tracking-widest w-full sm:w-auto flex items-center justify-center gap-3">
                 GARANTIR MINHA VAGA
+                <MoveRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" strokeWidth={1.5} />
               </button>
             </motion.div>
           </div>
-        </div>
-      </div>
 
-      {/* Countdown Bar */}
-      <div className="bg-[#FF6600] w-full py-5 relative z-20">
-        <div className="px-6 md:px-12 lg:px-24 xl:px-32 flex flex-col md:flex-row items-center justify-center gap-6 lg:gap-14">
-          <span className="text-black font-black text-xl lg:text-2xl italic uppercase tracking-tighter">
-            O EVENTO COMEÇA EM:
-          </span>
-          <div className="flex gap-6 lg:gap-10 tabular-nums">
-            {[
-              { value: days, label: "Dias" },
-              { value: hours, label: "Horas" },
-              { value: minutes, label: "Minutos" },
-              { value: seconds, label: "Segundos" },
-            ].map((item) => (
-              <div key={item.label} className="text-center flex items-baseline gap-1.5">
-                <span className="text-3xl md:text-5xl font-black text-black leading-none">{String(item.value).padStart(2, "0")}</span>
-                <span className="text-black/80 text-[10px] font-black uppercase tracking-widest">{item.label}</span>
-              </div>
-            ))}
+          {/* Right Column: Speakers Cluster */}
+          <div className="lg:col-span-6 relative h-[500px] md:h-[600px] flex items-center justify-center mt-12 lg:mt-0">
+            {/* Background Texture behind speakers */}
+            <div className="absolute inset-0 z-0 opacity-40 mix-blend-overlay">
+              <img src={audienceBg} alt="Background Elements" className="w-full h-full object-cover rounded-full blur-[2px]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent" />
+            </div>
+
+            {/* Center Main Speaker (Speaker 3 - João Adibe in the reference middle) */}
+            <motion.div 
+              {...popIn} transition={{ delay: 0.4 }}
+              className="absolute z-30 w-56 h-56 md:w-72 md:h-72 rounded-full border-4 border-[#ee6983]/30 overflow-hidden shadow-2xl bg-black"
+            >
+              <img src={speaker3} alt="Speaker" className="w-full h-full object-cover mask-image-radial" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#ee6983]/20 via-transparent to-transparent" />
+            </motion.div>
+
+            {/* Top Left (Speaker 1 - Renata Vichi) */}
+            <motion.div 
+              {...popIn} transition={{ delay: 0.5 }}
+              className="absolute z-20 top-0 left-0 md:left-10 w-40 h-40 md:w-52 md:h-52 rounded-full border-2 border-white/10 overflow-hidden shadow-xl"
+            >
+              <img src={speaker1} alt="Speaker" className="w-full h-full object-cover" />
+            </motion.div>
+
+            {/* Top Right (Speaker 2 - Flávio Augusto) */}
+            <motion.div 
+              {...popIn} transition={{ delay: 0.6 }}
+              className="absolute z-20 top-0 right-0 md:right-10 w-40 h-40 md:w-52 md:h-52 rounded-full border-2 border-white/10 overflow-hidden shadow-xl"
+            >
+              <img src={speaker2} alt="Speaker" className="w-full h-full object-cover" />
+            </motion.div>
+
+            {/* Bottom Left (Speaker 4 - Carlos Busch) */}
+            <motion.div 
+              {...popIn} transition={{ delay: 0.7 }}
+              className="absolute z-20 bottom-0 left-0 md:left-4 w-44 h-44 md:w-56 md:h-56 rounded-full border-2 border-white/10 overflow-hidden shadow-xl"
+            >
+              <img src={speaker4} alt="Speaker" className="w-full h-full object-cover" />
+            </motion.div>
+
+            {/* Bottom Right (Speaker 5 - Luciano Potter) */}
+            <motion.div 
+              {...popIn} transition={{ delay: 0.8 }}
+              className="absolute z-20 bottom-0 right-0 md:right-4 w-44 h-44 md:w-56 md:h-56 rounded-full border-2 border-white/10 overflow-hidden shadow-xl"
+            >
+              <img src={speaker5} alt="Speaker" className="w-full h-full object-cover" />
+            </motion.div>
+
+            {/* Floating Glow Effects behind speakers */}
+            <div className="absolute inset-0 z-10 flex items-center justify-center">
+              <div className="w-[400px] h-[400px] bg-[#ee6983]/5 blur-[80px] rounded-full animate-pulse" />
+            </div>
           </div>
+
         </div>
       </div>
     </section>
