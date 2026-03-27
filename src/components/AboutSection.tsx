@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Target, Users, Presentation, Award, Quote, CheckCircle2 } from "lucide-react";
+import { Target, Users, Presentation, Award, Wand2, HeartPulse } from "lucide-react";
 import audienceBg from "@/assets/audience-bg.jpg";
 
 const fadeUp = {
@@ -52,10 +52,14 @@ const AboutSection = () => {
               O I Fórum de Estética e Performance não é apenas um evento. É o refúgio onde o sucesso encontra a vitalidade. Desenhado para curar o esgotamento (Burnout) e fortalecer sua marca visual.
             </p>
             <div className="pt-4">
-              <div className="inline-flex items-center gap-3 border border-white/10 bg-white/5 px-6 py-4 rounded-full backdrop-blur-sm">
-                <Quote className="w-5 h-5 text-[#ee6983]" />
-                <span className="text-white/80 font-medium italic">
-                  O sucesso profissional não precisa custar a sua saúde.
+              <div className="relative pl-5 py-3">
+                {/* Vertical gradient bar */}
+                <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-gradient-to-b from-[#ee6983] via-[#c9687e] to-transparent" />
+                <span
+                  className="block text-white/75 text-base md:text-lg leading-relaxed"
+                  style={{ fontFamily: "'Georgia', 'Times New Roman', serif", fontStyle: "italic" }}
+                >
+                  "O sucesso profissional não precisa custar a sua saúde."
                 </span>
               </div>
             </div>
@@ -65,7 +69,7 @@ const AboutSection = () => {
             <div className="bg-[#111]/80 backdrop-blur-md border border-[#ee6983]/20 p-8 rounded-3xl shadow-2xl hover:border-[#ee6983]/50 transition-colors duration-500 group">
               <div className="flex gap-5 items-start">
                 <div className="w-12 h-12 rounded-[5%] bg-[#ee6983]/10 flex items-center justify-center border border-[#ee6983]/20 flex-shrink-0 group-hover:bg-[#ee6983]/20 transition-colors">
-                  <span className="text-xl">✨</span>
+                  <Wand2 className="w-5 h-5 text-[#ee6983]" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className="text-white text-xl font-bold mb-3 uppercase tracking-wide">Beleza como Ferramenta de Poder</h3>
@@ -79,7 +83,7 @@ const AboutSection = () => {
             <div className="bg-[#0a0a0a]/80 backdrop-blur-md border border-white/5 p-8 rounded-3xl shadow-xl hover:border-white/20 transition-colors duration-500 group">
               <div className="flex gap-5 items-start">
                 <div className="w-12 h-12 rounded-[5%] bg-white/5 flex items-center justify-center border border-white/10 flex-shrink-0 group-hover:bg-white/10 transition-colors">
-                  <CheckCircle2 className="w-6 h-6 text-[#ee6983]" />
+                  <HeartPulse className="w-5 h-5 text-[#ee6983]" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className="text-white text-xl font-bold mb-3 uppercase tracking-wide">Medicina Integrativa</h3>

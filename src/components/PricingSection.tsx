@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Check, ShieldCheck, Clock, MapPin, Calendar, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -103,9 +104,12 @@ const PricingSection = () => (
               </div>
 
               <div className="relative z-10 flex flex-col gap-3">
-                <button className="btn-matte group relative overflow-hidden w-full text-white py-5 px-8 rounded-[5%] font-black text-sm md:text-base uppercase tracking-widest">
+                <Link
+                  to="/inscricao"
+                  className="btn-matte group relative overflow-hidden w-full text-white py-5 px-8 rounded-[5%] font-black text-sm md:text-base uppercase tracking-widest flex items-center justify-center"
+                >
                   <span className="relative z-10">GARANTIR MINHA VAGA</span>
-                </button>
+                </Link>
                 <p className="text-center text-white/25 text-[11px] flex items-center justify-center gap-1.5">
                   <ShieldCheck className="w-3 h-3" strokeWidth={1.5} />
                   Ambiente seguro — Kiwify
