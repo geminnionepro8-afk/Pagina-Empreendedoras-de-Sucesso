@@ -44,7 +44,7 @@ const FooterSection = () => (
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[#ee6983] flex-shrink-0" />
-                <span className="text-white/40 text-sm">contato@institutomulheres.com.br</span>
+                <span className="text-white/40 text-sm leading-relaxed">Informações: 84 9 9868 2061<br/>Prof. MSc. Lucia Leandro</span>
               </li>
             </ul>
           </div>
@@ -76,7 +76,7 @@ const FooterSection = () => (
       <div className="section-container flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-[11px] text-white/30 tracking-wide text-center md:text-left">
           Copyright &copy; {new Date().getFullYear()} Instituto Mulheres de Sucesso Brasileiras / Todos os direitos reservados.
-          <br className="hidden md:block"/> CNPJ: 51.952.551/0001-96
+          <br className="hidden md:block"/> CNPJ: 59.418.846/0001-99
         </p>
         
         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-[10px] text-white/20 text-center md:text-right max-w-md">

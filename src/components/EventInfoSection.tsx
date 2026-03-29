@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Calendar, MapPin } from "lucide-react";
-import auditoriumImg from "@/assets/auditorium.png";
+import eventInfoImg from "@/assets/event-info-image.jpg";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -23,8 +23,8 @@ const EventInfoSection = () => {
             <div className="absolute -inset-3 bg-[#ee6983]/10 rounded-2xl blur-[60px] group-hover:bg-[#ee6983]/15 transition-all duration-700" />
             <div className="relative rounded-2xl overflow-hidden border-2 border-[#ee6983]/50 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.7)] aspect-[16/10]">
               <img
-                src={auditoriumImg}
-                alt="Auditório do Evento"
+                src={eventInfoImg}
+                alt="Imagem Oficial do Evento Unifacex"
                 className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
@@ -45,7 +45,10 @@ const EventInfoSection = () => {
               </div>
               <div>
                 <p className="text-white/40 text-xs uppercase tracking-widest mb-0.5">Data</p>
-                <p className="text-white font-semibold text-lg tracking-tight">17 e 18 de Abril, 2026</p>
+                <p className="text-white font-semibold text-[15px] leading-tight tracking-tight mt-0.5">
+                  17 de Abril – 17h às 21h30<br/>
+                  18 de Abril – 8h às 17h00
+                </p>
               </div>
             </motion.div>
 
@@ -60,14 +63,14 @@ const EventInfoSection = () => {
               </div>
               <div>
                 <p className="text-white/40 text-xs uppercase tracking-widest mb-0.5">Local</p>
-                <p className="text-white font-semibold text-lg tracking-tight leading-snug">UNIFACEX - Natal/RN</p>
+                <p className="text-white font-semibold text-lg tracking-tight leading-snug">UNIFACEX - Capim Macio</p>
               </div>
             </motion.div>
 
             {/* Address block */}
             <motion.div {...fadeUp} transition={{ delay: 0.2 }} className="mt-1 space-y-1">
               <p className="text-white/90 text-lg font-bold tracking-tight leading-snug">
-                UNIFACEX - Campus Capim Macio · Natal / RN
+                UNIFACEX - Capim Macio
               </p>
               <p className="text-white/40 text-base font-light leading-relaxed max-w-md">
                 O cenário perfeito, projetado para garantir conforto e tecnologia durante sua jornada imersiva em nosso fórum.

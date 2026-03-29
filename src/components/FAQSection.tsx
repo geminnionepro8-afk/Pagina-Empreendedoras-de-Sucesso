@@ -42,13 +42,17 @@ const FAQSection = () => (
     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#ee6983]/5 blur-[100px] rounded-full pointer-events-none" />
 
     <div className="section-container relative z-10">
-      <motion.div {...fadeUp} className="text-center mb-16 space-y-4">
-        <div className="inline-flex items-center gap-2 bg-[#ee6983]/10 border border-[#ee6983]/20 px-4 py-2 rounded-full mb-4">
-          <HelpCircle className="w-4 h-4 text-[#ee6983]" />
-          <span className="text-[#ee6983] font-bold text-xs uppercase tracking-widest">Tire suas dúvidas</span>
+      <motion.div {...fadeUp} className="mb-20 space-y-4 max-w-4xl mx-auto text-center flex flex-col items-center">
+        <div className="flex items-center justify-center gap-3 mb-2">
+          <div className="hidden sm:block w-8 h-[1px] bg-[#ee6983]/50" />
+          <p className="text-[#ee6983] text-[10px] sm:text-xs uppercase tracking-[0.4em] font-bold">
+            Tire suas dúvidas
+          </p>
+          <div className="hidden sm:block w-8 h-[1px] bg-[#ee6983]/50" />
         </div>
-        <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight">
-          PERGUNTAS <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] to-[#ffc4c4]">FREQUENTES</span>
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-tight">
+          Perguntas <br className="hidden md:block"/>
+          <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">Frequentes</span>
         </h2>
         <p className="text-white/50 max-w-2xl mx-auto text-[15px] pt-4">
           Tem alguma dúvida sobre o evento? Separamos abaixo as repostas para as questões mais comuns feitas pela nossa comunidade.
@@ -91,13 +95,18 @@ const FAQSection = () => (
               SUA DÚVIDA NÃO FOI RESPONDIDA?
             </h3>
             <p className="text-white/60 text-base max-w-lg mx-auto">
-              Nossa equipe de suporte está pronta para te atender e explicar todos os detalhes sobre a experiência do FLFEZTIVAL.
+              Nossa equipe de suporte está pronta para te atender e explicar todos os detalhes sobre o I Fórum de Estética e Performance.
             </p>
           </div>
-          <button className="mt-4 bg-gradient-to-r from-[#850e35] to-[#ee6983] hover:opacity-90 text-white px-8 md:px-10 py-4 h-auto rounded-[5%] font-bold uppercase tracking-wider transition-transform hover:scale-105 shadow-[0_0_20px_rgba(238,105,131,0.3)] flex items-center gap-3">
-            <MessageCircle className="w-5 h-5" /> 
+          <a
+            href="https://wa.me/5584999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 bg-gradient-to-r from-[#850e35] to-[#ee6983] hover:opacity-90 text-white px-8 md:px-10 py-4 rounded-xl font-bold uppercase tracking-wider transition-transform hover:scale-105 shadow-[0_0_20px_rgba(238,105,131,0.3)] flex items-center gap-3"
+          >
+            <MessageCircle className="w-5 h-5" />
             FALAR COM ESPECIALISTA NO WHATSAPP
-          </button>
+          </a>
         </div>
       </motion.div>
     </div>
