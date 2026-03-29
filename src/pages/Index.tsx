@@ -7,7 +7,6 @@ import InstitutionalSection from "@/components/InstitutionalSection";
 import SpeakersSection from "@/components/SpeakersSection";
 import ScheduleSection from "@/components/ScheduleSection";
 import PricingSection from "@/components/PricingSection";
-import VenueMapSection from "@/components/VenueMapSection";
 import FAQSection from "@/components/FAQSection";
 import FooterSection from "@/components/FooterSection";
 
@@ -21,7 +20,6 @@ const Index = () => (
     <SpeakersSection />
     <ScheduleSection />
     <PricingSection />
-    <VenueMapSection />
     <InstitutionalSection />
     <FAQSection />
     <FooterSection />

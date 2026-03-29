@@ -41,7 +41,7 @@ const HeroSection = () => {
 
           {/* Logo/Brand */}
           <motion.div {...fadeRight} className="flex flex-col gap-4">
-            <div className="inline-flex items-center gap-2 bg-[#ee6983]/15 border border-[#ee6983]/50 px-4 py-1.5 rounded-full w-fit backdrop-blur-sm">
+            <div className="hidden md:inline-flex items-center gap-2 bg-[#ee6983]/15 border border-[#ee6983]/50 px-4 py-1.5 rounded-full w-fit backdrop-blur-sm">
               <span className="text-[#ee6983] font-bold text-xs uppercase tracking-[0.2em]">Instituto Mulheres de Sucesso</span>
             </div>
 

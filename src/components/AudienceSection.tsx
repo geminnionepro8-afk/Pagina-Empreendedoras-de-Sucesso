@@ -60,10 +60,10 @@ const AudienceSection = () => {
             </p>
             <div className="w-6 h-[1px] bg-[#ee6983]/40" />
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tight leading-tight">
+          <h2 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tight leading-tight">
             O Fórum é para
-            <br className="hidden md:block"/>
-            <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60 ml-0 md:ml-3">
+            <br />
+            <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">
               você que
             </span>
           </h2>
@@ -87,7 +87,7 @@ const AudienceSection = () => {
               </div>
 
               {/* Texto limpo */}
-              <p className="relative z-10 text-white/50 group-hover:text-white/80 text-sm leading-[1.8] font-light transition-colors duration-300">
+              <p className="relative z-10 text-white/50 group-hover:text-white/80 text-[15px] sm:text-sm leading-[1.6] sm:leading-[1.8] font-light transition-colors duration-300 max-w-[260px] sm:max-w-none">
                 {item.text}
               </p>
             </motion.div>

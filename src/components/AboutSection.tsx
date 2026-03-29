@@ -48,7 +48,7 @@ const AboutSection = () => {
         <img
           src={aboutAudienceBg}
           alt="Plateia do evento"
-          className="w-full h-full object-cover object-[20%_bottom] lg:object-[30%_bottom] scale-[1.35] origin-[20%_100%] lg:origin-[30%_100%] opacity-40 brightness-75 mix-blend-luminosity"
+          className="w-full h-full object-cover object-center md:object-[20%_bottom] lg:object-[30%_bottom] scale-100 md:scale-[1.35] origin-center md:origin-[20%_100%] lg:origin-[30%_100%] opacity-40 brightness-75 mix-blend-luminosity transition-all duration-700"
         />
         {/* Gradiente da DIREITA para ESQUERDA — mesclagem cinematográfica mais polida */}
         <div
@@ -114,7 +114,7 @@ const AboutSection = () => {
                 Em dois dias imersivos no prestigioso UNIFACEX – Campus Capim Macio, em Natal/RN, você mergulha em um oceano de conhecimento prático onde especialistas de primeiro nível revelam os pilares invisíveis do sucesso sustentável feminino.
               </p>
               <p>
-                Prepare-se para absorver insights sobre medicina integrativa, estética estratégica e liderança de alta performance. Saia do evento com ferramentas reais para transformar sua imagem, blindar sua saúde e construir as conexões que sua carreira exige.
+                Prepare-se para abraver insights sobre medicina integrativa, estética estratégica e liderança de alta performance. Saia do evento com ferramentas reais para transformar sua imagem, blindar sua saúde e construir as conexões que sua carreira exige.
               </p>
               <p className="text-[#ee6983]/85 font-medium">
                 Participe deste evento extraordinário e eleve sua performance a um nível que nenhum treinamento convencional alcança.
@@ -174,7 +174,7 @@ const AboutSection = () => {
                   </div>
                   <div className="min-w-0">
                     <h4 className="text-white/80 font-bold text-xs uppercase tracking-wider mb-1">{f.title}</h4>
-                    <p className="text-white/45 group-hover:text-white/70 text-xs leading-relaxed transition-colors duration-300">{f.text}</p>
+                    <p className="text-white/45 group-hover:text-white/70 text-[14px] sm:text-xs leading-[1.4] sm:leading-relaxed transition-colors duration-300 max-w-[200px] sm:max-w-none">{f.text}</p>
                   </div>
                 </div>
 

@@ -39,19 +39,12 @@ const ScheduleSection = () => {
             <div className="w-6 h-[1px] bg-[#ee6983]/40" />
           </div>
           
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tight leading-tight mb-8">
-            Programação <br className="hidden md:block"/>
+          <h2 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tight leading-tight mb-8">
+            Programação <br />
             <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">
               Oficial
             </span>
           </h2>
-          
-          {/* Centered Pill (Ribbon) Ajustado para contraste rosa premium */}
-          <div className="inline-flex items-center justify-center px-12 py-3.5 rounded-full bg-gradient-to-r from-[#850e35] via-[#ee6983] to-[#850e35] relative overflow-hidden shadow-[0_0_40px_rgba(238,105,131,0.25)] border border-[#ee6983]/40">
-            <h3 className="relative z-10 font-bold text-white text-[10px] md:text-[11px] tracking-[0.3em] uppercase drop-shadow-md">
-              Jornada de Transformação
-            </h3>
-          </div>
         </motion.div>
 
         {/* Schedule Grid Layout - 2 Days */}
@@ -84,7 +77,7 @@ const ScheduleSection = () => {
                     {item.time}
                   </span>
                   
-                  <span className={`relative z-10 text-sm sm:text-base font-bold uppercase tracking-widest whitespace-pre-line transition-all duration-300 ${item.highlight ? "text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] to-[#ffc4c4]" : "text-white/70 group-hover:text-[#ee6983]"}`}>
+                  <span className={`relative z-10 text-[17px] lg:text-base font-bold uppercase tracking-widest whitespace-pre-line transition-all duration-300 leading-[1.3] max-w-[240px] lg:max-w-none ${item.highlight ? "text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] to-[#ffc4c4]" : "text-white/70 group-hover:text-[#ee6983]"}`}>
                     {item.event}
                   </span>
                 </motion.div>
@@ -120,7 +113,7 @@ const ScheduleSection = () => {
                   </span>
                   
                   <div className="relative z-10 flex flex-col gap-1 w-full">
-                    <span className={`text-sm sm:text-base font-bold uppercase tracking-widest leading-tight whitespace-pre-line transition-all duration-300 ${item.highlight ? "text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] to-[#ffc4c4]" : "text-white/70 group-hover:text-[#ee6983]"}`}>
+                    <span className={`text-[17px] lg:text-base font-bold uppercase tracking-widest leading-[1.3] whitespace-pre-line transition-all duration-300 max-w-[240px] lg:max-w-none ${item.highlight ? "text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] to-[#ffc4c4]" : "text-white/70 group-hover:text-[#ee6983]"}`}>
                       {item.event}
                     </span>
                   </div>

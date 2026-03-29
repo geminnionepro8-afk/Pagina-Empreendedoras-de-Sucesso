@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Youtube, ShieldCheck, Mail, MapPin } from "lucide-react";
+import { ShieldCheck, Mail, MapPin } from "lucide-react";
 
 const FooterSection = () => (
   <footer className="bg-[#0a0a0a] relative overflow-hidden">
@@ -21,17 +21,6 @@ const FooterSection = () => (
             <p className="text-white/40 text-sm leading-relaxed max-w-xs">
               O I Fórum de Estética e Performance da Mulher Empreendedora. Uma imersão completa em saúde integrativa, estética avançada e liderança feminina de alto impacto.
             </p>
-            <div className="flex gap-4">
-              {[
-                { Icon: Instagram, link: "#" },
-                { Icon: Facebook, link: "#" },
-                { Icon: Youtube, link: "#" },
-              ].map(({ Icon, link }, i) => (
-                <a key={i} href={link} className="w-10 h-10 rounded-[5%] bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-[#ee6983] hover:border-[#ee6983] transition-all duration-300">
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Contact */}
@@ -62,7 +51,7 @@ const FooterSection = () => (
               </div>
               <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-3 rounded-[5%] w-fit">
                 <ShieldCheck className="w-5 h-5 text-[#ee6983]" />
-                <span className="text-white text-xs font-bold uppercase tracking-wider">Kiwify Checkout</span>
+                <span className="text-white text-xs font-bold uppercase tracking-wider">Pagamento Seguro</span>
               </div>
             </div>
           </div>

@@ -50,8 +50,8 @@ const FAQSection = () => (
           </p>
           <div className="hidden sm:block w-8 h-[1px] bg-[#ee6983]/50" />
         </div>
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-tight">
-          Perguntas <br className="hidden md:block"/>
+        <h2 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-tight">
+          Perguntas <br />
           <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">Frequentes</span>
         </h2>
         <p className="text-white/50 max-w-2xl mx-auto text-[15px] pt-4">
@@ -99,13 +99,13 @@ const FAQSection = () => (
             </p>
           </div>
           <a
-            href="https://wa.me/5584999999999"
+            href="https://wa.me/558499912061"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 bg-gradient-to-r from-[#850e35] to-[#ee6983] hover:opacity-90 text-white px-8 md:px-10 py-4 rounded-xl font-bold uppercase tracking-wider transition-transform hover:scale-105 shadow-[0_0_20px_rgba(238,105,131,0.3)] flex items-center gap-3"
+            className="mt-4 bg-gradient-to-r from-[#850e35] to-[#ee6983] hover:opacity-90 text-white px-6 md:px-10 py-4 rounded-xl font-bold uppercase tracking-wider transition-transform hover:scale-105 shadow-[0_0_20px_rgba(238,105,131,0.3)] flex items-center gap-3"
           >
-            <MessageCircle className="w-5 h-5" />
-            FALAR COM ESPECIALISTA NO WHATSAPP
+            <MessageCircle className="w-6 h-6 md:w-5 md:h-5 flex-shrink-0" />
+            <span className="text-[10px] md:text-sm">FALAR COM ESPECIALISTA NO WHATSAPP</span>
           </a>
         </div>
       </motion.div>

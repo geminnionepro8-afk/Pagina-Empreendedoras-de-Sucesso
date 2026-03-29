@@ -83,7 +83,7 @@ const CountdownTimer = () => {
           <motion.p
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-base font-semibold text-center leading-snug drop-shadow-md"
+            className="text-[13px] font-semibold text-center leading-tight drop-shadow-md whitespace-nowrap"
           >
             O <span className="font-extrabold text-white">I Fórum de Estética e Performance</span>{" "}
             <span className="font-normal text-white/90">começa em:</span>

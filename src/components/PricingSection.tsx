@@ -70,8 +70,8 @@ const PricingSection = () => (
           </p>
           <div className="hidden sm:block w-8 h-[1px] bg-[#ee6983]/50" />
         </div>
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-tight">
-          Escolha seu <br className="hidden md:block"/>
+        <h2 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-tight">
+          Escolha seu <br />
           <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">Ingresso</span>
         </h2>
         <p className="text-white/40 max-w-lg mx-auto text-sm md:text-base leading-relaxed pt-2">
