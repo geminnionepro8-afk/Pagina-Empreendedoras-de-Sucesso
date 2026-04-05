@@ -1,200 +1,300 @@
-import { motion } from "framer-motion";
-import { Target, Users, Presentation, Award } from "lucide-react";
+import { Target, Users, Presentation } from "lucide-react";
 import aboutAudienceBg from "@/assets/about-audience-2.jpg";
-
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const },
-};
-
-const fadeLeft = {
-  initial: { opacity: 0, x: -30 },
-  whileInView: { opacity: 1, x: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const },
-};
-
-const features = [
-  {
-    icon: Target,
-    title: "Autoridade Visual",
-    text: "Construa uma autoridade visual magnética. Alinhe sua inteligência à imagem que você projeta ao mundo.",
-  },
-  {
-    icon: Users,
-    title: "Conexões de Alto Nível",
-    text: "Quebre a solidão do topo. Conecte-se profundamente com outras mulheres em cargos de alta decisão.",
-  },
-  {
-    icon: Presentation,
-    title: "Referências Reais",
-    text: "Aprenda com mulheres que são referências absolutas em saúde, estética e gestão de carreira.",
-  },
-  {
-    icon: Award,
-    title: "Blindagem do Burnout",
-    text: "Domine o pilar da medicina integrativa para blindar sua saúde contra o Burnout empreendedor.",
-  },
-];
 
 const AboutSection = () => {
   return (
-    <section className="relative overflow-hidden bg-black">
+    <section className="about-section">
+      <div className="about-container">
+        <div className="about-wrapper">
+          {/* Layout Master Ultra-Slim: Magazine Style (1.2fr Texto | 0.8fr Imagem) */}
+          <div className="about-top-grid-wrap">
 
-      {/* ══ FUNDO — imagem cobrindo toda a seção ══ */}
-      <div className="absolute inset-0 z-0 bg-black">
-        <img
-          src={aboutAudienceBg}
-          alt="Plateia do evento"
-          className="w-full h-full object-cover object-center md:object-[20%_bottom] lg:object-[30%_bottom] scale-100 md:scale-[1.35] origin-center md:origin-[20%_100%] lg:origin-[30%_100%] opacity-40 brightness-75 mix-blend-luminosity transition-all duration-700"
-        />
-        {/* Gradiente da DIREITA para ESQUERDA — mesclagem cinematográfica mais polida */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to left, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.95) 70%, #000 100%)",
-          }}
-        />
-        {/* Gradiente da BASE — integra os cards */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to top, #000 0%, #000 14%, rgba(0,0,0,0.88) 32%, transparent 58%)",
-          }}
-        />
-        {/* Vinheta topo suave */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-transparent to-transparent" />
-      </div>
+            {/* ══ COLUNA DA ESQUERDA (ENXUTA & SÓLIDA) ══ */}
+            <div className="about-top-left-wrapper flex flex-col h-full">
 
-      {/* ══ CONTEÚDO SOBRE O FUNDO ══ */}
-      <div className="relative z-10">
+              {/* Caption Exclusiva MS 2026 */}
+              <div className="section-caption-wrap">
+                <p className="caption-text">MS 2026 · EXCLUSIVIDADE</p>
+              </div>
 
-        {/* Bloco de texto — coluna ESQUERDA */}
-        <div className="section-container pt-24 pb-16 md:pt-28 md:pb-20">
-          <div className="max-w-lg mr-auto ml-0">
+              {/* Título - 2 Linhas / 42px */}
+              <div className="about-title-wrap">
+                <h2 className="about-title">
+                  O QUE É O <br />
+                  <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/70">
+                    FÓRUM DE ESTÉTICA E PERFORMANCE:
+                  </span>
+                </h2>
+              </div>
 
-            {/* Overline */}
-            <motion.span
-              {...fadeLeft}
-              className="text-[#ee6983] text-[10px] font-black uppercase tracking-[0.35em] mb-5 block"
-            >
-              Instituto Mulheres de Sucesso Brasileiras
-            </motion.span>
+              {/* Parágrafo Minimalista */}
+              <div className="about-text-wrap">
+                <p className="about-text">
+                  Explore uma jornada de transformação no <strong>I Fórum de Estética e Performance da Mulher Empreendedora</strong> — um encontro pioneiro que reúne líderes femininas visionárias dispostas a ir além dos resultados financeiros.
+                </p>
+              </div>
 
-            {/* Título */}
-            <motion.h2
-              {...fadeLeft}
-              transition={{ delay: 0.08, duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
-              className="text-[22px] sm:text-2xl md:text-[26px] font-light text-white/80 leading-snug mb-6"
-            >
-              o que é o{" "}
-              <span className="font-black text-white">
-                I Fórum de Estética<br /> e Performance:
-              </span>
-            </motion.h2>
-
-            {/* Parágrafos */}
-            <motion.div
-              {...fadeLeft}
-              transition={{ delay: 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
-              className="space-y-4 text-white/60 text-[14.5px] leading-[1.85] font-light"
-            >
-              <p>
-                Explore uma jornada de transformação no{" "}
-                <span className="text-white/85 font-medium">
-                  I Fórum de Estética e Performance da Mulher Empreendedora
-                </span>{" "}
-                — um encontro pioneiro que reúne líderes femininas visionárias dispostas a ir além dos resultados financeiros.
-              </p>
-              <p>
-                Em dois dias imersivos no prestigioso UNIFACEX – Campus Capim Macio, em Natal/RN, você mergulha em um oceano de conhecimento prático onde especialistas de primeiro nível revelam os pilares invisíveis do sucesso sustentável feminino.
-              </p>
-              <p>
-                Prepare-se para abraver insights sobre medicina integrativa, estética estratégica e liderança de alta performance. Saia do evento com ferramentas reais para transformar sua imagem, blindar sua saúde e construir as conexões que sua carreira exige.
-              </p>
-              <p className="text-[#ee6983]/85 font-medium">
-                Participe deste evento extraordinário e eleve sua performance a um nível que nenhum treinamento convencional alcança.
-              </p>
-            </motion.div>
-
-            {/* Nome do evento */}
-            <motion.div
-              {...fadeLeft}
-              transition={{ delay: 0.22, duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
-              className="mt-8 pt-6 border-t border-white/10"
-            >
-              <p className="text-white/20 text-[9px] uppercase tracking-[0.35em] mb-1">Edição 2026</p>
-              <p className="text-white font-black text-base sm:text-lg uppercase tracking-widest leading-tight">
-                I FÓRUM DE ESTÉTICA E{" "}
-                <span className="text-[#ee6983]">PERFORMANCE</span>
-              </p>
-              <p className="text-white/30 text-[10px] uppercase tracking-wider mt-0.5">
-                da Mulher Empreendedora · Natal/RN
-              </p>
-            </motion.div>
-
-          </div>
-        </div>
-
-        {/* ══ 4 CARDS — integrados na mesma seção ══ */}
-        <div className="section-container pb-20 md:pb-24">
-
-          {/* Label */}
-          <motion.div {...fadeUp} className="text-center mb-10">
-            <p className="text-white/15 text-[9px] uppercase tracking-[0.4em] mb-2">O que você leva</p>
-            <h3 className="text-lg sm:text-xl md:text-2xl font-black text-white uppercase tracking-[0.12em]">
-              I FÓRUM DE ESTÉTICA E{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] to-[#ffc4c4]">
-                PERFORMANCE
-              </span>
-            </h3>
-          </motion.div>
-
-          {/* Grade 4 cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
-            {features.map((f, i) => (
-              <motion.div
-                key={i}
-                {...fadeUp}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                whileHover={{ y: -4 }}
-                className="group relative bg-white/[0.05] backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden hover:border-[#ee6983]/40 transition-all duration-300 cursor-default"
-              >
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#ee6983]/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-
-                {/* Mobile: horizontal */}
-                <div className="flex lg:hidden items-start gap-4 p-5 relative z-10">
-                  <div className="w-10 h-10 rounded-xl bg-[#ee6983]/10 border border-[#ee6983]/20 flex items-center justify-center flex-shrink-0 group-hover:bg-[#ee6983]/20 transition-colors">
-                    <f.icon className="w-5 h-5 text-[#ee6983]" strokeWidth={1.5} />
+              {/* Botão Travado a Esquerda */}
+              <div className="about-button-wrap">
+                <a href="#inscricao" className="primary-button">
+                  <div className="button-text-wrap">
+                    <div className="primary-button-text">Garantir Vaga</div>
+                    <div className="primary-button-text-hover">Garantir Vaga</div>
                   </div>
-                  <div className="min-w-0">
-                    <h4 className="text-white/80 font-bold text-xs uppercase tracking-wider mb-1">{f.title}</h4>
-                    <p className="text-white/45 group-hover:text-white/70 text-[14px] sm:text-xs leading-[1.4] sm:leading-relaxed transition-colors duration-300 max-w-[200px] sm:max-w-none">{f.text}</p>
+                  <div className="button-icon-wrap">
+                    <img src="https://cdn.prod.website-files.com/6825c2925e24e79e2bf4a9ed/68282e9440a929f1c3e5d3e8_Arrow-Up.png" loading="lazy" width="18" alt="" className="primary-button-icon" />
+                  </div>
+                </a>
+              </div>
+
+              {/* ══ OS 3 CARDS COMPACTOS (SINCRONIA DE BASE) ══ */}
+              <div className="about-item-grid-wrap">
+                <div className="about-single-item">
+                  <div className="about-item-icon-wrap">
+                    <Target className="w-7 h-7 text-[#ee6983]" />
+                  </div>
+                  <div className="about-item-text-wrap">
+                    <h3 className="about-item-title">Autoridade</h3>
+                    <p className="about-item-text">Alinhamento visual <br /> e imagem projetada.</p>
                   </div>
                 </div>
 
-                {/* Desktop: vertical */}
-                <div className="hidden lg:flex flex-col p-7 relative z-10 gap-5">
-                  <div className="w-12 h-12 rounded-xl bg-[#ee6983]/10 border border-[#ee6983]/20 flex items-center justify-center group-hover:bg-[#ee6983]/20 transition-colors">
-                    <f.icon className="w-6 h-6 text-[#ee6983]" strokeWidth={1.5} />
+                <div className="about-single-item">
+                  <div className="about-item-icon-wrap">
+                    <Users className="w-7 h-7 text-[#ee6983]" />
                   </div>
-                  <div className="flex flex-col gap-2">
-                    <h4 className="text-white/70 font-bold text-xs uppercase tracking-wider">{f.title}</h4>
-                    <p className="text-white/45 group-hover:text-white/75 text-sm leading-relaxed transition-colors duration-300">{f.text}</p>
+                  <div className="about-item-text-wrap">
+                    <h3 className="about-item-title">Conexões</h3>
+                    <p className="about-item-text">Alta decisão <br /> e networking de topo.</p>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
 
+                <div className="about-single-item">
+                  <div className="about-item-icon-wrap">
+                    <Presentation className="w-7 h-7 text-[#ee6983]" />
+                  </div>
+                  <div className="about-item-text-wrap">
+                    <h3 className="about-item-title">Referência</h3>
+                    <p className="about-item-text">Saúde, estética <br /> e gestão estratégica.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            {/* ══ COLUNA DA DIREITA (IMAGEM SLIM / SINCRONIZADA) ══ */}
+            <div className="about-top-right-wrapper h-full">
+              <div className="about-image-card h-full">
+                <img src={aboutAudienceBg} alt="Plateia do evento" className="about-image" />
+                <div className="about-image-overlay" />
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
 
+      <style>{`
+        :root {
+          --about-bg: #050505;
+          --about-accent: #ee6983;
+          --about-card-bg: #0d0d0d;
+          --about-border: rgba(238, 105, 131, 0.08);
+          --about-text-muted: rgba(255, 255, 255, 0.5);
+        }
+
+        .about-section {
+          background-color: var(--about-bg);
+          padding-top: 80px;
+          padding-bottom: 80px;
+          overflow: hidden;
+        }
+
+        .about-container {
+          width: 100%;
+          max-width: 1260px !important; /* Aumentado 15% a partir de 1100px */
+          margin-left: auto;
+          margin-right: auto;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .about-top-grid-wrap {
+          grid-column-gap: 56px;
+          grid-row-gap: 32px; /* Reduzindo gap vertical */
+          grid-template-rows: auto;
+          grid-template-columns: 1.15fr 0.85fr;
+          display: grid;
+          align-items: stretch;
+        }
+
+        .section-caption-wrap {
+          display: flex;
+          align-items: center;
+          margin-bottom: 24px;
+        }
+
+        .caption-text {
+          color: var(--about-accent);
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.25em;
+          text-transform: uppercase;
+        }
+
+        .about-title {
+          color: white;
+          font-size: 48px; /* Ligeiramente menor para ajudar na altura */
+          font-weight: 200;
+          line-height: 1.1;
+          text-transform: uppercase;
+          margin-bottom: 16px; /* Menor espaçamento */
+          letter-spacing: -0.02em;
+        }
+
+        .about-text {
+          color: var(--about-text-muted);
+          font-size: 16px;
+          line-height: 1.6;
+          font-weight: 300;
+          margin-bottom: 28px; /* Menor espaçamento */
+        }
+
+        .about-button-wrap {
+          margin-top: 0px;
+          margin-bottom: 36px; /* Menor espaçamento */
+          display: flex;
+          justify-content: flex-start;
+        }
+
+        .primary-button {
+          background-color: var(--about-accent);
+          color: #000;
+          padding: 8px 10px 8px 24px;
+          border-radius: 100px;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 14px;
+          font-size: 16px;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+          width: auto;
+        }
+
+        .button-text-wrap {
+          display: block;
+          position: relative;
+          height: 20px;
+          overflow: hidden;
+        }
+
+        .primary-button-text, .primary-button-text-hover {
+          display: block;
+          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .primary-button-text-hover { position: absolute; top: 100%; left: 0; }
+        .primary-button:hover .primary-button-text { transform: translateY(-100%); }
+        .primary-button:hover .primary-button-text-hover { transform: translateY(-100%); }
+
+        .button-icon-wrap {
+          background-color: #000;
+          border-radius: 100px;
+          width: 44px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .about-item-grid-wrap {
+          grid-column-gap: 20px;
+          grid-row-gap: 16px;
+          grid-template-rows: auto;
+          grid-template-columns: 1fr 1fr 1fr;
+          display: grid;
+          margin-top: auto;
+        }
+
+        .about-single-item {
+          border: 1px solid var(--about-border);
+          background-color: var(--about-card-bg);
+          border-radius: 16px;
+          padding: 20px 16px; /* Pad. menor para reduzir altura */
+          transition: all 0.4s ease;
+        }
+
+        .about-single-item:hover {
+          border-color: rgba(238, 105, 131, 0.2);
+          transform: translateY(-4px);
+        }
+
+        .about-item-icon-wrap {
+          background-color: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 100px;
+          width: 50px; /* Levemente menor */
+          height: 50px;
+          margin-bottom: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .about-item-title {
+          color: white;
+          font-size: 17px;
+          font-weight: 500;
+          line-height: 1.2;
+          margin-bottom: 6px;
+        }
+
+        .about-item-text {
+          color: rgba(255, 255, 255, 0.3);
+          font-size: 14px;
+          line-height: 1.4;
+          font-weight: 300;
+        }
+
+        /* ══ IMAGEM (ESTREITA E SINCRONIZADA) ══ */
+        .about-image-card {
+          width: 100%;
+          height: 100%;
+          max-height: none;
+          border-radius: 20px;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .about-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          opacity: 0.85;
+        }
+
+        .about-image-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(35deg, rgba(5,5,5,0.4) 0%, transparent 60%);
+        }
+
+        @media screen and (max-width: 1100px) {
+          .about-title { font-size: 36px; }
+          .about-top-grid-wrap { grid-template-columns: 1fr; }
+          .about-top-right-wrapper { order: -1; min-height: 380px; }
+        }
+
+        @media screen and (max-width: 767px) {
+          .about-item-grid-wrap { grid-template-columns: 1fr; margin-top: 32px; }
+          .about-section { padding-top: 80px; padding-bottom: 80px; }
+          .about-title { font-size: 32px; }
+        }
+      `}</style>
     </section>
   );
 };

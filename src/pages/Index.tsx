@@ -19,11 +19,11 @@ const Index = () => (
     <AboutSection />
     <AudienceSection />
     <SpeakersSection />
+    <TeamSection />
     <ScheduleSection />
     <PricingSection />
     <InstitutionalSection />
     <FAQSection />
-    <TeamSection />
     <FooterSection />
   </main>
 );

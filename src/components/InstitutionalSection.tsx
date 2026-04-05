@@ -1,154 +1,236 @@
 import { motion } from "framer-motion";
-import { Sparkles, Heart, MapPin } from "lucide-react";
-import audienceBg from "@/assets/audience-bg.jpg";
-
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8 },
-};
-
-const milestones = [
-  {
-    icon: Sparkles,
-    year: "A Origem",
-    title: "Um movimento, não um evento",
-    body: "O I Fórum de Estética e Performance nasce a partir do Instituto Mulheres de Sucesso Brasileiras, fundado por Lúcia Leandro. A premissa é simples: o sucesso feminino é multidimensional — precisa de saúde, imagem e comunidade para ser sustentável.",
-  },
-  {
-    icon: Heart,
-    year: "A Missão",
-    title: "Curar a solidão do topo",
-    body: "Ao atingirem cargos de liderança ou o sucesso nos negócios, muitas mulheres perdem o círculo social de apoio. O Fórum nasce como esse refúgio: um espaço onde elas falam a mesma língua, sem julgamentos e sem competição predatória.",
-  },
-  {
-    icon: MapPin,
-    year: "O Momento",
-    title: "Natal, 17 e 18 de Abril",
-    body: "O UNIFACEX – Campus Capim Macio foi escolhido pela infraestrutura de alto padrão: auditório climatizado, telões LED de alta definição, foyer amplo para networking e acesso pleno. O primeiro grande encontro desta geração de líderes no nordeste.",
-  },
-];
+import mainImg from "@/assets/service-main.png";
+import cardImg from "@/assets/service-card.png";
 
 const InstitutionalSection = () => {
   return (
-    <section className="relative py-24 overflow-hidden bg-[#0a0a0a]">
-      {/* Background image ultra dim */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={audienceBg}
-          alt=""
-          className="w-full h-full object-cover opacity-[0.06] grayscale mix-blend-luminosity"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a]" />
-      </div>
+    <section className="service-section">
+      <div className="container service-container">
+        <div className="service-wrapper">
+          
+          {/* ══ CONTEÚDO DA ESQUERDA (TÍTULO + CARD) ══ */}
+          <div className="service-content-col">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="service-text-wrap"
+            >
+              <h2 className="service-title">
+                Tire suas dúvidas <br />
+                <span className="inline-pill-wrap">
+                  <img src={cardImg} alt="" className="pill-img" />
+                </span>
+                {" "}e garanta sua vaga!
+              </h2>
+            </motion.div>
 
-      <div className="section-container relative z-10">
-        {/* Header */}
-        <motion.div {...fadeUp} className="text-center mb-20 space-y-4 max-w-3xl mx-auto">
-          <p className="text-white/20 text-[10px] uppercase tracking-[0.4em] mb-2">Instituto Mulheres de Sucesso · Natal, 2026</p>
-          <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight">
-            O Movimento por Trás{" "}
-            <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] to-[#ffc4c4]">do Fórum</span>
-          </h2>
-          <p className="text-white/40 text-base leading-relaxed mx-auto max-w-2xl">
-            Em um mercado onde performance ainda é medida apenas em produtividade, o Instituto Mulheres de Sucesso Brasileiras propõe uma revolução: a performance integrada — mente, corpo e imagem em harmonia.
-          </p>
-        </motion.div>
-
-        {/* ── TIMELINE ── */}
-        <div className="relative mb-20">
-
-          {/* ─── Desktop: horizontal timeline ─── */}
-          <div className="hidden md:block">
-            {/* Connecting line */}
-            <div className="absolute top-[28px] left-[calc(16.66%+20px)] right-[calc(16.66%+20px)] h-px bg-gradient-to-r from-[#ee6983]/30 via-[#ee6983]/60 to-[#ee6983]/30" />
-
-            <div className="grid grid-cols-3 gap-8">
-              {milestones.map((m, i) => (
-                <motion.div
-                  key={i}
-                  {...fadeUp}
-                  transition={{ delay: i * 0.18 }}
-                  className="flex flex-col items-center text-center group"
-                >
-                  {/* Circle marker */}
-                  <div className="relative w-14 h-14 rounded-full bg-[#0a0a0a] border-2 border-[#ee6983]/50 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(238,105,131,0.2)] group-hover:border-[#ee6983] group-hover:shadow-[0_0_30px_rgba(238,105,131,0.35)] transition-all duration-500 z-10">
-                    <m.icon className="w-5 h-5 text-[#ee6983]" strokeWidth={1.5} />
-                    {/* Inner pulse */}
-                    <div className="absolute inset-0 rounded-full bg-[#ee6983]/8 group-hover:bg-[#ee6983]/15 transition-colors duration-500" />
-                  </div>
-
-                  {/* Content */}
-                  <span className="text-[#ee6983] text-[10px] font-black uppercase tracking-[0.25em] mb-2">{m.year}</span>
-                  <h3 className="text-white font-black text-lg uppercase tracking-wide leading-tight mb-4 group-hover:text-[#ffc4c4] transition-colors duration-300">
-                    {m.title}
-                  </h3>
-                  <p className="text-white/40 text-sm leading-relaxed group-hover:text-white/60 transition-colors duration-300">
-                    {m.body}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
+            {/* CARD FLUTUANTE (SUPORTE) */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="service-float-card"
+            >
+              <div className="card-image-wrap">
+                <img src={cardImg} alt="Atendimento" className="card-img" />
+              </div>
+              <div className="card-info-wrap">
+                <h3 className="card-title">Suporte 100% Humano e Imediato!</h3>
+                <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer" className="card-button">
+                  Chamar agora!
+                </a>
+              </div>
+            </motion.div>
           </div>
 
-          {/* ─── Mobile: vertical timeline ─── */}
-          <div className="md:hidden flex flex-col relative">
-            {/* Vertical line */}
-            <div className="absolute top-6 bottom-6 left-6 w-px bg-gradient-to-b from-[#ee6983]/20 via-[#ee6983]/50 to-[#ee6983]/20" />
-
-            {milestones.map((m, i) => (
-              <motion.div
-                key={i}
-                {...fadeUp}
-                transition={{ delay: i * 0.15 }}
-                className="flex gap-6 pb-10 last:pb-0 group"
-              >
-                {/* Circle marker */}
-                <div className="relative flex-shrink-0 w-12 h-12 rounded-full bg-[#0a0a0a] border-2 border-[#ee6983]/50 flex items-center justify-center shadow-[0_0_16px_rgba(238,105,131,0.15)] z-10">
-                  <m.icon className="w-4 h-4 text-[#ee6983]" strokeWidth={1.5} />
-                </div>
-
-                {/* Content */}
-                <div className="flex flex-col gap-2 pt-2 pb-2">
-                  <span className="text-[#ee6983] text-[10px] font-black uppercase tracking-[0.25em]">{m.year}</span>
-                  <h3 className="text-white font-black text-base uppercase tracking-wide leading-tight">
-                    {m.title}
-                  </h3>
-                  <p className="text-white/45 text-sm leading-relaxed">
-                    {m.body}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+          {/* ══ IMAGEM DA DIREITA (MAIN LAPTOP) ══ */}
+          <div className="service-image-col">
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="main-image-wrap"
+            >
+              <img src={mainImg} alt="Atendimento no Notebook" className="main-service-img" />
+              <div className="main-image-overlay" />
+            </motion.div>
           </div>
+
         </div>
-
-        {/* Quote Banner */}
-        <motion.div
-          {...fadeUp}
-          transition={{ delay: 0.4 }}
-          className="relative rounded-3xl overflow-hidden border border-white/8 bg-white/[0.02] backdrop-blur-2xl p-10 md:p-16 text-center shadow-[0_8px_40px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.06)]"
-        >
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#ee6983]/40 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-
-          <div className="max-w-3xl mx-auto space-y-6">
-            <p className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight uppercase tracking-tight">
-              "O sucesso profissional <br className="hidden md:block" />
-              não precisa custar{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] to-[#850e35]">
-                a sua saúde.
-              </span>"
-            </p>
-            <div className="flex flex-col items-center gap-1 pt-2">
-              <span className="text-white/80 font-bold text-sm tracking-wider uppercase">Lúcia Leandro</span>
-              <span className="text-white/30 text-xs uppercase tracking-widest">Fundadora — Instituto Mulheres de Sucesso Brasileiras</span>
-            </div>
-          </div>
-        </motion.div>
       </div>
+
+      <style>{`
+        .service-section {
+          background-color: #050505;
+          padding: 100px 0;
+          position: relative;
+          overflow: hidden;
+        }
+
+        /* Curva de fundo inspirada na Mentara */
+        .service-section::before {
+          content: "";
+          position: absolute;
+          top: -20%;
+          right: -10%;
+          width: 80%;
+          height: 140%;
+          background: radial-gradient(circle at center, rgba(238, 105, 131, 0.05) 0%, transparent 70%);
+          border-radius: 50%;
+          transform: rotate(-15deg);
+          pointer-events: none;
+        }
+
+        .service-container {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0 20px;
+          position: relative;
+          z-index: 2;
+        }
+
+        .service-wrapper {
+          display: grid;
+          grid-template-columns: 1.1fr 0.9fr;
+          gap: 60px;
+          align-items: center;
+        }
+
+        /* ── TÍTULO E PILL ── */
+        .service-title {
+          color: white;
+          font-size: 54px;
+          font-weight: 800;
+          line-height: 1.1;
+          letter-spacing: -0.03em;
+          margin-bottom: 40px;
+        }
+
+        .inline-pill-wrap {
+          display: inline-flex;
+          align-items: center;
+          vertical-align: middle;
+          background: #111;
+          padding: 4px;
+          border-radius: 100px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          height: 48px;
+          width: 84px;
+          overflow: hidden;
+          margin: 0 8px;
+        }
+
+        .pill-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 100px;
+        }
+
+        /* ── CARD FLUTUANTE ── */
+        .service-float-card {
+          background: rgba(255, 255, 255, 0.03);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 24px;
+          padding: 20px;
+          max-width: 280px;
+          box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-image-wrap {
+          width: 100%;
+          height: 140px;
+          border-radius: 16px;
+          overflow: hidden;
+          margin-bottom: 16px;
+        }
+
+        .card-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .card-title {
+          color: white;
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 1.3;
+          margin-bottom: 16px;
+        }
+
+        .card-button {
+          display: block;
+          width: 100%;
+          background: #ee6983; /* Cor da marca */
+          color: white;
+          text-align: center;
+          padding: 12px;
+          border-radius: 12px;
+          font-weight: 700;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+
+        .card-button:hover {
+          background: #ff7c96;
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px rgba(238, 105, 131, 0.3);
+        }
+
+        /* ── IMAGEM PRINCIPAL ── */
+        .main-image-wrap {
+          width: 100%;
+          height: 540px;
+          border-radius: 32px;
+          overflow: hidden;
+          position: relative;
+          box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        .main-service-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .main-image-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to top, rgba(5, 5, 5, 0.6), transparent);
+        }
+
+        /* ── RESPONSIVO ── */
+        @media (max-width: 1024px) {
+          .service-wrapper {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            text-align: center;
+          }
+
+          .service-title { font-size: 42px; }
+          .service-float-card { margin: 0 auto; }
+          .main-image-wrap { height: 400px; }
+          .inline-pill-wrap { height: 36px; width: 64px; }
+        }
+
+        @media (max-width: 768px) {
+          .service-section { padding: 60px 0; }
+          .service-title { font-size: 32px; }
+          
+          /* Mobile Stack: Title -> Card -> Main Image */
+          .service-content-col {
+            display: flex;
+            flex-direction: column;
+          }
+          
+          .service-text-wrap { order: 1; margin-bottom: 40px; }
+          .service-float-card { order: 2; margin-bottom: 40px; }
+          .service-image-col { order: 3; }
+        }
+      `}</style>
     </section>
   );
 };
