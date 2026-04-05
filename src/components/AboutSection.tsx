@@ -1,5 +1,5 @@
-import { Target, Users, Presentation } from "lucide-react";
-import aboutAudienceBg from "@/assets/about-audience-2.jpg";
+import { CalendarFold, MapPin, Clock, ArrowUpRight, Diamond, Sparkles } from "lucide-react";
+import eventInfoImg from "@/assets/event-info-image.jpg";
 
 const AboutSection = () => {
   return (
@@ -11,81 +11,92 @@ const AboutSection = () => {
 
             {/* ══ COLUNA DA ESQUERDA (ENXUTA & SÓLIDA) ══ */}
             <div className="about-top-left-wrapper flex flex-col h-full">
+              {/* Definição de Gradiente SVG */}
+              <svg width="0" height="0" className="absolute">
+                <defs>
+                  <linearGradient id="aboutIconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop stopColor="#ffcce0" offset="0%" />
+                    <stop stopColor="#ee6983" offset="50%" />
+                    <stop stopColor="#9b2d41" offset="100%" />
+                  </linearGradient>
+                </defs>
+              </svg>
 
-              {/* Caption Exclusiva MS 2026 */}
+              {/* Caption Oficial (Ornamentos Iconográficos) */}
               <div className="section-caption-wrap">
-                <p className="caption-text">MS 2026 · EXCLUSIVIDADE</p>
+                <Diamond className="w-3.5 h-3.5 text-[#ee6983]" strokeWidth={2} />
+                <h3 className="section-caption-text">SOBRE A IMERSÃO</h3>
               </div>
 
-              {/* Título - 2 Linhas / 42px */}
+              {/* Título - Forçado em 2 Linhas via Grid e nowraps lógicos */}
               <div className="about-title-wrap">
                 <h2 className="about-title">
-                  O QUE É O <br />
-                  <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/70">
-                    FÓRUM DE ESTÉTICA E PERFORMANCE:
+                  A EVOLUÇÃO DAS <br />
+                  <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/60">
+                    MULHERES DE SUCESSO
                   </span>
                 </h2>
               </div>
 
-              {/* Parágrafo Minimalista */}
+              {/* Parágrafo Enxuto, Maior e Brilhante */}
               <div className="about-text-wrap">
-                <p className="about-text">
-                  Explore uma jornada de transformação no <strong>I Fórum de Estética e Performance da Mulher Empreendedora</strong> — um encontro pioneiro que reúne líderes femininas visionárias dispostas a ir além dos resultados financeiros.
+                <p className="about-text leading-relaxed">
+                  Crie raízes sólidas entre as líderes do Nordeste. Uma imersão pioneira focada em não deixar sua saúde mental e física para depois enquanto você escala seus lucros. Construa alianças comerciais e absorva toda a medicina integrativa a favor da sua rotina.
                 </p>
               </div>
 
               {/* Botão Travado a Esquerda */}
               <div className="about-button-wrap">
-                <a href="#inscricao" className="primary-button">
+                <a href="#inscricao" className="primary-button group">
                   <div className="button-text-wrap">
                     <div className="primary-button-text">Garantir Vaga</div>
                     <div className="primary-button-text-hover">Garantir Vaga</div>
                   </div>
-                  <div className="button-icon-wrap">
-                    <img src="https://cdn.prod.website-files.com/6825c2925e24e79e2bf4a9ed/68282e9440a929f1c3e5d3e8_Arrow-Up.png" loading="lazy" width="18" alt="" className="primary-button-icon" />
+                  <div className="button-icon-wrap transition-transform duration-300 group-hover:rotate-45">
+                    <ArrowUpRight className="w-4 h-4 text-[#ffcce0]" strokeWidth={2.5} />
                   </div>
                 </a>
               </div>
 
-              {/* ══ OS 3 CARDS COMPACTOS (SINCRONIA DE BASE) ══ */}
+              {/* ══ OS 3 CARDS COMPACTOS (LOGÍSTICA INVERTIDA) ══ */}
               <div className="about-item-grid-wrap">
-                <div className="about-single-item">
-                  <div className="about-item-icon-wrap">
-                    <Target className="w-7 h-7 text-[#ee6983]" />
+                <div className="about-single-item relative overflow-visible group">
+                  <div className="about-item-icon-wrap relative z-10">
+                    <CalendarFold className="w-6 h-6" stroke="url(#aboutIconGradient)" strokeWidth={1.5} />
                   </div>
-                  <div className="about-item-text-wrap">
-                    <h3 className="about-item-title">Autoridade</h3>
-                    <p className="about-item-text">Alinhamento visual <br /> e imagem projetada.</p>
-                  </div>
-                </div>
-
-                <div className="about-single-item">
-                  <div className="about-item-icon-wrap">
-                    <Users className="w-7 h-7 text-[#ee6983]" />
-                  </div>
-                  <div className="about-item-text-wrap">
-                    <h3 className="about-item-title">Conexões</h3>
-                    <p className="about-item-text">Alta decisão <br /> e networking de topo.</p>
+                  <div className="about-item-text-wrap relative z-10">
+                    <h3 className="about-item-title tracking-tight">Data</h3>
+                    <p className="about-item-text font-medium text-white/70">17 e 18 de <br /> Abril de 2026</p>
                   </div>
                 </div>
 
-                <div className="about-single-item">
-                  <div className="about-item-icon-wrap">
-                    <Presentation className="w-7 h-7 text-[#ee6983]" />
+                <div className="about-single-item relative overflow-visible group">
+                  <div className="about-item-icon-wrap relative z-10">
+                    <Clock className="w-6 h-6" stroke="url(#aboutIconGradient)" strokeWidth={1.5} />
                   </div>
-                  <div className="about-item-text-wrap">
-                    <h3 className="about-item-title">Referência</h3>
-                    <p className="about-item-text">Saúde, estética <br /> e gestão estratégica.</p>
+                  <div className="about-item-text-wrap relative z-10">
+                    <h3 className="about-item-title tracking-tight">Horário</h3>
+                    <p className="about-item-text font-medium text-white/70">Abertura: 08h <br /> Fechamento: 21h30</p>
+                  </div>
+                </div>
+
+                <div className="about-single-item relative overflow-visible group">
+                  <div className="about-item-icon-wrap relative z-10">
+                    <MapPin className="w-6 h-6" stroke="url(#aboutIconGradient)" strokeWidth={1.5} />
+                  </div>
+                  <div className="about-item-text-wrap relative z-10">
+                    <h3 className="about-item-title tracking-tight">Local</h3>
+                    <p className="about-item-text font-medium text-white/70">UNIFACEX <br /> Capim Macio</p>
                   </div>
                 </div>
               </div>
 
             </div>
 
-            {/* ══ COLUNA DA DIREITA (IMAGEM SLIM / SINCRONIZADA) ══ */}
+            {/* ══ COLUNA DA DIREITA (NOVA IMAGEM AUDITÓRIO) ══ */}
             <div className="about-top-right-wrapper h-full">
-              <div className="about-image-card h-full">
-                <img src={aboutAudienceBg} alt="Plateia do evento" className="about-image" />
+              <div className="about-image-card h-[550px] border border-[rgba(238,105,131,0.15)] shadow-[0_0_40px_rgba(0,0,0,0.8)] relative group">
+                <img src={eventInfoImg} alt="Auditório do evento Unifacex" className="about-image transition-transform duration-[2s] group-hover:scale-105" />
                 <div className="about-image-overlay" />
               </div>
             </div>
@@ -96,7 +107,7 @@ const AboutSection = () => {
 
       <style>{`
         :root {
-          --about-bg: #050505;
+          --about-bg: #121212;
           --about-accent: #ee6983;
           --about-card-bg: #0d0d0d;
           --about-border: rgba(238, 105, 131, 0.08);
@@ -121,9 +132,9 @@ const AboutSection = () => {
 
         .about-top-grid-wrap {
           grid-column-gap: 56px;
-          grid-row-gap: 32px; /* Reduzindo gap vertical */
+          grid-row-gap: 32px; 
           grid-template-rows: auto;
-          grid-template-columns: 1.15fr 0.85fr;
+          grid-template-columns: 1.15fr 0.85fr; /* 5% Menos Esquerda / 5% Mais Direita */
           display: grid;
           align-items: stretch;
         }
@@ -131,33 +142,34 @@ const AboutSection = () => {
         .section-caption-wrap {
           display: flex;
           align-items: center;
+          gap: 12px;
           margin-bottom: 24px;
         }
 
-        .caption-text {
-          color: var(--about-accent);
-          font-size: 13px;
+        .section-caption-text {
+          color: #ee6983;
+          font-size: 11px;
           font-weight: 700;
-          letter-spacing: 0.25em;
+          letter-spacing: 0.4em;
           text-transform: uppercase;
         }
 
         .about-title {
           color: white;
-          font-size: 48px; /* Ligeiramente menor para ajudar na altura */
+          font-size: 52px; /* Aumentado a força do Título conforme pedido */
           font-weight: 200;
-          line-height: 1.1;
+          line-height: 1.05; /* Mais ajustado para evitar quebra excessiva */
           text-transform: uppercase;
-          margin-bottom: 16px; /* Menor espaçamento */
-          letter-spacing: -0.02em;
+          margin-bottom: 20px;
+          letter-spacing: -0.03em; /* Apertando tracking para caber em 2 linhas mesmo maior */
         }
 
         .about-text {
-          color: var(--about-text-muted);
-          font-size: 16px;
+          color: rgba(255, 255, 255, 0.7); /* Cor bem mais clara / brilhante */
+          font-size: 17px; /* Texto muito maior */
           line-height: 1.6;
           font-weight: 300;
-          margin-bottom: 28px; /* Menor espaçamento */
+          margin-bottom: 32px;
         }
 
         .about-button-wrap {
@@ -168,20 +180,23 @@ const AboutSection = () => {
         }
 
         .primary-button {
-          background-color: var(--about-accent);
-          color: #000;
-          padding: 8px 10px 8px 24px;
+          background: linear-gradient(135deg, #ee6983 0%, #b6304b 100%);
+          border: 1px solid rgba(238, 105, 131, 0.4);
+          color: #fff;
+          padding: 6px 8px 6px 20px; /* Restaurada a estética menor */
           border-radius: 100px;
           text-decoration: none;
           display: inline-flex;
           align-items: center;
-          gap: 14px;
-          font-size: 16px;
-          font-weight: 600;
+          gap: 12px; /* Gap retraído ao original */
+          font-size: 14px; /* Retornado para escala elegante original */
+          font-weight: 700;
+          letter-spacing: 0.05em;
           transition: all 0.3s ease;
           position: relative;
           overflow: hidden;
           width: auto;
+          box-shadow: 0 4px 15px rgba(238, 105, 131, 0.2);
         }
 
         .button-text-wrap {
@@ -201,10 +216,10 @@ const AboutSection = () => {
         .primary-button:hover .primary-button-text-hover { transform: translateY(-100%); }
 
         .button-icon-wrap {
-          background-color: #000;
+          background-color: #7a1229; /* Mantida a cor ajustada rosa mais fundo */
           border-radius: 100px;
-          width: 44px;
-          height: 44px;
+          width: 36px; /* Retornado a escala pequena elegante */
+          height: 36px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -220,25 +235,33 @@ const AboutSection = () => {
         }
 
         .about-single-item {
-          border: 1px solid var(--about-border);
-          background-color: var(--about-card-bg);
-          border-radius: 16px;
-          padding: 20px 16px; /* Pad. menor para reduzir altura */
-          transition: all 0.4s ease;
+          background: linear-gradient(135deg, #1f1f1f 0%, #111111 50%, #080808 100%);
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 20px; /* Arredondamento majorado */
+          padding: 24px 20px; /* Cartão ligeiramente comprimido dimensionalmente */
+          min-height: 165px; /* Altura minorada */
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+          box-shadow: 0 8px 30px -10px rgba(0,0,0,0.5);
         }
 
         .about-single-item:hover {
-          border-color: rgba(238, 105, 131, 0.2);
-          transform: translateY(-4px);
+          border-color: rgba(255, 255, 255, 0.2);
+          transform: scale(1.04) translateY(-4px);
+          z-index: 10;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.8);
         }
 
         .about-item-icon-wrap {
           background-color: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 100px;
-          width: 50px; /* Levemente menor */
-          height: 50px;
-          margin-bottom: 16px;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 50%;
+          width: 48px; 
+          height: 48px;
+          margin-bottom: 20px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -246,16 +269,16 @@ const AboutSection = () => {
 
         .about-item-title {
           color: white;
-          font-size: 17px;
-          font-weight: 500;
+          font-size: 20px; /* Maior */
+          font-weight: 600;
           line-height: 1.2;
-          margin-bottom: 6px;
+          margin-bottom: 8px;
         }
 
         .about-item-text {
-          color: rgba(255, 255, 255, 0.3);
-          font-size: 14px;
-          line-height: 1.4;
+          color: rgba(255, 255, 255, 0.5); /* Mais visivel e claro */
+          font-size: 15px; /* Maior */
+          line-height: 1.5;
           font-weight: 300;
         }
 
@@ -263,6 +286,7 @@ const AboutSection = () => {
         .about-image-card {
           width: 100%;
           height: 100%;
+          min-height: 500px;
           max-height: none;
           border-radius: 20px;
           overflow: hidden;

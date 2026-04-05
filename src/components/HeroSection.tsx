@@ -63,9 +63,9 @@ const HeroSection = () => {
             {...fadeRight} transition={{ delay: 0.2 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-[1.1] tracking-tight uppercase"
           >
-            Fórum de <br />
+            Fórum de Alta <br />
             <span className="text-[#ee6983] font-black drop-shadow-lg">
-              Estética e Performance
+              Performance e Saúde
             </span> <br />
             <span className="text-white/95 text-[20px] sm:text-[24px] lg:text-[28px] font-medium tracking-wide mt-2 block lowercase drop-shadow-md" style={{fontVariant: 'small-caps'}}>
               Da Mulher Empreendedora
@@ -77,10 +77,9 @@ const HeroSection = () => {
             {...fadeRight} transition={{ delay: 0.3 }}
             className="text-base md:text-lg text-white/90 max-w-lg font-light leading-relaxed drop-shadow-md"
           >
-            Descubra como o estilo de vida e a{" "}
+            Onde estética, psique e{" "}
             <span className="text-[#ee6983] font-semibold">medicina integrativa</span>{" "}
-            impactam a beleza, a saúde e os resultados{" "}
-            da mulher atual!
+            se unem para blindar a sua saúde e acelerar o crescimento do seu CNPJ.
           </motion.p>
 
           {/* CTA Button */}

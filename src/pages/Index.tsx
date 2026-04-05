@@ -1,6 +1,5 @@
 import HeroSection from "@/components/HeroSection";
 import CountdownTimer from "@/components/CountdownTimer";
-import EventInfoSection from "@/components/EventInfoSection";
 import AboutSection from "@/components/AboutSection";
 import AudienceSection from "@/components/AudienceSection";
 import InstitutionalSection from "@/components/InstitutionalSection";
@@ -15,7 +14,6 @@ const Index = () => (
   <main className="bg-background min-h-screen">
     <HeroSection />
     <CountdownTimer />
-    <EventInfoSection />
     <AboutSection />
     <AudienceSection />
     <SpeakersSection />

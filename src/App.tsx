@@ -8,11 +8,15 @@ import Register from "./pages/Register.tsx";
 import Checkout from "./pages/Checkout.tsx";
 import Success from "./pages/Success.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import { useContentProtection } from "./hooks/useContentProtection";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
+const App = () => {
+  useContentProtection();
+
+  return (
+    <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -28,6 +32,7 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;

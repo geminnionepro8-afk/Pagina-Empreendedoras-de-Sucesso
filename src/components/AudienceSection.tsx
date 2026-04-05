@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import audienceBg from "@/assets/audience-bg.jpg";
+import { CheckCircle2 } from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -10,29 +10,29 @@ const fadeUp = {
 
 const audiences = [
   {
-    title: "Saúde Inabalável",
-    text: "Quer blindar sua saúde e energia sem abrir mão da alta performance profissional.",
+    tag: "CORPO & MENTE",
+    title: "Fim do Esgotamento",
+    text: "Aprenda métodos que blindam sua saúde física e mental para focar no que dá lucro.",
     image: "/images/audience/saude.png"
   },
   {
-    title: "Conexões Genuínas",
-    text: "Busca conexões genuínas com outras mulheres líderes, sem competição predatória.",
+    tag: "CONEXÕES",
+    title: "Networking Real",
+    text: "Sente à mesa com lideranças femininas focadas em crescer de verdade, sem máscaras.",
     image: "/images/audience/conexoes.png"
   },
   {
-    title: "Liderança de Impacto",
-    text: "Busca o equilíbrio entre performance sustentável, bem-estar e liderança de impacto.",
+    tag: "IMAGEM CLÍNICA",
+    title: "Posicionamento",
+    text: "Descubra como a estética refinada e a saúde postural elevam o valor do negócio.",
     image: "/images/audience/lideranca.png"
   },
 ];
 
 const AudienceSection = () => {
   return (
-    <section className="bg-[#151515] py-24 md:py-32 relative overflow-visible border-t border-[#ee6983]/10">
+    <section className="bg-[#080808] py-24 md:py-32 relative overflow-visible border-t border-[#ee6983]/10">
       
-      {/* Subtle glow no fundo */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80px] h-[80px] sm:w-[500px] sm:h-[500px] bg-[#ee6983] opacity-[0.05] blur-[150px] rounded-full pointer-events-none" />
-
       <div className="max-w-[1240px] mx-auto px-5 sm:px-8 relative z-10">
 
         {/* Título centralizado Premium */}
@@ -51,20 +51,37 @@ const AudienceSection = () => {
               você que
             </span>
           </h2>
+          <p className="mt-8 text-white/50 text-[15px] sm:text-lg max-w-2xl text-center mx-auto leading-[1.8] font-light px-4">
+            Já parou de romantizar a exaustão e busca faturamento sustentável fortemente aliado ao próprio bem-estar.
+          </p>
         </motion.div>
 
         {/* Layout baseado no "Process" */}
-        <div className="grid grid-cols-1 lg:grid-cols-[0.7fr_1fr] gap-10 lg:gap-14 xl:gap-20 items-start relative">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.15fr] gap-10 lg:gap-14 xl:gap-20 items-start relative">
           
-          {/* Lado Esquerdo - Imagem Principal (Sticky) */}
+          {/* Lado Esquerdo - Card Fixo de Características */}
           <div className="lg:sticky top-24 lg:top-32 2xl:top-40 z-0 hidden lg:block">
-            <div className="w-full aspect-[3/4] xl:aspect-[4/5] rounded-[32px] bg-[#0c0c0c] border border-white/5 overflow-hidden group relative">
-              {/* Imagem Principal */}
-              <img 
-                 src={audienceBg} 
-                 alt="O movimento por trás do fórum" 
-                 className="absolute inset-0 w-full h-full object-cover brightness-50 group-hover:brightness-100 transition-all duration-700 ease-out z-10" 
-              />
+            <div className="w-full h-[520px] rounded-[24px] xl:rounded-[32px] bg-gradient-to-br from-[#151314] via-[#0a0a0a] to-[#040404] border border-white/5 shadow-2xl p-10 xl:p-14 relative overflow-hidden group flex flex-col justify-center">
+              {/* Glow sutil nativo no topo */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-transparent via-[#ee6983]/30 to-transparent blur-md" />
+              
+              <h3 className="text-3xl xl:text-4xl font-semibold tracking-tight leading-tight mb-8 xl:mb-10 text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/30">
+                O Fórum atende exatamente a você que:
+              </h3>
+              
+              <ul className="space-y-8 lg:space-y-12">
+                {[
+                  "Quer faturar mais sem adoecer no processo",
+                  "Entende que o seu bem-estar dita o ritmo da sua empresa",
+                  "Procura estar perto de mulheres com os mesmos desafios",
+                ].map((item, idx) => (
+                  <li key={idx} className="flex gap-4 lg:gap-5 items-start">
+                    <CheckCircle2 className="w-6 h-6 xl:w-7 xl:h-7 shrink-0 text-[#ee6983] opacity-80 mt-0.5" strokeWidth={1.5} />
+                    <p className="text-white/70 text-[16px] xl:text-[18px] leading-[1.6] font-light">{item}</p>
+                  </li>
+                ))}
+              </ul>
+              
             </div>
           </div>
 
@@ -77,12 +94,12 @@ const AudienceSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
-                className="sticky top-24 lg:top-32 2xl:top-40 bg-[#080808] border border-[#ee6983]/10 hover:border-[#ee6983]/30 transition-colors duration-500 rounded-[32px] p-8 sm:p-12 z-10 flex flex-col justify-between"
+                className="sticky top-24 lg:top-32 2xl:top-40 h-[520px] bg-gradient-to-b from-[#141213] to-[#050505] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] border border-[#ee6983]/10 hover:border-[#ee6983]/30 transition-colors duration-500 rounded-[32px] p-8 sm:p-12 z-10 flex flex-col justify-between"
               >
                 <div className="mb-10 sm:mb-12">
                   <div className="mb-8">
-                    <span className="text-[#ee6983]/60 font-medium text-[15px] tracking-widest">
-                      /{String(i + 1).padStart(3, '0')}
+                    <span className="text-[#ee6983] font-bold text-[10px] sm:text-[11px] tracking-[0.2em] uppercase">
+                      {item.tag}
                     </span>
                   </div>
                   <div className="mb-5">
@@ -97,8 +114,8 @@ const AudienceSection = () => {
                   </div>
                 </div>
 
-                {/* Imagem Menor do Card (Transformação) */}
-                <div className="w-full aspect-[16/10] sm:aspect-[16/9] rounded-[24px] bg-[#0c0c0c] border border-white/5 overflow-hidden group cursor-pointer relative mt-auto">
+                {/* Imagem Menor do Card (Transformação Limitada) */}
+                <div className="w-full h-[180px] xl:h-[200px] rounded-[24px] bg-[#0c0c0c] border border-white/5 overflow-hidden group cursor-pointer relative mt-auto">
                     {/* Imagem Representativa */}
                     <img 
                        src={item.image} 

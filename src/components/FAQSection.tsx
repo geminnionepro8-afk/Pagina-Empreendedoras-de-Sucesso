@@ -38,9 +38,7 @@ const faqs = [
 ];
 
 const FAQSection = () => (
-  <section className="bg-background py-24 relative overflow-hidden">
-    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#ee6983]/5 blur-[100px] rounded-full pointer-events-none" />
-
+  <section className="bg-[#080808] py-24 relative overflow-hidden">
     <div className="section-container relative z-10">
       <motion.div {...fadeUp} className="mb-20 space-y-4 max-w-4xl mx-auto text-center flex flex-col items-center">
         <div className="flex items-center justify-center gap-3 mb-2">
@@ -82,33 +80,6 @@ const FAQSection = () => (
           ))}
         </Accordion>
       </div>
-
-      {/* Contact CTA */}
-      <motion.div {...fadeUp} className="max-w-4xl mx-auto relative group">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#ee6983]/20 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl" />
-        <div className="relative bg-[#0a0a0a] border border-white/10 rounded-3xl p-8 md:p-12 text-center flex flex-col items-center gap-6 shadow-2xl">
-          <div className="w-16 h-16 rounded-full bg-[#ee6983]/10 flex items-center justify-center border border-[#ee6983]/20">
-            <MessageCircle className="w-8 h-8 text-[#ee6983]" />
-          </div>
-          <div className="space-y-2">
-            <h3 className="text-white font-bold text-xl md:text-2xl uppercase tracking-wide">
-              SUA DÚVIDA NÃO FOI RESPONDIDA?
-            </h3>
-            <p className="text-white/60 text-base max-w-lg mx-auto">
-              Nossa equipe de suporte está pronta para te atender e explicar todos os detalhes sobre o I Fórum de Estética e Performance.
-            </p>
-          </div>
-          <a
-            href="https://wa.me/558499912061"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 bg-gradient-to-r from-[#850e35] to-[#ee6983] hover:opacity-90 text-white px-6 md:px-10 py-4 rounded-xl font-bold uppercase tracking-wider transition-transform hover:scale-105 shadow-[0_0_20px_rgba(238,105,131,0.3)] flex items-center gap-3"
-          >
-            <MessageCircle className="w-6 h-6 md:w-5 md:h-5 flex-shrink-0" />
-            <span className="text-[10px] md:text-sm">FALAR COM ESPECIALISTA NO WHATSAPP</span>
-          </a>
-        </div>
-      </motion.div>
     </div>
   </section>
 );

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Diamond } from "lucide-react";
 
 import s1 from "@/assets/speakers/1.png";
 import s2 from "@/assets/speakers/2.png";
@@ -13,16 +13,16 @@ import s9 from "@/assets/speakers/9.png";
 import s10 from "@/assets/speakers/10.png";
 
 const teamMembers = [
-  { name: "Alice Fuscella", role: "12 years in -centered care.", bio: "Especialista em gestão de saúde e bem-estar corporativo, traz mais de uma década de experiência transformando a cultura organizacional através da liderança feminina inspiradora.", img: s1 },
-  { name: "Eneida Carreiro", role: "Mindfulness Coach Specialist", bio: "Doutora em caminhos de inovação, focando em como a tecnologia e o fator humano se fundem para criar novos paradigmas de sucesso sustentável para empreendedoras.", img: s2 },
-  { name: "Bruna Covre", role: "Emotional Wellness Advisor", bio: "Referência em performance feminina, Bruna explora as fronteiras da medicina integrada para otimizar a saúde de mulheres que ocupam posições de alta liderança.", img: s3 },
-  { name: "Raphael Almeida", role: "Cognitive Behavior Therapist", bio: "Fundador de metodologias disruptivas na saúde, Raphael compartilha sua visão de como a fisiologia impacta diretamente as decisões de negócios de alto nível.", img: s4 },
-  { name: "Mitia Montenegro", role: "Trauma Recovery Expert", bio: "Psicóloga com foco em alta performance, ajuda líderes a navegar por ambientes de alta pressão mantendo a integridade emocional e o equilíbrio mental.", img: s5 },
-  { name: "Wanderley Cunha", role: "CEO Vectax", bio: "Consultor estratégico e gestor de grandes contas nacionais, Wanderley traz uma visão de mercado robusta sobre governança e crescimento exponencial.", img: s6 },
-  { name: "Glenda Oliveira", role: "Mestre em Biotecnologia", bio: "Pesquisadora e mentora, Glenda aplica a ciência à rotina de negócios para criar processos mais eficientes e baseados em dados sólidos.", img: s7 },
-  { name: "Danielle Mafra", role: "Executiva em ESG", bio: "Líder em sustentabilidade corporativa, Danielle orienta sobre como construir marcas que não apenas lucram, mas geram impacto real e duradouro no mundo.", img: s8 },
-  { name: "Dani Maia", role: "Dermatologista", bio: "Especialista em estética e saúde, foca na autoestima como pilar fundamental da autoconfiança para mulheres empreendedoras de sucesso.", img: s9 },
-  { name: "Marina Aragão", role: "Cons. Empresarial", bio: "Mentora de negócios focada em escala, sua consultoria ajuda empreendedoras a estruturarem suas empresas para o crescimento autogerenciável.", img: s10 },
+  { name: "Prof. Dra. Alice Fuscella", role: "Coord. Odontologia UNIFACEX", bio: "Coordenadora de Odontologia e Práticas Integrativas no UNIFACEX, de forte liderança sistêmica.", img: s1 },
+  { name: "Dra. Eneida Carreiro", role: "Doutora em Biotecnologia", bio: "Fisioterapeuta focada em Dermatofuncional e estética, com amplo Doutorado em Biotecnologia.", img: s2 },
+  { name: "Dra. Bruna Covre", role: "Médica Endocrinologista", bio: "Médica Endocrinologista de grande referência em Medicina Funcional Integrativa e longevidade.", img: s3 },
+  { name: "Dr. Raphael Almeida", role: "Fisioterapeuta e Empreendedor", bio: "Especialista em Disfunções da Coluna e Ortopedia. Criador do Método EDP e Coordenador Unifasex.", img: s4 },
+  { name: "Mitia Montenegro", role: "Esp. Saúde Mental e Autismo", bio: "Psicóloga com profunda expertise em saúde mental, neurobiologia, TCC e tratamentos do autismo.", img: s5 },
+  { name: "Wanderley Cunha", role: "CEO Vectax Produtora", bio: "Diretor criativo e CEO da Vectax, produtora responsável por líderes de software como Clickmassa.", img: s6 },
+  { name: "Dra. Glenda Oliveira", role: "Mestre em Biotecnologia", bio: "Esteticista e Biomédica consolidada desde 1996, unindo a prática e o Mestrado em Biotecnologia.", img: s7 },
+  { name: "Danielle Mafra", role: "Superintendente SESI RN", bio: "Líder Executiva Regional do SESI RN, com mestrado em governança de sustentabilidade pela Nova SBE.", img: s8 },
+  { name: "Dra. Dani Maia", role: "Dermatologista e CEO", bio: "Médica Dermatologista de altíssimo nível, fundadora e gestora da renomada Clínica Daniela Maia.", img: s9 },
+  { name: "Marina Aragão", role: "Coord. Educação IEL RN", bio: "Especialista em Consultoria Empresarial e líder das frentes ativas de carreira no IEL RN.", img: s10 },
 ];
 
 const TeamSection = () => {
@@ -34,9 +34,8 @@ const TeamSection = () => {
             <div className="team-one-top-grid-wrap">
               <div className="team-one-top-left-wrapper">
                 <div className="section-caption-wrap">
-                  <div className="w-6 h-[1px] bg-[#ee6983]/40" />
-                  <p className="caption-text">Team Member</p>
-                  <div className="w-6 h-[1px] bg-[#ee6983]/40" />
+                  <Diamond className="w-3.5 h-3.5 text-[#ee6983]" strokeWidth={2} />
+                  <p className="caption-text">Lideranças</p>
                 </div>
                 <div className="team-one-title-wrap">
                   <h2 className="team-title">
@@ -61,7 +60,6 @@ const TeamSection = () => {
             </div>
             <img src="https://cdn.prod.website-files.com/6825c2925e24e79e2bf4a9ed/682b0e1e1e3a1d317c72222f_Vector.png" loading="lazy" alt="" className="team-top-line"/>
           </div>
-
           <div className="team-cards-wrapper">
             <div className="teams-collection-list w-dyn-list">
               <div role="list" className="team-cards-grid-wrap w-dyn-items">
@@ -81,24 +79,27 @@ const TeamSection = () => {
                                 </div>
                               </div>
                               <div className="team-maember-info-wrapper">
-                                <div className="member-name-wrap">
-                                  <div className="team-member-name">{member.name}</div>
+                                <div className="member-name-wrap mb-1">
+                                  <div className="text-[26px] xl:text-[30px] font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/30 leading-tight">
+                                    {member.name}
+                                  </div>
                                 </div>
-                                <div className="team-text-wrap">
-                                  <div className="experience-info-title">Experiência:</div>
-                                  <p className="experience-text">{member.role}</p>
+                                <div className="team-text-wrap mb-4">
+                                  <div className="text-[#ee6983] font-bold text-[10px] uppercase tracking-[0.2em] mb-1">Experiência:</div>
+                                  <p className="text-white text-[13px] font-medium leading-[1.4]">{member.role}</p>
                                 </div>
-                                <div className="bio-wrap mt-4">
-                                  <p className="text-white/40 text-[14px] leading-relaxed italic line-clamp-6">
-                                    "{member.bio}"
+                                <div className="bio-wrap">
+                                  <p className="text-white/80 text-[14px] lg:text-[15px] font-light leading-[1.7] pr-2">
+                                    {member.bio}
                                   </p>
                                 </div>
                               </div>
                             </div>
-                            <div className="team-card-button-wrap mt-6">
-                              <a href="#" className="secondary-button w-inline-block">
-                                <div>Sobre {member.name.split(' ')[0]}</div>
-                              </a>
+                            
+                            <div className="w-full mt-4">
+                              <div className="flex justify-center items-center w-full bg-gradient-to-r from-[#ee6983] to-[#c74c64] py-3 rounded-full text-white font-bold uppercase tracking-widest text-[11px] sm:text-[12px] shadow-lg border border-[#ee6983]/30">
+                                {member.name}
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -116,7 +117,7 @@ const TeamSection = () => {
         :root {
           --team-bg: #050505;
           --team-card-bg: #111111;
-          --team-border: rgba(238, 105, 131, 0.15);
+          --team-border: rgba(255, 255, 255, 0.1);
           --team-accent: #ee6983;
           --team-text: #ffffff;
           --team-text-muted: rgba(255, 255, 255, 0.4);
@@ -157,7 +158,7 @@ const TeamSection = () => {
           display: flex;
           align-items: center;
           gap: 12px;
-          margin-bottom: 24px;
+          margin-bottom: 20px;
         }
 
         .caption-text {
@@ -225,7 +226,7 @@ const TeamSection = () => {
         .team-top-line {
           width: 100%;
           margin-top: 48px;
-          opacity: 0.1;
+          opacity: 0.08;
         }
 
         .team-cards-grid-wrap {
@@ -242,7 +243,7 @@ const TeamSection = () => {
 
         .team-card-wrapper {
           width: 100%;
-          height: 480px;
+          height: 520px;
           position: relative;
           transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
           transform-style: preserve-3d;
@@ -278,7 +279,7 @@ const TeamSection = () => {
           transform: rotateY(180deg);
           padding: 32px;
           background-color: #0c0c0c;
-          border-color: var(--team-accent);
+          border-color: rgba(255, 255, 255, 0.15);
         }
 
         .team-card-top-wrap {
@@ -288,8 +289,8 @@ const TeamSection = () => {
         }
 
         .team-card-image-wrap {
-          width: 90px;
-          height: 90px;
+          width: 140px;
+          height: 140px;
           border-radius: 12px;
           overflow: hidden;
           background: #111;
@@ -303,6 +304,7 @@ const TeamSection = () => {
           line-height: 1.1;
           text-transform: uppercase;
           margin-bottom: 12px;
+          display: none; /* Substituído pelo layout inline Neo-design */
         }
 
         .experience-info-title {

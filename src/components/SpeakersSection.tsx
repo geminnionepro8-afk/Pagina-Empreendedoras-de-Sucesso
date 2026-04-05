@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Quote, Star, Stethoscope, Activity, Brain, Briefcase, TestTube, Leaf, Sparkles, Target, GraduationCap, Dumbbell, Building2, Microscope } from "lucide-react";
+import { Quote, Star, Stethoscope, Activity, Brain, Briefcase, TestTube, Leaf, Sparkles, Target, GraduationCap, Dumbbell, Building2, Microscope, Diamond } from "lucide-react";
 
 import s1 from "@/assets/speakers/1.png";
 import s2 from "@/assets/speakers/2.png";
@@ -18,9 +18,9 @@ const speakers = [
     id: "s1",
     name: "Alice Fuscella", 
     fullName: "Prof. Dra. Alice Fuscella",
-    role: "Coord. Odontologia e Práticas Integrativas UNIFACEX", 
+    role: "Coordenadora de Odontologia e Práticas Integrativas", 
     shortRole: "Coord. Odontologia",
-    description: "Referência em Práticas Integrativas, a Dra. Alice lidera a inovação acadêmica no UNIFACEX, conectando ciência e bem-estar de forma multidimensional.",
+    description: "Referência na área educacional e de bem-estar corporativo. É a principal Coordenadora de Odontologia e Núcleo de Práticas Integrativas no UNIFACEX, atuando com liderança formativa.",
     img: s1,
     Icon: GraduationCap
   },
@@ -28,9 +28,9 @@ const speakers = [
     id: "s2",
     name: "Eneida Carreiro", 
     fullName: "Dra. Eneida Carreiro",
-    role: "Fisio. Dermatofuncional e Dra. em Biotecnologia", 
+    role: "Doutora em Biotecnologia e Fisioterapeuta", 
     shortRole: "Fisioterapeuta",
-    description: "Especialista em biomecânica da beleza e biotecnologia aplicada, Dra. Eneida traz o que há de mais avançado em performance estética sustentável.",
+    description: "Fisioterapeuta amplamente especializada em Dermatofuncional e estética. Traz a inovação dos seus estudos de Mestrado e Doutorado em Biotecnologia diretamente para a estética aplicada.",
     img: s2,
     Icon: Activity
   },
@@ -38,9 +38,9 @@ const speakers = [
     id: "s3",
     name: "Bruna Covre", 
     fullName: "Dra. Bruna Covre",
-    role: "Médica Endocrinologista e Funcional Integrativa", 
+    role: "Médica Endocrinologista Integrativa", 
     shortRole: "Médica Endocrinologista",
-    description: "Com foco na saúde hormonal e longevidade, Dra. Bruna guia mulheres à alta performance através do equilíbrio biológico e medicina de precisão.",
+    description: "Médica Endocrinologista altamente especializada em Medicina Funcional Integrativa. O seu super foco é a excelência clínica aliada à longevidade hormonal da mulher de sucesso.",
     img: s3,
     Icon: Stethoscope
   },
@@ -48,9 +48,9 @@ const speakers = [
     id: "s4",
     name: "Raphael Almeida", 
     fullName: "Dr. Raphael Almeida",
-    role: "Fisio. Esp. Traumato-Ortopedia e Método EDP", 
-    shortRole: "Fisio. Traumato-Ortopedia",
-    description: "Criador do Método EDP, Dr. Raphael é autoridade em reabilitação e otimização física, blindando o corpo para os desafios da liderança.",
+    role: "Fisioterapeuta, Docente e Empreendedor", 
+    shortRole: "Fisioterapeuta",
+    description: "Especialista clínico renomado em Disfunções da Coluna Vertebral e Traumato-Ortopedia. É o idealizador por trás do Método EDP (É de Propósito) e atual Coordenador.",
     img: s4,
     Icon: Dumbbell
   },
@@ -58,9 +58,9 @@ const speakers = [
     id: "s5",
     name: "Mitia Montenegro", 
     fullName: "Mitia Montenegro",
-    role: "Psicóloga Esp. em Saúde Mental, TCC e Autismo", 
-    shortRole: "Psicóloga Esp. Saúde Mental",
-    description: "Especialista em resiliência emocional, Mitia trabalha a mente como o principal ativo da mulher de sucesso, focando em equilíbrio e clareza.",
+    role: "Psicóloga Esp. em TCC e Neurobiologia", 
+    shortRole: "Psicóloga",
+    description: "Profissional de atuação ímpar em Arquitetura e Psicologia. Detém forte autoridade no tratamento executivo focando em saúde mental, neurobiologia avançada e neuro-adequações da TCC.",
     img: s5,
     Icon: Brain
   },
@@ -68,9 +68,9 @@ const speakers = [
     id: "s6",
     name: "Wanderley Cunha", 
     fullName: "Wanderley Cunha",
-    role: "CEO Vectax Produtora", 
+    role: "Gestor e CEO da Vectax Produtora", 
     shortRole: "CEO Vectax",
-    description: "Expert em comunicação e imagem corporativa, Wanderley ensina como projetar autoridade visual e impacto através da presença de marca.",
+    description: "Empreendedor que atua na linha de frente como CEO, guiando e escalando os grandes softwares comerciais que aceleram a comunicação corporativa do país de ponta a ponta.",
     img: s6,
     Icon: Building2
   },
@@ -78,9 +78,9 @@ const speakers = [
     id: "s7",
     name: "Glenda Oliveira", 
     fullName: "Dra. Glenda Oliveira",
-    role: "Biomédica, Esteticista e Mestre em Biotecnologia", 
+    role: "Mestre em Biotecnologia e Biomédica", 
     shortRole: "Biomédica",
-    description: "Mestre em biotecnologia, Dra. Glenda une estética avançada e rigor científico para resultados de alta performance na imagem pessoal.",
+    description: "Sólida na área de estética e cosmética. É Esteticista, Biomédica e Fisioterapeuta, mantendo sua atuação com um rigoroso Mestrado internacional em Biotecnologia e Docência em mercado livre.",
     img: s7,
     Icon: Microscope
   },
@@ -88,9 +88,9 @@ const speakers = [
     id: "s8",
     name: "Danielle Mafra", 
     fullName: "Danielle Mafra",
-    role: "Superint. Regional SESI RN e Executiva em ESG", 
+    role: "Superintendente do SESI RN em ESG", 
     shortRole: "Executiva em ESG",
-    description: "Líder executiva de impacto, Danielle traz a visão estratégica de ESG e sustentabilidade para o desenvolvimento de carreiras femininas.",
+    description: "Atual líder e Superintendente Regional do SESI RN, Danielle dita o mercado após certificar seu exato poder de impacto em seu Mestrado em Governança Executiva de ESG na Nova SBE.",
     img: s8,
     Icon: Leaf
   },
@@ -98,9 +98,9 @@ const speakers = [
     id: "s9",
     name: "Dani Maia", 
     fullName: "Dra. Dani Maia",
-    role: "Dermatologista, CEO Clínica Daniela Maia", 
+    role: "Dermatologista Clínica e CEO Corporativa", 
     shortRole: "Dermatologista",
-    description: "Dermatologista e empresária, Dra. Dani Maia compartilha sua experiência em gestão e cuidado com a pele como base da autoconfiança.",
+    description: "Muito mais que Médica Dermatologista, é empresária que fundou e concebeu a marca Clínica Daniela Maia, cruzando a prestação de alto padrão com serviços operacionais irretocáveis na gestão.",
     img: s9,
     Icon: Sparkles
   },
@@ -108,9 +108,9 @@ const speakers = [
     id: "s10",
     name: "Marina Aragão", 
     fullName: "Marina Aragão",
-    role: "Cons. Empresarial e Coord. Carreiras IEL RN", 
+    role: "Coordenadora de Educação IEL RN", 
     shortRole: "Cons. Empresarial",
-    description: "Especialista em carreiras e mercado corporativo, Marina orienta sobre o posicionamento estratégico para alcançar o próximo nível.",
+    description: "Atua ativamente como Coordenadora de Carreiras do IEL RN. Sua visão executiva agrupa sua formação em Administração em alto nível somado a sua grande força em soluções empresariais escaláveis.",
     img: s10,
     Icon: Target
   },
@@ -131,11 +131,10 @@ const SpeakersSection = () => {
         {/* Header Centralizado */}
         <div className="flex flex-col items-center mb-16 md:mb-24 text-center">
           <div className="flex items-center gap-3 mb-5">
-            <div className="w-8 h-[1px] bg-[#ee6983]/40" />
+            <Diamond className="w-3.5 h-3.5 text-[#ee6983]" strokeWidth={2} />
             <p className="text-[#ee6983] text-[10px] sm:text-xs uppercase tracking-[0.4em] font-bold">
               Corpo Docente
             </p>
-            <div className="w-8 h-[1px] bg-[#ee6983]/40" />
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-tight">
             As Autoridades que <br className="hidden md:block"/>
@@ -143,6 +142,26 @@ const SpeakersSection = () => {
               Transformarão Você
             </span>
           </h2>
+
+          {/* Linha Fluida Curva (SVG) */}
+          <div className="w-full max-w-[1400px] mt-12 opacity-15">
+            <svg 
+              width="100%" 
+              height="40" 
+              viewBox="0 0 1200 40" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              className="w-full h-10"
+            >
+              <path 
+                d="M1200 10 H800 C730 10 700 35 630 35 H0" 
+                stroke="#ee6983" 
+                strokeWidth="1" 
+                vectorEffect="non-scaling-stroke"
+              />
+            </svg>
+          </div>
         </div>
 
         {/* Definições de Gradiente SVG Global para Ícones */}
