@@ -62,11 +62,12 @@ const Success = () => {
       <div className="relative z-10 min-h-screen flex flex-col">
         {/* Nav */}
         <nav className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-5 border-b border-white/[0.06]">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-[#ee6983] animate-pulse" />
-            <span className="text-[#ee6983] font-bold text-xs uppercase tracking-[0.2em]">
-              Instituto Mulheres de Sucesso
-            </span>
+          <div className="flex items-center gap-4">
+            <img 
+              src="/images/logo-instituto-trimmed.png" 
+              alt="Instituto Mulheres de Sucesso" 
+              className="h-10 w-auto object-contain brightness-110" 
+            />
           </div>
         </nav>
 

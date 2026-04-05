@@ -41,55 +41,56 @@ const HeroSection = () => {
 
           {/* Logo/Brand */}
           <motion.div {...fadeRight} className="flex flex-col gap-4">
-            <div className="hidden md:inline-flex items-center gap-2 bg-[#ee6983]/15 border border-[#ee6983]/50 px-4 py-1.5 rounded-full w-fit backdrop-blur-sm">
-              <span className="text-[#ee6983] font-bold text-xs uppercase tracking-[0.2em]">Instituto Mulheres de Sucesso</span>
+            <div className="flex items-center gap-4 w-fit">
+              <img 
+                src="/images/logo-instituto-trimmed.png" 
+                alt="Instituto Mulheres de Sucesso" 
+                className="h-14 sm:h-16 md:h-20 w-auto object-left object-contain brightness-110 drop-shadow-[0_0_15px_rgba(238,105,131,0.2)]" 
+              />
             </div>
 
             {/* Row Badges */}
-            <div className="flex flex-wrap gap-3">
-              <div className="flex items-center gap-2 bg-white/[0.07] border border-white/20 px-4 py-2 rounded-full backdrop-blur-sm shadow-[0_2px_12px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.1)]">
-                <Calendar className="w-4 h-4 text-[#ee6983]" strokeWidth={1.5} />
-                <span className="text-white text-xs md:text-sm font-bold uppercase tracking-wider">17 e 18 de abril</span>
+            <div className="flex flex-wrap gap-4">
+              <div className="flex items-center gap-2.5 bg-white/[0.03] border border-white/[0.08] px-4 py-2.5 rounded-full backdrop-blur-md shadow-2xl">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#ee6983] animate-pulse" />
+                <Calendar className="w-3.5 h-3.5 text-white/40" strokeWidth={2} />
+                <span className="text-white/90 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">17 e 18 de Abril</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/[0.07] border border-white/20 px-4 py-2 rounded-full backdrop-blur-sm shadow-[0_2px_12px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.1)]">
-                <MapPin className="w-4 h-4 text-[#ee6983]" strokeWidth={1.5} />
-                <span className="text-white text-xs md:text-sm font-bold uppercase tracking-wider">UNIFACEX - Capim Macio</span>
+              <div className="flex items-center gap-2.5 bg-white/[0.03] border border-white/[0.08] px-4 py-2.5 rounded-full backdrop-blur-md shadow-2xl">
+                <MapPin className="w-3.5 h-3.5 text-[#ee6983]" strokeWidth={2} />
+                <span className="text-white/90 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">Natal, RN</span>
               </div>
             </div>
           </motion.div>
-
+ 
           {/* Main Title */}
           <motion.h1
             {...fadeRight} transition={{ delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-[1.1] tracking-tight uppercase"
+            className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.0] tracking-tight uppercase"
           >
-            Fórum de Alta <br />
-            <span className="text-[#ee6983] font-black drop-shadow-lg">
-              Performance e Saúde
-            </span> <br />
-            <span className="text-white/95 text-[20px] sm:text-[24px] lg:text-[28px] font-medium tracking-wide mt-2 block lowercase drop-shadow-md" style={{fontVariant: 'small-caps'}}>
-              Da Mulher Empreendedora
+            Alta Performance <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] to-[#f493a7] drop-shadow-sm">
+              e Saúde
             </span>
           </motion.h1>
-
+ 
           {/* Description */}
           <motion.p
             {...fadeRight} transition={{ delay: 0.3 }}
-            className="text-base md:text-lg text-white/90 max-w-lg font-light leading-relaxed drop-shadow-md"
+            className="text-base md:text-lg text-white/50 max-w-lg font-light leading-relaxed tracking-wide"
           >
-            Onde estética, psique e{" "}
-            <span className="text-[#ee6983] font-semibold">medicina integrativa</span>{" "}
-            se unem para blindar a sua saúde e acelerar o crescimento do seu CNPJ.
+            Onde estética, psique e medicina integrativa se unem para blindar a sua saúde e acelerar o crescimento do seu CNPJ.
           </motion.p>
-
+ 
           {/* CTA Button */}
           <motion.div {...fadeUp} transition={{ delay: 0.5 }} className="w-full sm:w-auto pt-4 relative z-20">
             <Link
               to="/inscricao"
-              className="group relative overflow-hidden btn-matte text-white px-10 py-5 rounded-xl font-black text-sm md:text-base uppercase tracking-widest w-full sm:w-auto flex items-center justify-center gap-3 shadow-[0_10px_40px_rgba(238,105,131,0.25)] hover:shadow-[0_15px_50px_rgba(238,105,131,0.4)] transition-all"
+              className="group relative overflow-hidden bg-gradient-to-br from-[#ee6983] via-[#ee6983] to-[#c74a62] text-white px-12 py-5 rounded-xl font-black text-sm md:text-base uppercase tracking-widest w-full sm:w-auto flex items-center justify-center gap-3 shadow-[0_20px_50px_rgba(238,105,131,0.25)] hover:shadow-[0_25px_60px_rgba(238,105,131,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
             >
+              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
               GARANTIR MINHA VAGA
-              <MoveRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" strokeWidth={1.5} />
+              <MoveRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" strokeWidth={2} />
             </Link>
           </motion.div>
 

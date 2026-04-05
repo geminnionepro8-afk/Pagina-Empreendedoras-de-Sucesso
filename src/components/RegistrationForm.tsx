@@ -111,6 +111,12 @@ const RegistrationForm = () => {
     sessionStorage.setItem("inscricao_data", JSON.stringify(fullData));
 
     try {
+      const VALOR_MAP: Record<string, number> = {
+        profissional: 14700,
+        estudante: 7350,
+        unifacex: 2000,
+      };
+
       const { error } = await supabase
         .from("inscricoes")
         .insert({
@@ -120,6 +126,8 @@ const RegistrationForm = () => {
           instagram: form.instagram.trim() || null,
           cpf: form.cpf.replace(/\D/g, ""),
           cidade: form.cidade.trim(),
+          ingresso_tipo: form.ingresso_tipo,
+          valor_pago: VALOR_MAP[form.ingresso_tipo] || 14700,
         });
 
       if (error) {

@@ -34,11 +34,12 @@ const Register = () => {
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" strokeWidth={1.5} />
             Voltar
           </button>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-[#ee6983] animate-pulse" />
-            <span className="text-[#ee6983] font-bold text-xs uppercase tracking-[0.2em] hidden sm:block">
-              Instituto Mulheres de Sucesso
-            </span>
+          <div className="flex items-center gap-4">
+            <img 
+              src="/images/logo-instituto-trimmed.png" 
+              alt="Instituto Mulheres de Sucesso" 
+              className="h-10 w-auto object-contain brightness-110" 
+            />
           </div>
           <div className="w-12" /> {/* Spacer */}
         </nav>

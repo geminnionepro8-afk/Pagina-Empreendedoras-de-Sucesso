@@ -75,6 +75,12 @@ const InstitutionalSection = () => {
 
             {/* LADO DIREITO: IMAGEM LAPTOP PNG */}
             <div className="relative h-full flex items-center justify-end">
+              
+              {/* Símbolo de Fundo Acinzentado Atrás do Notebook */}
+              <div className="absolute top-1/2 -translate-y-1/2 right-[-20%] w-[800px] h-[800px] pointer-events-none z-0 flex items-center justify-center opacity-[0.06] text-gray-400 select-none">
+                <MessageCircle className="w-full h-full" strokeWidth={0.5} />
+              </div>
+
               <motion.div 
                 initial={{ opacity: 0, x: 150, scale: 0.9 }}
                 whileInView={{ opacity: 1, x: -100, scale: 1.6 }}
