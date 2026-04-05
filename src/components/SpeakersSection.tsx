@@ -165,16 +165,16 @@ const SpeakersSection = () => {
               <button
                 key={speaker.id}
                 onClick={() => setActiveTab(speaker.id)}
-                className={`flex flex-col justify-between p-4 rounded-md border transition-all duration-300 text-left group overflow-hidden h-full ${
+                className={`relative flex flex-col justify-between p-4 rounded-md border transition-all duration-300 ease-out text-left group overflow-hidden h-full active:scale-[0.98] ${
                   activeTab === speaker.id 
-                    ? "bg-gradient-to-br from-[#ff7a94] to-[#c74c64] border-[#ee6983] shadow-[0_8px_25px_rgba(238,105,131,0.35)]" 
-                    : "bg-gradient-to-br from-[#1f1f1f] to-[#0a0a0a] border-white/5 border-t-white/10 hover:border-white/15 hover:from-[#252525] hover:to-[#0f0f0f]"
+                    ? "bg-gradient-to-br from-[#ee6983] to-[#b6304b] border-[#ee6983]/60 shadow-[0_4px_20px_rgba(238,105,131,0.25)] z-0" 
+                    : "bg-gradient-to-br from-[#181818] to-[#050505] border-white/5 hover:border-white/20 hover:scale-[1.04] hover:-translate-y-1 hover:z-10 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
                 }`}
               >
                 {/* Top Section: Avatar e Ícone */}
                 <div className="flex items-start justify-between w-full mb-2">
-                  <div className={`relative w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden shrink-0 border border-white/10 transition-colors duration-300 ${activeTab === speaker.id ? 'border-white/30' : ''}`}>
-                    <img src={speaker.img} alt={speaker.name} className={`w-full h-full object-cover transition-all duration-500 scale-105 ${activeTab === speaker.id ? "grayscale-0" : "grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100"}`} />
+                  <div className={`relative w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden shrink-0 border border-white/10 transition-all duration-300 ${activeTab === speaker.id ? 'border-white/30' : 'group-hover:border-white/20'}`}>
+                    <img src={speaker.img} alt={speaker.name} className={`w-full h-full object-cover transition-all duration-500 scale-105 ${activeTab === speaker.id ? "opacity-100" : "opacity-50 group-hover:opacity-100"}`} />
                   </div>
                   <div className={`mt-0 transition-all duration-300 ${activeTab === speaker.id ? "opacity-100 scale-100" : "opacity-100 scale-95 group-hover:scale-100"}`}>
                     {speaker.Icon && <speaker.Icon stroke={activeTab === speaker.id ? "white" : "url(#iconGradient)"} strokeWidth={activeTab === speaker.id ? 1.5 : 1} className="w-7 h-7" />}
@@ -230,17 +230,19 @@ const SpeakersSection = () => {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="h-full"
               >
-                <div className="bg-gradient-to-br from-[#1f1f1f] via-[#111] to-[#080808] border border-white/5 border-t-white/10 hover:border-[#ee6983]/20 transition-all duration-500 rounded-2xl p-8 lg:p-10 flex flex-col justify-between h-full shadow-2xl relative">
+                <div className="bg-gradient-to-br from-[#1f1f1f] via-[#111] to-[#080808] border border-white/5 border-t-white/10 hover:border-[#ee6983]/20 transition-all duration-500 rounded-2xl p-8 lg:p-12 flex flex-col justify-between h-full shadow-2xl relative">
                   <div>
-                    <h3 className="text-2xl lg:text-3xl xl:text-4xl font-black text-white uppercase tracking-tighter leading-tight mb-3">
+                    <h3 className="text-3xl lg:text-4xl xl:text-[42px] font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/30 mb-4 lg:mb-5 leading-tight">
                       {activeSpeaker.fullName}
                     </h3>
                     
-                    <div className="text-[#ee6983] text-[11px] lg:text-[13px] font-bold uppercase tracking-[0.2em] mb-6 lg:mb-8 border-b border-white/5 pb-6">
-                       {activeSpeaker.role}
+                    <div className="mb-8 lg:mb-10 opacity-90">
+                       <span className="text-[10px] lg:text-[12px] font-bold uppercase tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-[#ffcce0] via-[#ee6983] to-[#ee6983]">
+                         {activeSpeaker.role}
+                       </span>
                     </div>
 
-                    <p className="text-white/60 text-base lg:text-lg xl:text-xl font-light leading-relaxed">
+                    <p className="text-white/60 text-[16px] lg:text-[18px] xl:text-[20px] font-light leading-[1.7] lg:leading-[1.8] pr-2 lg:pr-6">
                       {activeSpeaker.description}
                     </p>
                   </div>
