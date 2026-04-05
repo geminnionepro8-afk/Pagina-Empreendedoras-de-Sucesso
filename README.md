@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# I Fórum de Estética e Performance da Mulher Empreendedora
 
-TODO: Document your project here
+Bem-vindo ao repositório do projeto.
