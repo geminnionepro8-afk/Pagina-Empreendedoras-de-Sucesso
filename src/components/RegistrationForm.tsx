@@ -158,29 +158,29 @@ const RegistrationForm = ({ onTicketChange }: RegistrationFormProps) => {
 
       <AnimatePresence mode="wait">
         {step === 1 && (
-          <motion.div key="step1" {...fade} className="space-y-6">
-            <div className="flex flex-col gap-1 mb-2">
-              <span className="text-[#ee6983] font-black text-[10px] uppercase tracking-[0.2em]">Seleção</span>
-              <h2 className="text-white font-bold text-lg">Qual o seu tipo de ingresso?</h2>
+          <motion.div key="step1" {...fade} className="space-y-4 md:space-y-6">
+            <div className="flex flex-col gap-1 mb-1">
+              <span className="text-[#ee6983] font-black text-[9px] md:text-[10px] uppercase tracking-[0.2em]">Seleção</span>
+              <h2 className="text-white font-bold text-base md:text-lg">Qual o seu tipo de ingresso?</h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
               {ticketOptions.map(t => (
                 <button
                   key={t.id}
                   type="button"
                   onClick={() => handleTicketSelect(t.id)}
-                  className={`flex flex-col items-center p-6 rounded-2xl border transition-all duration-500 relative group overflow-hidden ${
+                  className={`flex flex-col items-center p-5 xl:p-6 rounded-2xl border transition-all duration-500 relative group overflow-hidden ${
                     form.ingresso_tipo === t.id ? "bg-[#ee6983]/10 border-[#ee6983] shadow-[0_0_20px_rgba(238,105,131,0.15)]" : "bg-white/[0.03] border-white/10 hover:border-white/20"
                   }`}
                 >
                   {form.ingresso_tipo === t.id && (
-                     <div className="absolute top-3 right-3 w-5 h-5 bg-[#ee6983] rounded-full flex items-center justify-center">
-                        <Check className="text-white w-3 h-3" strokeWidth={3} />
+                     <div className="absolute top-2 right-2 md:top-3 md:right-3 w-4 h-4 md:w-5 md:h-5 bg-[#ee6983] rounded-full flex items-center justify-center">
+                        <Check className="text-white w-2.5 h-2.5 md:w-3 md:h-3" strokeWidth={3} />
                      </div>
                   )}
-                  <t.icon className={`w-8 h-8 mb-4 transition-colors duration-300 ${form.ingresso_tipo === t.id ? "text-[#ee6983]" : "text-white/20 group-hover:text-white/40"}`} />
-                  <span className="text-xs font-black uppercase tracking-[0.1em] text-white mb-1">{t.label}</span>
-                  <span className="text-[10px] font-bold text-[#ee6983] opacity-80">{t.price}</span>
+                  <t.icon className={`w-6 h-6 md:w-8 md:h-8 mb-3 md:mb-4 transition-colors duration-300 ${form.ingresso_tipo === t.id ? "text-[#ee6983]" : "text-white/20 group-hover:text-white/40"}`} />
+                  <span className="text-[11px] md:text-xs font-black uppercase tracking-[0.1em] text-white mb-1">{t.label}</span>
+                  <span className="text-[9px] md:text-[10px] font-bold text-[#ee6983] opacity-80">{t.price}</span>
                 </button>
               ))}
             </div>
@@ -194,10 +194,10 @@ const RegistrationForm = ({ onTicketChange }: RegistrationFormProps) => {
         )}
 
         {step === 2 && (
-          <motion.div key="step2" {...fade} className="space-y-6">
-            <div className="flex flex-col gap-1 mb-2">
-              <span className="text-[#ee6983] font-black text-[10px] uppercase tracking-[0.2em]">Dados</span>
-              <h2 className="text-white font-bold text-lg">Suas informações de contato</h2>
+          <motion.div key="step2" {...fade} className="space-y-4 md:space-y-6">
+            <div className="flex flex-col gap-1 mb-1">
+              <span className="text-[#ee6983] font-black text-[9px] md:text-[10px] uppercase tracking-[0.2em]">Dados</span>
+              <h2 className="text-white font-bold text-base md:text-lg">Suas informações de contato</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {[

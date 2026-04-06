@@ -20,7 +20,7 @@ const fadeRight = {
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[90vh] md:min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-black">
+    <section className="relative min-h-[90vh] md:min-h-screen flex items-center pt-24 md:pt-32 pb-12 md:pb-20 overflow-hidden bg-black">
       {/* Background Original Image filling the whole section */}
       <div className="absolute inset-0 z-0">
         <img
@@ -37,7 +37,7 @@ const HeroSection = () => {
       </div>
 
       <div className="section-container relative z-10 w-full">
-        <div className="flex flex-col items-start text-left space-y-8 max-w-2xl py-12">
+        <div className="flex flex-col items-start text-left space-y-6 md:space-y-8 max-w-2xl py-8 md:py-12">
 
           {/* Logo/Brand */}
           <motion.div {...fadeRight} className="flex flex-col gap-4">
@@ -45,16 +45,16 @@ const HeroSection = () => {
               <img 
                 src="/images/logo-instituto-trimmed.png" 
                 alt="Instituto Mulheres de Sucesso" 
-                className="h-14 sm:h-16 md:h-20 w-auto object-left object-contain brightness-110 drop-shadow-[0_0_15px_rgba(238,105,131,0.2)]" 
+                className="h-12 sm:h-16 md:h-20 w-auto object-left object-contain brightness-110 drop-shadow-[0_0_15px_rgba(238,105,131,0.2)]" 
               />
             </div>
 
-            <div className="flex flex-wrap gap-4">
-              <div className="flex items-center gap-2.5 bg-white/[0.03] border border-white/[0.08] px-4 py-2.5 rounded-full backdrop-blur-md shadow-2xl">
+            <div className="flex flex-wrap gap-3 md:gap-4">
+              <div className="flex items-center gap-2.5 bg-white/[0.03] border border-white/[0.08] px-3.5 py-2 md:px-4 md:py-2.5 rounded-full backdrop-blur-md shadow-2xl">
                 <Calendar className="w-3.5 h-3.5 text-[#ee6983]" strokeWidth={2} />
                 <span className="text-white/90 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">17 e 18 de Abril</span>
               </div>
-              <div className="flex items-center gap-2.5 bg-white/[0.03] border border-white/[0.08] px-4 py-2.5 rounded-full backdrop-blur-md shadow-2xl">
+              <div className="flex items-center gap-2.5 bg-white/[0.03] border border-white/[0.08] px-3.5 py-2 md:px-4 md:py-2.5 rounded-full backdrop-blur-md shadow-2xl">
                 <MapPin className="w-3.5 h-3.5 text-[#ee6983]" strokeWidth={2} />
                 <span className="text-white/90 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">Natal, RN</span>
               </div>
@@ -64,7 +64,7 @@ const HeroSection = () => {
           {/* Main Title */}
           <motion.h1
             {...fadeRight} transition={{ delay: 0.2 }}
-            className="text-4xl sm:text-6xl lg:text-[76px] font-light text-white leading-[1.05] tracking-tight uppercase"
+            className="text-4xl sm:text-6xl xl:text-[clamp(3rem,6vw,4.75rem)] font-light text-white leading-[1.05] tracking-tight uppercase"
           >
             O Fórum da Mulher <br className="hidden sm:block" />
             <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] via-[#f493a7] to-[#ee6983] drop-shadow-sm">
@@ -75,7 +75,7 @@ const HeroSection = () => {
           {/* Description */}
           <motion.p
             {...fadeRight} transition={{ delay: 0.3 }}
-            className="text-base md:text-lg text-white/80 max-w-lg font-normal leading-relaxed tracking-wide drop-shadow-lg"
+            className="text-sm md:text-lg text-white/80 max-w-lg font-normal leading-relaxed tracking-wide drop-shadow-lg"
           >
             Onde estética, psique e medicina integrativa se unem para blindar a sua saúde e acelerar o crescimento do seu CNPJ.
           </motion.p>

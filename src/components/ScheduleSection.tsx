@@ -53,10 +53,10 @@ const ScheduleSection = () => {
       <div className="section-container relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8">
         
         {/* Header Master */}
-        <motion.div {...fadeUp} className="flex flex-col items-center mb-24 text-center">
+        <motion.div {...fadeUp} className="flex flex-col items-center mb-16 md:mb-24 text-center">
           <SectionLabel text="Programação Oficial" centered />
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-tight">
+          <h2 className="text-[34px] sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-tight">
             Agenda <br />
             <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">
               do Fórum 2026
@@ -65,11 +65,11 @@ const ScheduleSection = () => {
         </motion.div>
 
         {/* Tabela de Grid Binaural (All-in-One) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24">
           
           {/* COLUNA: DIA 17 */}
           <div className="flex flex-col">
-            <div className="mb-12 border-b border-[#ee6983]/20 pb-6 flex flex-col items-start gap-1">
+            <div className="mb-8 sm:mb-12 border-b border-[#ee6983]/20 pb-4 sm:pb-6 flex flex-col items-start gap-1">
               <span className="text-[10px] font-bold tracking-[0.4em] text-[#ee6983] uppercase">DIA 01</span>
               <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-widest">
                 17 de Abril
@@ -79,21 +79,21 @@ const ScheduleSection = () => {
             <div className="flex flex-col">
               {schedule[17].map((item, i) => (
                 <div key={i} className="group relative">
-                  <div className="grid grid-cols-1 sm:grid-cols-[100px_1fr] items-start py-8 group-hover:bg-white/[0.01] transition-all duration-300 px-2 -mx-2 rounded-lg">
-                    <div className="mb-3 sm:mb-0">
-                      <span className="text-xl md:text-2xl font-light text-white/20 group-hover:text-[#ee6983] transition-colors duration-300 tabular-nums">
+                  <div className="grid grid-cols-1 sm:grid-cols-[100px_1fr] items-start py-6 sm:py-8 group-hover:bg-white/[0.01] transition-all duration-300 px-2 -mx-2 rounded-lg">
+                    <div className="mb-2 sm:mb-0">
+                      <span className="text-lg sm:text-xl md:text-2xl font-light text-white/20 group-hover:text-[#ee6983] transition-colors duration-300 tabular-nums">
                         {item.time}
                       </span>
                     </div>
 
-                    <div className="flex flex-col gap-2.5">
-                      <h3 className={`text-[15px] md:text-[16px] font-bold uppercase tracking-[0.15em] leading-tight ${item.highlight ? "text-white" : "text-white/80 group-hover:text-white"}`}>
+                    <div className="flex flex-col gap-1.5 sm:gap-2.5">
+                      <h3 className={`text-[14px] sm:text-[15px] md:text-[16px] font-bold uppercase tracking-[0.15em] leading-tight ${item.highlight ? "text-white" : "text-white/80 group-hover:text-white"}`}>
                         {item.title}
                       </h3>
                       
                       {item.speakers && (
                         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 opacity-80">
-                          <p className="text-[13px] font-medium text-white/40 tracking-wide leading-relaxed">
+                          <p className="text-[12px] sm:text-[13px] font-medium text-white/40 tracking-wide leading-relaxed">
                             {item.speakers.map((s, idx) => (
                               <span key={idx}>
                                 {s}{idx < item.speakers!.length - 1 && <span className="mx-2 text-[#ee6983]/30">•</span>}
@@ -114,7 +114,7 @@ const ScheduleSection = () => {
 
           {/* COLUNA: DIA 18 */}
           <div className="flex flex-col">
-            <div className="mb-12 border-b border-[#ee6983]/20 pb-6 flex flex-col items-start gap-1">
+            <div className="mb-8 sm:mb-12 border-b border-[#ee6983]/20 pb-4 sm:pb-6 flex flex-col items-start gap-1">
               <span className="text-[10px] font-bold tracking-[0.4em] text-[#ee6983] uppercase">DIA 02</span>
               <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-widest">
                 18 de Abril
@@ -124,21 +124,21 @@ const ScheduleSection = () => {
             <div className="flex flex-col">
               {schedule[18].map((item, i) => (
                 <div key={i} className="group relative">
-                  <div className="grid grid-cols-1 sm:grid-cols-[100px_1fr] items-start py-8 group-hover:bg-white/[0.01] transition-all duration-300 px-2 -mx-2 rounded-lg">
-                    <div className="mb-3 sm:mb-0">
-                      <span className="text-xl md:text-2xl font-light text-white/20 group-hover:text-[#ee6983] transition-colors duration-300 tabular-nums">
+                  <div className="grid grid-cols-1 sm:grid-cols-[100px_1fr] items-start py-6 sm:py-8 group-hover:bg-white/[0.01] transition-all duration-300 px-2 -mx-2 rounded-lg">
+                    <div className="mb-2 sm:mb-0">
+                      <span className="text-lg sm:text-xl md:text-2xl font-light text-white/20 group-hover:text-[#ee6983] transition-colors duration-300 tabular-nums">
                         {item.time}
                       </span>
                     </div>
 
-                    <div className="flex flex-col gap-2.5">
-                      <h3 className={`text-[15px] md:text-[16px] font-bold uppercase tracking-[0.15em] leading-tight ${item.highlight ? "text-white" : "text-white/80 group-hover:text-white"}`}>
+                    <div className="flex flex-col gap-1.5 sm:gap-2.5">
+                      <h3 className={`text-[14px] sm:text-[15px] md:text-[16px] font-bold uppercase tracking-[0.15em] leading-tight ${item.highlight ? "text-white" : "text-white/80 group-hover:text-white"}`}>
                         {item.title}
                       </h3>
                       
                       {item.speakers && (
                         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 opacity-80">
-                          <p className="text-[13px] font-medium text-white/40 tracking-wide leading-relaxed">
+                          <p className="text-[12px] sm:text-[13px] font-medium text-white/40 tracking-wide leading-relaxed">
                             {item.speakers.map((s, idx) => (
                               <span key={idx}>
                                 {s}{idx < item.speakers!.length - 1 && <span className="mx-2 text-[#ee6983]/30">•</span>}

@@ -58,7 +58,7 @@ const tiers = [
 ];
 
 const PricingSection = () => (
-  <section id="ingressos" className="bg-[#050505] py-24 relative overflow-hidden border-t border-[#ee6983]/10">
+  <section id="ingressos" className="bg-[#050505] py-16 md:py-24 relative overflow-hidden border-t border-[#ee6983]/10">
     {/* Subtle glow similar to Audience Section */}
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#ee6983] opacity-[0.03] blur-[150px] rounded-full pointer-events-none" />
 
@@ -76,7 +76,7 @@ const PricingSection = () => (
     <div className="section-container relative z-10 px-4">
       <motion.div {...fadeUp} className="mb-20 space-y-4 max-w-4xl mx-auto text-center flex flex-col items-center">
         <SectionLabel text="Investimento" centered />
-        <h2 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-tight">
+        <h2 className="text-[34px] sm:text-4xl md:text-5xl xl:text-[clamp(2.5rem,4vw,3.75rem)] font-light text-white uppercase tracking-tighter leading-tight">
           Escolha seu <br />
           <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">Ingresso</span>
         </h2>
@@ -86,8 +86,8 @@ const PricingSection = () => (
       </motion.div>
 
       {/* Moldura unificadora (Frame) - Aumentada em 4% e bordas calibradas */}
-      <div className="max-w-[1240px] mx-auto bg-[#0c0c0c] p-3 md:p-5 rounded-[24px] border border-white/5 shadow-2xl overflow-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 items-stretch">
+      <div className="max-w-[1240px] mx-auto bg-[#0c0c0c] p-3 md:p-4 xl:p-5 rounded-[24px] border border-white/5 shadow-2xl overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 xl:gap-3 items-stretch">
         {tiers.map((tier, idx) => (
           <motion.div
             key={tier.id}
@@ -101,12 +101,12 @@ const PricingSection = () => (
             <div className={`relative flex flex-col flex-1 rounded-[20px] overflow-hidden backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 border shadow-2xl group/card ${
               tier.highlight 
                 ? "bg-gradient-to-br from-[#1f1f1f] via-[#111111] to-[#080808] border-white/10 border-t-[#ee6983]/30 shadow-[inset_0_0_40px_rgba(238,105,131,0.05)]" 
-                : "bg-[#080808] border-white/5 opacity-95 hover:opacity-100 shadow-[inset_0_0_30px_rgba(255,255,255,0.01)]"
+                : "bg-[#080808] border-white/10 shadow-[inset_0_0_30px_rgba(255,255,255,0.01)]"
             }`}>
               {/* Dot Texture */}
               <div className="absolute inset-0 bg-dots opacity-[0.4] pointer-events-none" />
               
-              <div className="p-6 md:p-8 flex-1 flex flex-col relative z-10 text-center">
+              <div className="p-6 md:p-7 xl:p-8 flex-1 flex flex-col relative z-10 text-center">
                 
                 {/* Header (Title) */}
                 <div className="mb-6 flex flex-col items-center">
@@ -114,7 +114,7 @@ const PricingSection = () => (
                     <tier.icon className="w-6 h-6" stroke="url(#pricingIconGradient)" strokeWidth={1.5} />
                   </div>
                   
-                  <h3 className={`text-2xl md:text-3xl font-bold tracking-tighter mb-1 select-none ${tier.highlight ? "text-white" : "text-white/90"}`}>
+                  <h3 className={`text-2xl md:text-3xl font-bold tracking-tighter mb-1 select-none ${tier.highlight ? "text-white" : "text-white"}`}>
                     <span className="block text-[9px] font-bold tracking-[0.4em] text-[#ee6983] mb-2 opacity-80">
                       CREDENCIAL DE
                     </span>
@@ -146,7 +146,7 @@ const PricingSection = () => (
                 {tier.extraInfo && (
                   <div className="mb-5 mt-2">
                     <p className={`text-[9px] uppercase tracking-wider px-3 py-2 rounded-lg border leading-relaxed ${
-                      tier.highlight ? "bg-white/5 text-white/70 border-white/10" : "bg-white/5 text-white/40 border-white/5"
+                      tier.highlight ? "bg-white/5 text-white/70 border-white/10" : "bg-white/5 text-white/60 border-white/10"
                     }`}>
                       {tier.extraInfo}
                     </p>
@@ -167,10 +167,10 @@ const PricingSection = () => (
                 <Link
                   to="/inscricao"
                   state={{ selectedTier: tier.id }}
-                  className={`w-full py-5 rounded-xl font-bold text-[11px] uppercase tracking-[0.2em] flex items-center justify-center transition-all duration-300 shadow-lg ${
+                  className={`w-full py-5 rounded-xl font-bold text-[11px] uppercase tracking-[0.2em] flex items-center justify-center transition-all duration-300 shadow-lg group/btn ${
                     tier.highlight
-                      ? "bg-gradient-to-br from-[#ee6983] to-[#b6304b] hover:brightness-110 text-white shadow-[0_10px_30px_rgba(238,105,131,0.35)] border border-[#ee6983]/40 scale-[1.03]"
-                      : "bg-[#ee6983] hover:bg-[#ff7b96] text-white opacity-90 hover:opacity-100"
+                      ? "bg-gradient-to-br from-[#ee6983] to-[#b6304b] hover:brightness-110 text-white shadow-[0_15px_40px_rgba(238,105,131,0.4)] border border-[#ee6983]/50 scale-[1.05] z-20"
+                      : "bg-gradient-to-br from-[#ee6983]/90 to-[#b6304b]/90 hover:from-[#ee6983] hover:to-[#b6304b] text-white border border-[#ee6983]/20 shadow-[0_4px_15px_rgba(0,0,0,0.3)]"
                   }`}
                 >
                   Garantir Participação

@@ -179,7 +179,7 @@ const TeamSection = () => {
 
         .team-title {
           color: var(--team-text);
-          font-size: 56px;
+          font-size: clamp(34px, 8vw, 56px);
           font-weight: 200;
           line-height: 1.1;
           text-transform: uppercase;
@@ -238,20 +238,27 @@ const TeamSection = () => {
         }
 
         .team-cards-grid-wrap {
-          grid-column-gap: 16px;
-          grid-row-gap: 40px;
-          grid-template-columns: repeat(5, 1fr);
-          display: grid;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px 16px;
+          margin: 0 auto;
+        }
+
+        .team-cards-grid-wrap .w-dyn-item {
+          flex: 0 1 calc(20% - 16px);
+          min-width: 250px;
         }
 
         .team-single-card {
           perspective: 2500px;
           cursor: pointer;
+          width: 100%;
         }
 
         .team-card-wrapper {
           width: 100%;
-          height: 520px;
+          height: clamp(440px, 65vh, 520px);
           position: relative;
           transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
           transform-style: preserve-3d;
@@ -285,7 +292,7 @@ const TeamSection = () => {
 
         .team-card-content-wrap.back {
           transform: rotateY(180deg);
-          padding: 32px;
+          padding: 24px;
           background-color: #0c0c0c;
           border-color: rgba(255, 255, 255, 0.15);
         }
@@ -293,12 +300,12 @@ const TeamSection = () => {
         .team-card-top-wrap {
           display: flex;
           justify-content: flex-end;
-          margin-bottom: 24px;
+          margin-bottom: 20px;
         }
 
         .team-card-image-wrap {
-          width: 140px;
-          height: 140px;
+          width: 120px;
+          height: 120px;
           border-radius: 12px;
           overflow: hidden;
           background: #111;
@@ -343,6 +350,7 @@ const TeamSection = () => {
           text-align: center;
           transition: all 0.3s ease;
           width: fit-content;
+          margin: 0 auto;
         }
 
         .secondary-button:hover {
@@ -351,36 +359,58 @@ const TeamSection = () => {
         }
 
         @media screen and (max-width: 1400px) {
-          .team-cards-grid-wrap {
-            grid-template-columns: repeat(4, 1fr);
+          .team-cards-grid-wrap .w-dyn-item {
+            flex: 0 1 calc(25% - 16px);
           }
         }
 
-        @media screen and (max-width: 1100px) {
-          .team-cards-grid-wrap {
-            grid-template-columns: repeat(3, 1fr);
+        @media screen and (max-width: 1150px) {
+          .team-cards-grid-wrap .w-dyn-item {
+            flex: 0 1 calc(33.333% - 16px);
           }
           .team-title {
             font-size: 42px;
           }
         }
 
-        @media screen and (max-width: 767px) {
-          .team-cards-grid-wrap {
-            grid-template-columns: repeat(2, 1fr);
+        @media screen and (max-width: 1024px) {
+          .team-one-top-grid-wrap {
+            grid-template-columns: 1fr;
+            text-align: center;
+            align-items: center;
+            gap: 24px;
+          }
+          .team-one-top-left-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .team-one-top-right-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+          }
+          .team { padding-top: 80px; padding-bottom: 80px; }
+        }
+
+        @media screen and (max-width: 850px) {
+          .team-cards-grid-wrap .w-dyn-item {
+            flex: 0 1 calc(50% - 16px);
+            min-width: 200px;
           }
           .team-card-wrapper {
-            height: 480px;
+            height: clamp(400px, 60vh, 480px);
           }
         }
 
         @media screen and (max-width: 479px) {
-          .team-cards-grid-wrap {
-            grid-template-columns: 1fr;
+          .team-cards-grid-wrap .w-dyn-item {
+            flex: 0 1 100%;
           }
           .team-title {
-            font-size: 32px;
+            font-size: 36px;
           }
+          .team-one-top-wrapper { margin-bottom: 48px; }
         }
       `}</style>
     </section>

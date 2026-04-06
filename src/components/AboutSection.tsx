@@ -115,25 +115,25 @@ const AboutSection = () => {
 
         .about-section {
           background-color: var(--about-bg);
-          padding-top: 80px;
-          padding-bottom: 80px;
+          padding-top: clamp(40px, 5vh, 80px);
+          padding-bottom: clamp(40px, 5vh, 80px);
           overflow: hidden;
         }
 
         .about-container {
           width: 100%;
-          max-width: 1260px !important; /* Aumentado 15% a partir de 1100px */
+          max-width: 1260px;
           margin-left: auto;
           margin-right: auto;
-          padding-left: 20px;
-          padding-right: 20px;
+          padding-left: clamp(20px, 4vw, 40px);
+          padding-right: clamp(20px, 4vw, 40px);
         }
 
         .about-top-grid-wrap {
-          grid-column-gap: 56px;
+          grid-column-gap: clamp(24px, 4vw, 56px);
           grid-row-gap: 32px; 
           grid-template-rows: auto;
-          grid-template-columns: 1.15fr 0.85fr; /* 5% Menos Esquerda / 5% Mais Direita */
+          grid-template-columns: 1.15fr 0.85fr;
           display: grid;
           align-items: stretch;
         }
@@ -155,17 +155,17 @@ const AboutSection = () => {
 
         .about-title {
           color: white;
-          font-size: 52px; /* Aumentado a força do Título conforme pedido */
+          font-size: clamp(34px, 10vw, 52px);
           font-weight: 200;
-          line-height: 1.05; /* Mais ajustado para evitar quebra excessiva */
+          line-height: 1.05;
           text-transform: uppercase;
           margin-bottom: 20px;
-          letter-spacing: -0.03em; /* Apertando tracking para caber em 2 linhas mesmo maior */
+          letter-spacing: -0.03em;
         }
 
         .about-text {
-          color: rgba(255, 255, 255, 0.7); /* Cor bem mais clara / brilhante */
-          font-size: 17px; /* Texto muito maior */
+          color: rgba(255, 255, 255, 0.7);
+          font-size: clamp(15px, 1.1vw, 17px);
           line-height: 1.6;
           font-weight: 300;
           margin-bottom: 32px;
@@ -173,7 +173,7 @@ const AboutSection = () => {
 
         .about-button-wrap {
           margin-top: 0px;
-          margin-bottom: 36px; /* Menor espaçamento */
+          margin-bottom: 36px;
           display: flex;
           justify-content: flex-start;
         }
@@ -182,13 +182,13 @@ const AboutSection = () => {
           background: linear-gradient(135deg, #ee6983 0%, #b6304b 100%);
           border: 1px solid rgba(238, 105, 131, 0.4);
           color: #fff;
-          padding: 6px 8px 6px 20px; /* Restaurada a estética menor */
+          padding: 6px 8px 6px 20px;
           border-radius: 100px;
           text-decoration: none;
           display: inline-flex;
           align-items: center;
-          gap: 12px; /* Gap retraído ao original */
-          font-size: 14px; /* Retornado para escala elegante original */
+          gap: 12px;
+          font-size: 14px;
           font-weight: 700;
           letter-spacing: 0.05em;
           transition: all 0.3s ease;
@@ -215,9 +215,9 @@ const AboutSection = () => {
         .primary-button:hover .primary-button-text-hover { transform: translateY(-100%); }
 
         .button-icon-wrap {
-          background-color: #7a1229; /* Mantida a cor ajustada rosa mais fundo */
+          background-color: #7a1229;
           border-radius: 100px;
-          width: 36px; /* Retornado a escala pequena elegante */
+          width: 36px;
           height: 36px;
           display: flex;
           align-items: center;
@@ -225,7 +225,7 @@ const AboutSection = () => {
         }
 
         .about-item-grid-wrap {
-          grid-column-gap: 20px;
+          grid-column-gap: clamp(12px, 1.5vw, 20px);
           grid-row-gap: 16px;
           grid-template-rows: auto;
           grid-template-columns: 1fr 1fr 1fr;
@@ -237,9 +237,9 @@ const AboutSection = () => {
           background: linear-gradient(135deg, #1f1f1f 0%, #111111 50%, #080808 100%);
           border: 1px solid rgba(255, 255, 255, 0.05);
           border-top: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 20px; /* Arredondamento majorado */
-          padding: 24px 20px; /* Cartão ligeiramente comprimido dimensionalmente */
-          min-height: 165px; /* Altura minorada */
+          border-radius: 20px;
+          padding: clamp(16px, 2vw, 24px);
+          min-height: clamp(140px, 15vh, 165px);
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
@@ -258,8 +258,8 @@ const AboutSection = () => {
           background-color: rgba(255, 255, 255, 0.05);
           border: 1px solid rgba(255, 255, 255, 0.08);
           border-radius: 50%;
-          width: 48px; 
-          height: 48px;
+          width: clamp(40px, 3.5vw, 48px); 
+          height: clamp(40px, 3.5vw, 48px);
           margin-bottom: 20px;
           display: flex;
           align-items: center;
@@ -268,15 +268,15 @@ const AboutSection = () => {
 
         .about-item-title {
           color: white;
-          font-size: 20px; /* Maior */
+          font-size: clamp(16px, 1.5vw, 20px);
           font-weight: 600;
           line-height: 1.2;
           margin-bottom: 8px;
         }
 
         .about-item-text {
-          color: rgba(255, 255, 255, 0.5); /* Mais visivel e claro */
-          font-size: 15px; /* Maior */
+          color: rgba(255, 255, 255, 0.5);
+          font-size: clamp(13px, 1.1vw, 15px);
           line-height: 1.5;
           font-weight: 300;
         }
@@ -285,7 +285,7 @@ const AboutSection = () => {
         .about-image-card {
           width: 100%;
           height: 100%;
-          min-height: 500px;
+          min-height: clamp(350px, 50vh, 550px);
           max-height: none;
           border-radius: 20px;
           overflow: hidden;
@@ -306,16 +306,39 @@ const AboutSection = () => {
           background: linear-gradient(35deg, rgba(5,5,5,0.4) 0%, transparent 60%);
         }
 
-        @media screen and (max-width: 1100px) {
-          .about-title { font-size: 36px; }
+        @media screen and (max-width: 1024px) {
+          .about-title { font-size: 38px; }
           .about-top-grid-wrap { grid-template-columns: 1fr; }
           .about-top-right-wrapper { order: -1; min-height: 380px; }
+          .about-item-grid-wrap { grid-template-columns: 1fr 1fr; }
         }
 
         @media screen and (max-width: 767px) {
-          .about-item-grid-wrap { grid-template-columns: 1fr; margin-top: 32px; }
-          .about-section { padding-top: 80px; padding-bottom: 80px; }
-          .about-title { font-size: 32px; }
+          .about-item-grid-wrap { 
+            grid-template-columns: 1fr; 
+            margin-top: 32px; 
+            gap: 12px;
+          }
+          .about-single-item {
+            min-height: auto;
+            padding: 18px;
+            border-radius: 16px;
+          }
+          .about-item-icon-wrap {
+            width: 38px;
+            height: 38px;
+            margin-bottom: 12px;
+          }
+          .about-item-icon-wrap svg {
+            width: 18px;
+            height: 18px;
+          }
+          .about-item-title {
+            font-size: 16px;
+            margin-bottom: 4px;
+          }
+          .about-section { padding-top: 60px; padding-bottom: 60px; }
+          .about-title { font-size: 34px; }
         }
       `}</style>
     </section>

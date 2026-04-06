@@ -51,6 +51,16 @@
 }
 
 @layer base {
+  html {
+    /* Fluid base font size for scaling whole layout on smaller vertical heights */
+    @media screen and (max-height: 850px) and (min-width: 1024px) {
+      font-size: 15px;
+    }
+    @media screen and (max-height: 750px) and (min-width: 1024px) {
+      font-size: 14px;
+    }
+  }
+
   * {
     @apply border-border;
   }
@@ -81,7 +91,7 @@
 
 @layer components {
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-5 sm:px-8 xl:px-12;
   }
 
   .heading-display {

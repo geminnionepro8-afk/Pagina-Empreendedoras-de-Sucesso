@@ -43,7 +43,7 @@ const FAQSection = () => (
     <div className="section-container relative z-10">
       <motion.div {...fadeUp} className="mb-20 space-y-4 max-w-4xl mx-auto text-center flex flex-col items-center">
         <SectionLabel text="Tire suas dúvidas" centered />
-        <h2 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-tight">
+        <h2 className="text-[34px] sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-tight">
           Perguntas <br />
           <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">Frequentes</span>
         </h2>

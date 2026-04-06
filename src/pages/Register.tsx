@@ -62,15 +62,15 @@ const Register = () => {
         */}
 
         {/* Content */}
-        <div className="flex-1 px-4 sm:px-6 lg:px-8 pb-16 pt-12">
-          <div className="max-w-5xl mx-auto">
+        <div className="flex-1 px-4 sm:px-6 xl:px-8 pb-12 md:pb-16 pt-8 md:pt-12">
+          <div className="max-w-[1200px] mx-auto">
 
             {/* Header */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-center mb-10"
+              className="text-center mb-8 md:mb-10"
             >
               <h1 className="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight leading-tight mb-2">
                 Inscrição{" "}
@@ -84,7 +84,7 @@ const Register = () => {
             </motion.div>
 
             {/* Two-column layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-6 lg:gap-10 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_380px] gap-6 xl:gap-10 items-start">
 
               {/* Form card */}
               <motion.div
