@@ -49,11 +49,9 @@ const HeroSection = () => {
               />
             </div>
 
-            {/* Row Badges */}
             <div className="flex flex-wrap gap-4">
               <div className="flex items-center gap-2.5 bg-white/[0.03] border border-white/[0.08] px-4 py-2.5 rounded-full backdrop-blur-md shadow-2xl">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#ee6983] animate-pulse" />
-                <Calendar className="w-3.5 h-3.5 text-white/40" strokeWidth={2} />
+                <Calendar className="w-3.5 h-3.5 text-[#ee6983]" strokeWidth={2} />
                 <span className="text-white/90 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">17 e 18 de Abril</span>
               </div>
               <div className="flex items-center gap-2.5 bg-white/[0.03] border border-white/[0.08] px-4 py-2.5 rounded-full backdrop-blur-md shadow-2xl">
@@ -66,18 +64,18 @@ const HeroSection = () => {
           {/* Main Title */}
           <motion.h1
             {...fadeRight} transition={{ delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.0] tracking-tight uppercase"
+            className="text-4xl sm:text-6xl lg:text-[76px] font-light text-white leading-[1.05] tracking-tight uppercase"
           >
-            Alta Performance <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] to-[#f493a7] drop-shadow-sm">
-              e Saúde
+            O Fórum da Mulher <br className="hidden sm:block" />
+            <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] via-[#f493a7] to-[#ee6983] drop-shadow-sm">
+              Empreendedora
             </span>
           </motion.h1>
  
           {/* Description */}
           <motion.p
             {...fadeRight} transition={{ delay: 0.3 }}
-            className="text-base md:text-lg text-white/50 max-w-lg font-light leading-relaxed tracking-wide"
+            className="text-base md:text-lg text-white/80 max-w-lg font-normal leading-relaxed tracking-wide drop-shadow-lg"
           >
             Onde estética, psique e medicina integrativa se unem para blindar a sua saúde e acelerar o crescimento do seu CNPJ.
           </motion.p>
@@ -86,11 +84,11 @@ const HeroSection = () => {
           <motion.div {...fadeUp} transition={{ delay: 0.5 }} className="w-full sm:w-auto pt-4 relative z-20">
             <Link
               to="/inscricao"
-              className="group relative overflow-hidden bg-gradient-to-br from-[#ee6983] via-[#ee6983] to-[#c74a62] text-white px-12 py-5 rounded-xl font-black text-sm md:text-base uppercase tracking-widest w-full sm:w-auto flex items-center justify-center gap-3 shadow-[0_20px_50px_rgba(238,105,131,0.25)] hover:shadow-[0_25px_60px_rgba(238,105,131,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+              className="group relative overflow-hidden bg-gradient-to-r from-[#ee6983] via-[#f493a7] to-[#ee6983] text-white px-10 py-4 rounded-xl font-bold text-xs md:text-sm uppercase tracking-[0.2em] w-full sm:w-auto flex items-center justify-center gap-3 shadow-[0_20px_50px_rgba(238,105,131,0.2)] hover:shadow-[0_25px_60px_rgba(238,105,131,0.35)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
             >
               <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
               GARANTIR MINHA VAGA
-              <MoveRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" strokeWidth={2} />
+              <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" strokeWidth={2.5} />
             </Link>
           </motion.div>
 

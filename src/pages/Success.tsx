@@ -24,6 +24,27 @@ const Success = () => {
     }
   }, []);
 
+  const selectedTier = (data as any)?.ingresso_tipo || "profissional";
+  const steps = [
+    { number: 1, label: "Ingresso" },
+    { number: 2, label: "Seus Dados" },
+    ...(selectedTier !== "profissional" ? [{ number: 3, label: "Documentação" }] : []),
+    ...(selectedTier === "unifacex" ? [{ number: 4, label: "Doação" }] : []),
+    { number: 5, label: "Pagamento" }
+  ].map((s, i) => ({ ...s, number: i + 1 }));
+
+  const tierNames: Record<string, string> = {
+    profissional: "Ingresso Profissional",
+    estudante: "Estudante Externo",
+    unifacex: "Estudante UNIFACEX + Doação"
+  };
+
+  const tierPrices: Record<string, string> = {
+    profissional: "R$ 147,00",
+    estudante: "R$ 73,50",
+    unifacex: "R$ 20,00 + 1kg Alimento"
+  };
+
   const firstName = data?.nome?.split(" ")[0] ?? "Bem-vinda";
 
   const nextSteps = [
@@ -73,7 +94,7 @@ const Success = () => {
 
         {/* Progress */}
         <div className="px-4 py-8 sm:py-10">
-          <ProgressSteps currentStep={3} />
+          <ProgressSteps currentStep={steps.length + 1} steps={steps} />
         </div>
 
         {/* Content */}
@@ -141,7 +162,7 @@ const Success = () => {
                       { label: "E-mail", value: data.email },
                       { label: "Telefone", value: data.telefone },
                       { label: "Cidade", value: data.cidade },
-                      { label: "Ingresso", value: "Taxa Social — R$ 49,00" },
+                      { label: "Ingresso", value: `${tierNames[selectedTier]} — ${tierPrices[selectedTier]}` },
                       { label: "Evento", value: "17 e 18 de Abril · UNIFACEX, Natal/RN" },
                     ].map(item => (
                       <div key={item.label}>

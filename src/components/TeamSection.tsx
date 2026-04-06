@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Diamond } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 import s1 from "@/assets/speakers/1.png";
 import s2 from "@/assets/speakers/2.png";
@@ -33,32 +35,38 @@ const TeamSection = () => {
           <div className="team-one-top-wrapper">
             <div className="team-one-top-grid-wrap">
               <div className="team-one-top-left-wrapper">
-                <div className="section-caption-wrap">
-                  <Diamond className="w-3.5 h-3.5 text-[#ee6983]" strokeWidth={2} />
-                  <p className="caption-text">Lideranças</p>
-                </div>
+                <SectionLabel text="Mentes de Alto Impacto" />
                 <div className="team-one-title-wrap">
                   <h2 className="team-title">
-                    Lideranças que <br />
+                    Lideranças que moldam <br />
                     <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">
-                      constroem o futuro.
+                      o próximo nível
                     </span>
                   </h2>
                 </div>
               </div>
               <div className="team-one-top-right-wrapper">
-                <a href="#inscricao" className="primary-button appointment-button w-inline-block">
+                <Link to="/inscricao" className="primary-button appointment-button w-inline-block">
                   <div className="button-text-wrap">
                     <div className="primary-button-text">Garantir Vaga</div>
                     <div className="primary-button-text-hover">Garantir Vaga</div>
                   </div>
                   <div className="button-icon-wrap">
-                    <img src="https://cdn.prod.website-files.com/6825c2925e24e79e2bf4a9ed/68282e9440a929f1c3e5d3e8_Arrow-Up.png" loading="lazy" width="20" alt="" className="primary-button-icon"/>
+                    <ArrowUpRight className="w-5 h-5 text-white" strokeWidth={2} />
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
-            <img src="https://cdn.prod.website-files.com/6825c2925e24e79e2bf4a9ed/682b0e1e1e3a1d317c72222f_Vector.png" loading="lazy" alt="" className="team-top-line"/>
+            <img 
+              src="https://cdn.prod.website-files.com/6825c2925e24e79e2bf4a9ed/682b0e1e1e3a1d317c72222f_Vector.png" 
+              loading="lazy" 
+              alt="" 
+              className="team-top-line" 
+              style={{ 
+                filter: 'brightness(0) saturate(100%) invert(56%) sepia(51%) saturate(1637%) hue-rotate(307deg) brightness(97%) contrast(93%)', 
+                opacity: 0.8 
+              }} 
+            />
           </div>
           <div className="team-cards-wrapper">
             <div className="teams-collection-list w-dyn-list">
@@ -226,7 +234,7 @@ const TeamSection = () => {
         .team-top-line {
           width: 100%;
           margin-top: 48px;
-          opacity: 0.08;
+          opacity: 0.3;
         }
 
         .team-cards-grid-wrap {

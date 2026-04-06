@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import laptopImg from "@/assets/laptop_support.png";
 import cardImg from "@/assets/service-card.png";
-import { MessageCircle, Diamond } from "lucide-react";
+import { MessageCircle } from "lucide-react";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -11,6 +13,9 @@ const fadeUp = {
 };
 
 const InstitutionalSection = () => {
+  const [laptopLoaded, setLaptopLoaded] = useState(false);
+  const [cardLoaded, setCardLoaded] = useState(false);
+
   return (
     <section id="atendimento" className="bg-[#080808] py-12 md:py-16 relative overflow-hidden">
       {/* Linha Separadora Sutil */}
@@ -30,12 +35,7 @@ const InstitutionalSection = () => {
             <div className="p-8 md:p-16 flex flex-col gap-10 relative z-20">
               <div className="space-y-6">
                 {/* Etiqueta */}
-                <div className="flex items-center gap-3">
-                  <Diamond className="w-3.5 h-3.5 text-[#ee6983]" strokeWidth={2} />
-                  <p className="text-[#ee6983] text-[10px] sm:text-xs uppercase tracking-[0.4em] font-bold">
-                    Suporte Personalizado
-                  </p>
-                </div>
+                <SectionLabel text="Suporte Personalizado" />
 
                 <h2 className="text-4xl md:text-5xl lg:text-5xl font-light text-white uppercase tracking-tighter leading-tight">
                   Tire suas dúvidas <br />
@@ -52,8 +52,15 @@ const InstitutionalSection = () => {
                 viewport={{ once: true }}
                 className="w-[350px] h-[344px] bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 rounded-[20px] flex flex-col items-start gap-6 group hover:bg-white/[0.05] transition-all duration-300"
               >
-                <div className="w-full h-[180px] rounded-[16px] overflow-hidden shrink-0 border border-white/10 group-hover:scale-[1.02] transition-transform">
-                  <img src={cardImg} alt="Atendimento" className="w-full h-full object-cover" />
+                <div className={`w-full h-[180px] rounded-[16px] overflow-hidden shrink-0 border border-white/10 relative ${!cardLoaded ? 'img-skeleton' : ''}`}>
+                  <img 
+                    src={cardImg} 
+                    alt="Atendimento" 
+                    className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-[1.05] ${cardLoaded ? 'opacity-100 blur-0' : 'opacity-0 blur-md'}`} 
+                    onLoad={() => setCardLoaded(true)}
+                    loading="eager"
+                    fetchPriority="high"
+                  />
                 </div>
                 
                 <div className="flex flex-col gap-6 text-left w-full">
@@ -61,7 +68,7 @@ const InstitutionalSection = () => {
                     SUPORTE HUMANO IMEDIATO
                   </h3>
                   <a 
-                    href="https://wa.me/558499912061" 
+                    href="https://wa.me/558498682061" 
                     target="_blank" 
                     rel="noreferrer" 
                     className="bg-[#ee6983] hover:bg-[#ff7c96] text-white text-[11px] font-bold uppercase tracking-[0.2em] py-4 px-8 rounded-xl transition-all flex items-center justify-center sm:justify-start gap-2 shadow-lg shadow-[#ee6983]/20 w-fit"
@@ -86,12 +93,15 @@ const InstitutionalSection = () => {
                 whileInView={{ opacity: 1, x: -100, scale: 1.6 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="relative z-10 w-full flex justify-end"
+                className={`relative z-10 w-full flex justify-end ${!laptopLoaded ? 'img-skeleton rounded-2xl mx-12' : ''}`}
               >
                 <img 
                   src={laptopImg} 
                   alt="Atendimento WhatsApp" 
-                  className="w-full max-w-[1100px] h-auto object-contain" 
+                  className={`w-full max-w-[1100px] h-auto object-contain transition-all duration-1000 ${laptopLoaded ? 'opacity-100 blur-0 scale-100' : 'opacity-0 blur-xl scale-95'}`} 
+                  onLoad={() => setLaptopLoaded(true)}
+                  loading="eager"
+                  fetchPriority="high"
                   style={{
                     WebkitMaskImage: 'linear-gradient(to top, transparent 0%, black 15%)',
                     maskImage: 'linear-gradient(to top, transparent 0%, black 15%)'

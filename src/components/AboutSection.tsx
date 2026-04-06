@@ -1,5 +1,7 @@
-import { CalendarFold, MapPin, Clock, ArrowUpRight, Diamond, Sparkles } from "lucide-react";
+import { CalendarFold, MapPin, Clock, ArrowUpRight, Sparkles } from "lucide-react";
+import SectionLabel from "@/components/ui/SectionLabel";
 import eventInfoImg from "@/assets/event-info-image.jpg";
+import { Link } from "react-router-dom";
 
 const AboutSection = () => {
   return (
@@ -22,11 +24,8 @@ const AboutSection = () => {
                 </defs>
               </svg>
 
-              {/* Caption Oficial (Ornamentos Iconográficos) */}
-              <div className="section-caption-wrap">
-                <Diamond className="w-3.5 h-3.5 text-[#ee6983]" strokeWidth={2} />
-                <h3 className="section-caption-text">SOBRE A IMERSÃO</h3>
-              </div>
+              {/* Caption Oficial (Laço Rosa Standard) */}
+              <SectionLabel text="SOBRE A IMERSÃO" />
 
               {/* Título - Forçado em 2 Linhas via Grid e nowraps lógicos */}
               <div className="about-title-wrap">
@@ -47,7 +46,7 @@ const AboutSection = () => {
 
               {/* Botão Travado a Esquerda */}
               <div className="about-button-wrap">
-                <a href="#inscricao" className="primary-button group">
+                <Link to="/inscricao" className="primary-button group">
                   <div className="button-text-wrap">
                     <div className="primary-button-text">Garantir Vaga</div>
                     <div className="primary-button-text-hover">Garantir Vaga</div>
@@ -55,7 +54,7 @@ const AboutSection = () => {
                   <div className="button-icon-wrap transition-transform duration-300 group-hover:rotate-45">
                     <ArrowUpRight className="w-4 h-4 text-[#ffcce0]" strokeWidth={2.5} />
                   </div>
-                </a>
+                </Link>
               </div>
 
               {/* ══ OS 3 CARDS COMPACTOS (LOGÍSTICA INVERTIDA) ══ */}

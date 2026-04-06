@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { MessageCircle, HelpCircle } from "lucide-react";
+import SectionLabel from "@/components/ui/SectionLabel";
 import {
   Accordion,
   AccordionContent,
@@ -25,7 +26,7 @@ const faqs = [
   },
   {
     q: "Haverá emissão de certificado?",
-    a: "Sim! Todos os participantes receberão um certificado digital de participação que reforça seu engajamento em saúde integrativa e gestão de alta performance.",
+    a: "Sim! Todos os participantes receberão um certificado digital de participação emitido pelo Instituto Mulheres de Sucesso, que reforça seu engajamento em saúde integrativa e gestão de alta performance.",
   },
   {
     q: "A quem se destina o Fórum?",
@@ -33,7 +34,7 @@ const faqs = [
   },
   {
     q: "Como funciona a Taxa Social e Formas de Pagamento?",
-    a: "Para viabilizar acesso em massa, o Instituto Mulheres de Sucesso Brasileiras adotou uma Taxa Social de apenas R$ 49,00. O pagamento é realizado através da plataforma segura Kiwify, diretamente via PIX para o CNPJ do Instituto.",
+    a: "Para estudantes UNIFACEX, o Instituto oferece uma Taxa Social de apenas R$ 20,00 (+ 1kg de alimento). O pagamento é realizado de forma segura via PIX diretamente no final do nosso formulário de inscrição oficial.",
   },
 ];
 
@@ -41,13 +42,7 @@ const FAQSection = () => (
   <section className="bg-[#080808] py-24 relative overflow-hidden">
     <div className="section-container relative z-10">
       <motion.div {...fadeUp} className="mb-20 space-y-4 max-w-4xl mx-auto text-center flex flex-col items-center">
-        <div className="flex items-center justify-center gap-3 mb-2">
-          <div className="hidden sm:block w-8 h-[1px] bg-[#ee6983]/50" />
-          <p className="text-[#ee6983] text-[10px] sm:text-xs uppercase tracking-[0.4em] font-bold">
-            Tire suas dúvidas
-          </p>
-          <div className="hidden sm:block w-8 h-[1px] bg-[#ee6983]/50" />
-        </div>
+        <SectionLabel text="Tire suas dúvidas" centered />
         <h2 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-tight">
           Perguntas <br />
           <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">Frequentes</span>

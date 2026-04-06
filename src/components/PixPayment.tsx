@@ -18,6 +18,11 @@ const PixPayment = () => {
   const [timeLeft, setTimeLeft] = useState(EXPIRY_SECONDS);
   const [expired, setExpired] = useState(false);
   const [price, setPrice] = useState("147,00");
+  const [qrCodeData, setQrCodeData] = useState<{
+    image_url: string | null;
+    text: string | null;
+    expiration: string | null;
+  } | null>(null);
 
   useEffect(() => {
     try {
@@ -26,6 +31,16 @@ const PixPayment = () => {
         const data = JSON.parse(dataStr);
         if (data.ingresso_tipo && PRICES[data.ingresso_tipo]) {
           setPrice(PRICES[data.ingresso_tipo]);
+        }
+        if (data.qr_code) {
+          setQrCodeData(data.qr_code);
+          if (data.qr_code.expiration) {
+            const exp = new Date(data.qr_code.expiration).getTime();
+            const now = new Date().getTime();
+            const diff = Math.max(0, Math.floor((exp - now) / 1000));
+            setTimeLeft(diff);
+            if (diff <= 0) setExpired(true);
+          }
         }
       }
     } catch(e) { /* ignore */ }
@@ -44,7 +59,8 @@ const PixPayment = () => {
   const seconds = String(timeLeft % 60).padStart(2, "0");
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("59418846000199").then(() => {
+    const textToCopy = qrCodeData?.text || MOCK_PIX_CODE;
+    navigator.clipboard.writeText(textToCopy).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     });
@@ -100,18 +116,16 @@ const PixPayment = () => {
             transition={{ duration: 0.3 }}
             className="flex flex-col items-center gap-4"
           >
-            {/* QR visual mock */}
-            <div className="relative w-44 h-44 bg-white rounded-2xl p-3 shadow-[0_0_40px_rgba(238,105,131,0.15)] flex flex-col justify-center items-center">
-               <div className="text-black font-black flex flex-col items-center justify-center gap-1">
-                 <span className="text-xl">PIX CNPJ</span>
-                 <span className="text-3xl tracking-tighter shadow-sm">{MOCK_PIX_CODE}</span>
-               </div>
-              {/* Center logo overlay */}
-              <div className="absolute inset-x-0 -bottom-4 flex items-center justify-center">
-                <div className="w-10 h-10 bg-[#151515] border border-white/10 rounded-lg flex items-center justify-center shadow-lg">
-                  <Smartphone className="w-5 h-5 text-[#ee6983]" strokeWidth={1.5} />
+            {/* QR visual real ou fallback */}
+            <div className="relative w-44 h-44 bg-white rounded-2xl p-2 shadow-[0_0_40px_rgba(238,105,131,0.15)] flex flex-col justify-center items-center overflow-hidden border border-white/20">
+              {qrCodeData?.image_url ? (
+                <img src={qrCodeData.image_url} alt="QR Code PIX" className="w-full h-full object-contain" />
+              ) : (
+                <div className="text-black font-black flex flex-col items-center justify-center gap-1">
+                  <span className="text-xl">PIX CNPJ</span>
+                  <span className="text-3xl tracking-tighter shadow-sm">{MOCK_PIX_CODE}</span>
                 </div>
-              </div>
+              )}
             </div>
             <p className="text-white/40 text-xs text-center mt-3">
               Instituto Mulheres de Sucesso Brasileiras
@@ -134,8 +148,8 @@ const PixPayment = () => {
         <p className="text-white/40 text-xs font-bold uppercase tracking-[0.15em]">COPIE A CHAVE PIX (CNPJ)</p>
         <div className="flex items-center gap-2">
           <div className="flex-1 bg-white/[0.04] border border-white/8 rounded-xl px-4 py-3 overflow-hidden">
-            <p className="text-white/60 text-lg font-mono font-bold truncate select-all leading-relaxed">
-              {MOCK_PIX_CODE}
+            <p className="text-white/60 text-[10px] md:text-xs font-mono font-bold truncate select-all leading-relaxed">
+              {qrCodeData?.text || MOCK_PIX_CODE}
             </p>
           </div>
           <button

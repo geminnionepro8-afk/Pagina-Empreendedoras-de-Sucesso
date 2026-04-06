@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, ShieldCheck, MapPin, Sparkles, Building, GraduationCap, HeartHandshake, Diamond } from "lucide-react";
+import { CheckCircle2, ShieldCheck, MapPin, Sparkles, Building, GraduationCap, HeartHandshake } from "lucide-react";
+import SectionLabel from "@/components/ui/SectionLabel";
 import { Link } from "react-router-dom";
 
 const fadeUp = {
@@ -74,13 +75,7 @@ const PricingSection = () => (
 
     <div className="section-container relative z-10 px-4">
       <motion.div {...fadeUp} className="mb-20 space-y-4 max-w-4xl mx-auto text-center flex flex-col items-center">
-        <div className="flex items-center justify-center gap-3 mb-2">
-          <div className="hidden sm:block w-8 h-[1px] bg-[#ee6983]/50" />
-          <p className="text-[#ee6983] text-[10px] sm:text-xs uppercase tracking-[0.4em] font-bold">
-            Investimento
-          </p>
-          <div className="hidden sm:block w-8 h-[1px] bg-[#ee6983]/50" />
-        </div>
+        <SectionLabel text="Investimento" centered />
         <h2 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-tight">
           Escolha seu <br />
           <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">Ingresso</span>
@@ -103,11 +98,13 @@ const PricingSection = () => (
             className="relative flex flex-col"
           >
             {/* Credential Body - Efeito Matte Diferenciado */}
-            <div className={`relative flex flex-col flex-1 rounded-[20px] overflow-hidden backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 border ${
+            <div className={`relative flex flex-col flex-1 rounded-[20px] overflow-hidden backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 border shadow-2xl group/card ${
               tier.highlight 
-                ? "bg-gradient-to-br from-[#1f1f1f] via-[#111111] to-[#080808] border-white/10 border-t-[#ee6983]/30 shadow-[inset_0_0_30px_rgba(255,255,255,0.02)]" 
-                : "bg-[#080808] border-white/5 opacity-90 hover:opacity-100"
+                ? "bg-gradient-to-br from-[#1f1f1f] via-[#111111] to-[#080808] border-white/10 border-t-[#ee6983]/30 shadow-[inset_0_0_40px_rgba(238,105,131,0.05)]" 
+                : "bg-[#080808] border-white/5 opacity-95 hover:opacity-100 shadow-[inset_0_0_30px_rgba(255,255,255,0.01)]"
             }`}>
+              {/* Dot Texture */}
+              <div className="absolute inset-0 bg-dots opacity-[0.4] pointer-events-none" />
               
               <div className="p-6 md:p-8 flex-1 flex flex-col relative z-10 text-center">
                 
@@ -117,13 +114,11 @@ const PricingSection = () => (
                     <tier.icon className="w-6 h-6" stroke="url(#pricingIconGradient)" strokeWidth={1.5} />
                   </div>
                   
-                  <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight mb-1">
-                    <span className="block text-[8px] sm:text-[9px] font-bold tracking-[0.3em] text-white/40 mb-1">
+                  <h3 className={`text-2xl md:text-3xl font-bold tracking-tighter mb-1 select-none ${tier.highlight ? "text-white" : "text-white/90"}`}>
+                    <span className="block text-[9px] font-bold tracking-[0.4em] text-[#ee6983] mb-2 opacity-80">
                       CREDENCIAL DE
                     </span>
-                    <span className={`tracking-tight ${tier.highlight ? "text-white" : "text-white/90"}`}>
-                      {tier.name}
-                    </span>
+                    {tier.name}
                   </h3>
                   
                   <p className="text-[#ee6983] text-[9px] font-bold uppercase tracking-[0.2em] mt-1">
@@ -134,11 +129,11 @@ const PricingSection = () => (
                 {/* Price - Linha em degradê em vez de tracejado */}
                 <div className="relative py-8 my-2 flex flex-col items-center">
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-[#ee6983]/30 to-transparent" />
-                  <div className="flex items-start justify-center gap-1">
-                    <span className="font-bold text-xs mt-3 text-[#ee6983]">R$</span>
-                    <span className="text-5xl font-bold tracking-tight leading-none text-white">{tier.price.split(',')[0]}</span>
+                  <div className="flex items-start justify-center gap-1.5 py-4">
+                    <span className="font-bold text-sm mt-3 text-[#ee6983]">R$</span>
+                    <span className="text-6xl md:text-7xl font-black tracking-tighter leading-none text-white">{tier.price.split(',')[0]}</span>
                     <div className="flex flex-col items-start mt-1">
-                      <span className="font-bold text-base text-white/50 leading-none">,{tier.price.split(',')[1]}</span>
+                      <span className="font-bold text-lg text-white/40 leading-none">,{tier.price.split(',')[1]}</span>
                     </div>
                   </div>
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-[#ee6983]/30 to-transparent" />

@@ -1,19 +1,19 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 
-interface ProgressStepsProps {
-  currentStep: 1 | 2 | 3;
+interface Step {
+  number: number;
+  label: string;
 }
 
-const steps = [
-  { number: 1, label: "Seus Dados" },
-  { number: 2, label: "Pagamento" },
-  { number: 3, label: "Confirmação" },
-];
+interface ProgressStepsProps {
+  currentStep: number;
+  steps: Step[];
+}
 
-const ProgressSteps = ({ currentStep }: ProgressStepsProps) => {
+const ProgressSteps = ({ currentStep, steps }: ProgressStepsProps) => {
   return (
-    <div className="flex items-center justify-center w-full max-w-sm mx-auto">
+    <div className="flex items-center justify-center w-full max-w-2xl mx-auto px-4 py-8">
       {steps.map((step, index) => {
         const isCompleted = step.number < currentStep;
         const isActive = step.number === currentStep;
@@ -21,12 +21,12 @@ const ProgressSteps = ({ currentStep }: ProgressStepsProps) => {
         return (
           <div key={step.number} className="flex items-center flex-1 last:flex-none">
             {/* Step circle + label */}
-            <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col items-center gap-2 relative">
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: index * 0.1, duration: 0.4, type: "spring", bounce: 0.3 }}
-                className={`relative w-9 h-9 rounded-full flex items-center justify-center text-xs font-black transition-all duration-500 ${
+                className={`relative w-10 h-10 rounded-full flex items-center justify-center text-xs font-black transition-all duration-500 z-10 ${
                   isCompleted
                     ? "bg-[#ee6983] text-white shadow-[0_0_16px_rgba(238,105,131,0.5)]"
                     : isActive
@@ -35,7 +35,7 @@ const ProgressSteps = ({ currentStep }: ProgressStepsProps) => {
                 }`}
               >
                 {isCompleted ? (
-                  <Check className="w-4 h-4" strokeWidth={2.5} />
+                  <Check className="w-5 h-5" strokeWidth={2.5} />
                 ) : (
                   <span>{step.number}</span>
                 )}
@@ -44,7 +44,7 @@ const ProgressSteps = ({ currentStep }: ProgressStepsProps) => {
                 )}
               </motion.div>
               <span
-                className={`text-[10px] font-bold uppercase tracking-wider whitespace-nowrap transition-colors duration-300 ${
+                className={`text-[9px] md:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap transition-colors duration-300 absolute -bottom-6 left-1/2 -translate-x-1/2 text-center w-max ${
                   isActive ? "text-[#ee6983]" : isCompleted ? "text-white/60" : "text-white/20"
                 }`}
               >
@@ -54,12 +54,12 @@ const ProgressSteps = ({ currentStep }: ProgressStepsProps) => {
 
             {/* Connector line */}
             {index < steps.length - 1 && (
-              <div className="flex-1 h-px mx-3 mb-5 relative overflow-hidden rounded-full bg-white/10">
+              <div className="flex-1 h-[2px] mx-2 relative overflow-hidden rounded-full bg-white/5">
                 <motion.div
                   className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#ee6983] to-[#c04a61]"
                   initial={{ width: "0%" }}
                   animate={{ width: isCompleted ? "100%" : "0%" }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
                 />
               </div>
             )}

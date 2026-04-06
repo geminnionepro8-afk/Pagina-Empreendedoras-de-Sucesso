@@ -153,6 +153,11 @@
   .tabular-nums {
     font-variant-numeric: tabular-nums;
   }
+  
+  .bg-dots {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 0.8px, transparent 0.8px);
+    background-size: 24px 24px;
+  }
 
   /* ── Team Flip Card ── */
   .team-flip-card {
@@ -263,5 +268,35 @@
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
+  }
+
+  /* Image Loading Optimization */
+  .img-skeleton {
+    background: linear-gradient(
+      90deg,
+      rgba(238, 105, 131, 0.05) 25%,
+      rgba(238, 105, 131, 0.1) 50%,
+      rgba(238, 105, 131, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite linear;
+  }
+
+  @keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .img-blur-load {
+    filter: blur(10px);
+    scale: 1.05;
+    transition: filter 0.8s ease-out, scale 0.8s ease-out, opacity 0.5s ease-out;
+    opacity: 0.6;
+  }
+
+  .img-blur-load.loaded {
+    filter: blur(0);
+    scale: 1;
+    opacity: 1;
   }
 }

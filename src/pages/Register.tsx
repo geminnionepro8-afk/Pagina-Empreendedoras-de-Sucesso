@@ -1,12 +1,24 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import ProgressSteps from "@/components/ProgressSteps";
 import RegistrationForm from "@/components/RegistrationForm";
 import OrderSummary from "@/components/OrderSummary";
 
+// This would normally come from a shared state, but for now we calculate it based on the form logic
 const Register = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [ingressoTipo, setIngressoTipo] = useState(location.state?.selectedTier || "profissional");
+
+  const steps = [
+    { number: 1, label: "Ingresso" },
+    { number: 2, label: "Seus Dados" },
+    ...(ingressoTipo !== "profissional" ? [{ number: 3, label: "Documentação" }] : []),
+    ...(ingressoTipo === "unifacex" ? [{ number: 4, label: "Doação" }] : []),
+    { number: 5, label: "Resumo" }
+  ].map((s, i) => ({ ...s, number: i + 1 }));
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
@@ -44,13 +56,13 @@ const Register = () => {
           <div className="w-12" /> {/* Spacer */}
         </nav>
 
-        {/* Progress */}
-        <div className="px-4 py-8 sm:py-10">
-          <ProgressSteps currentStep={1} />
-        </div>
+        {/* Progress - We don't control step here, RegistrationForm does. 
+            So we just pass initial state or handle it via a shared context/callback if needed.
+            For now, we'll let RegistrationForm render its own ProgressSteps internal to the card for better cohesion.
+        */}
 
         {/* Content */}
-        <div className="flex-1 px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="flex-1 px-4 sm:px-6 lg:px-8 pb-16 pt-12">
           <div className="max-w-5xl mx-auto">
 
             {/* Header */}
@@ -60,17 +72,14 @@ const Register = () => {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="text-center mb-10"
             >
-              <p className="text-[#ee6983] font-bold text-xs uppercase tracking-[0.3em] mb-3">
-                — Etapa 1 de 3 —
-              </p>
-              <h1 className="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight leading-tight">
-                Seus Dados de{" "}
+              <h1 className="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight leading-tight mb-2">
+                Inscrição{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] to-[#850e35]">
-                  Inscrição
+                  Página-Empreendedoras
                 </span>
               </h1>
-              <p className="text-white/40 text-sm mt-3 max-w-sm mx-auto">
-                Preencha os dados abaixo para garantir sua vaga no fórum.
+              <p className="text-white/40 text-[11px] uppercase tracking-[0.3em] max-w-sm mx-auto font-bold opacity-80">
+                — Processo de Credenciamento 2026 —
               </p>
             </motion.div>
 
@@ -86,7 +95,7 @@ const Register = () => {
               >
                 {/* Top glare */}
                 <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-                <RegistrationForm />
+                <RegistrationForm onTicketChange={setIngressoTipo} />
               </motion.div>
 
               {/* Order summary */}
@@ -96,7 +105,7 @@ const Register = () => {
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className="lg:sticky lg:top-8"
               >
-                <OrderSummary />
+                <OrderSummary ingresso_tipo={ingressoTipo} />
               </motion.div>
             </div>
           </div>

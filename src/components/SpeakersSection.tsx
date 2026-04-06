@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Quote, Star, Stethoscope, Activity, Brain, Briefcase, TestTube, Leaf, Sparkles, Target, GraduationCap, Dumbbell, Building2, Microscope, Diamond } from "lucide-react";
+import { Quote, Star, Stethoscope, Activity, Brain, Briefcase, TestTube, Leaf, Sparkles, Target, GraduationCap, Dumbbell, Building2, Microscope } from "lucide-react";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 import s1 from "@/assets/speakers/1.png";
 import s2 from "@/assets/speakers/2.png";
@@ -130,38 +131,15 @@ const SpeakersSection = () => {
         
         {/* Header Centralizado */}
         <div className="flex flex-col items-center mb-16 md:mb-24 text-center">
-          <div className="flex items-center gap-3 mb-5">
-            <Diamond className="w-3.5 h-3.5 text-[#ee6983]" strokeWidth={2} />
-            <p className="text-[#ee6983] text-[10px] sm:text-xs uppercase tracking-[0.4em] font-bold">
-              Corpo Docente
-            </p>
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-tight">
-            As Autoridades que <br className="hidden md:block"/>
+          <SectionLabel text="Nossos Especialistas" centered />
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-normal pb-2">
+            Quem vai transformar <br className="hidden md:block"/>
             <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">
-              Transformarão Você
+              Sua Trajetória
             </span>
           </h2>
 
-          {/* Linha Fluida Curva (SVG) */}
-          <div className="w-full max-w-[1400px] mt-12 opacity-15">
-            <svg 
-              width="100%" 
-              height="40" 
-              viewBox="0 0 1200 40" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-              className="w-full h-10"
-            >
-              <path 
-                d="M1200 10 H800 C730 10 700 35 630 35 H0" 
-                stroke="#ee6983" 
-                strokeWidth="1" 
-                vectorEffect="non-scaling-stroke"
-              />
-            </svg>
-          </div>
+
         </div>
 
         {/* Definições de Gradiente SVG Global para Ícones */}
@@ -251,7 +229,7 @@ const SpeakersSection = () => {
               >
                 <div className="bg-gradient-to-br from-[#1f1f1f] via-[#111] to-[#080808] border border-white/5 border-t-white/10 hover:border-[#ee6983]/20 transition-all duration-500 rounded-2xl p-8 lg:p-12 flex flex-col justify-between h-full shadow-2xl relative">
                   <div>
-                    <h3 className="text-3xl lg:text-4xl xl:text-[42px] font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/30 mb-4 lg:mb-5 leading-tight">
+                    <h3 className="text-3xl lg:text-4xl xl:text-[42px] font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/30 mb-4 lg:mb-5 leading-normal py-2">
                       {activeSpeaker.fullName}
                     </h3>
                     

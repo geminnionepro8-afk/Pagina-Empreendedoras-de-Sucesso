@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -37,13 +38,7 @@ const AudienceSection = () => {
 
         {/* Título centralizado Premium */}
         <motion.div {...fadeUp} className="flex flex-col items-center mb-20 md:mb-32 text-center">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-6 h-[1px] bg-[#ee6983]/40" />
-            <p className="text-[#ee6983] text-[10px] sm:text-xs uppercase tracking-[0.4em] font-bold">
-              Para quem é o Fórum
-            </p>
-            <div className="w-6 h-[1px] bg-[#ee6983]/40" />
-          </div>
+          <SectionLabel text="Para quem é o Fórum" centered />
           <h2 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tight leading-tight">
             O Fórum é para
             <br />
@@ -94,7 +89,7 @@ const AudienceSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
-                className="sticky top-24 lg:top-32 2xl:top-40 h-[520px] bg-gradient-to-b from-[#141213] to-[#050505] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] border border-[#ee6983]/10 hover:border-[#ee6983]/30 transition-colors duration-500 rounded-[32px] p-8 sm:p-12 z-10 flex flex-col justify-between"
+                className="sticky top-24 lg:top-32 2xl:top-40 h-[520px] bg-gradient-to-b from-[#141213] to-[#050505] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] border border-[#ee6983]/10 transition-colors duration-500 rounded-[32px] p-8 sm:p-12 z-10 flex flex-col justify-between"
               >
                 <div className="mb-10 sm:mb-12">
                   <div className="mb-8">
@@ -120,7 +115,7 @@ const AudienceSection = () => {
                     <img 
                        src={item.image} 
                        alt={item.title} 
-                       className="absolute inset-0 w-full h-full object-cover brightness-[0.5] group-hover:brightness-100 transition-all duration-700 ease-out z-10" 
+                       className="absolute inset-0 w-full h-full object-cover brightness-100 transition-all duration-700 ease-out z-10" 
                     />
                 </div>
               </motion.div>

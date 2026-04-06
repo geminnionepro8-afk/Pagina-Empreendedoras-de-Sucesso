@@ -48,7 +48,7 @@ const CountdownTimer = () => {
   );
 
   return (
-    <div className="w-full bg-[#ee6983] py-5 md:py-7 relative z-30 shadow-[0_10px_30px_rgba(238,105,131,0.3)]">
+    <div className="w-full bg-gradient-to-b from-[#f07b91] via-[#ee6983] to-[#d4566f] py-5 md:py-7 relative z-30 shadow-[0_15px_40px_rgba(212,86,111,0.3)] border-t border-white/20">
       <div className="section-container text-white relative z-10">
 
         {/* Desktop layout */}

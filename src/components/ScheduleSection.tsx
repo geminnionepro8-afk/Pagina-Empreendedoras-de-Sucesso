@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Diamond } from "lucide-react";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -54,12 +54,7 @@ const ScheduleSection = () => {
         
         {/* Header Master */}
         <motion.div {...fadeUp} className="flex flex-col items-center mb-24 text-center">
-          <div className="flex items-center gap-3 mb-5">
-            <Diamond className="w-3.5 h-3.5 text-[#ee6983]" strokeWidth={2} />
-            <p className="text-[#ee6983] text-[10px] sm:text-xs uppercase tracking-[0.4em] font-bold">
-              Programação Oficial
-            </p>
-          </div>
+          <SectionLabel text="Programação Oficial" centered />
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white uppercase tracking-tighter leading-tight">
             Agenda <br />

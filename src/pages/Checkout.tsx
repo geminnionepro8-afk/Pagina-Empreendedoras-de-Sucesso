@@ -8,8 +8,9 @@ import PixPayment from "@/components/PixPayment";
 
 const Checkout = () => {
   const navigate = useNavigate();
-  const [userData, setUserData] = useState<{ nome: string } | null>(null);
+  const [userData, setUserData] = useState<{ id?: string, nome: string, ingresso_tipo?: string } | null>(null);
   const [confirming, setConfirming] = useState(false);
+  const [verifyError, setVerifyError] = useState<string | null>(null);
 
   useEffect(() => {
     const raw = sessionStorage.getItem("inscricao_data");
@@ -18,18 +19,72 @@ const Checkout = () => {
       return;
     }
     try {
-      setUserData(JSON.parse(raw));
+      const parsed = JSON.parse(raw);
+      setUserData(parsed);
     } catch {
       navigate("/inscricao", { replace: true });
     }
   }, [navigate]);
 
-  const handleConfirm = () => {
+  const selectedTier = userData?.ingresso_tipo || "profissional";
+  const steps = [
+    { number: 1, label: "Ingresso" },
+    { number: 2, label: "Seus Dados" },
+    ...(selectedTier !== "profissional" ? [{ number: 3, label: "Documentação" }] : []),
+    ...(selectedTier === "unifacex" ? [{ number: 4, label: "Doação" }] : []),
+    { number: 5, label: "Pagamento" }
+  ].map((s, i) => ({ ...s, number: i + 1 }));
+
+  // Optional polling: Check payment automatically every 5 seconds
+  useEffect(() => {
+    if (!userData?.id || confirming) return;
+    
+    const interval = setInterval(async () => {
+      try {
+        const { supabase } = await import('@/lib/supabase');
+        const { data } = await supabase.functions.invoke('verificar-pagamento', {
+          body: { inscricao_id: userData.id }
+        });
+        
+        if (data?.pago) {
+          clearInterval(interval);
+          navigate("/confirmacao");
+        } else if (data?.status === 'expirado') {
+          clearInterval(interval);
+          // could reload form or show message
+        }
+      } catch (err) { /* ignore polling errors */ }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [userData?.id, confirming, navigate]);
+
+  const handleConfirm = async () => {
+    if (!userData?.id) return;
     setConfirming(true);
-    // Simulates payment processing (will be replaced by Supabase webhook verification)
-    setTimeout(() => {
-      navigate("/confirmacao");
-    }, 1800);
+    setVerifyError(null);
+    
+    try {
+      const { supabase } = await import('@/lib/supabase');
+      const { data, error } = await supabase.functions.invoke('verificar-pagamento', {
+        body: { inscricao_id: userData.id }
+      });
+
+      if (error || data?.error) {
+        setVerifyError("Não foi possível verificar. Tente novamente.");
+        return;
+      }
+
+      if (data?.pago) {
+        navigate("/confirmacao");
+      } else {
+        setVerifyError("O pagamento ainda não foi confirmado. Aguarde alguns instantes.");
+      }
+    } catch (err) {
+      setVerifyError("Erro de conexão ao verificar pagamento.");
+    } finally {
+      if (confirming) setConfirming(false); // will unmount if navigated
+    }
   };
 
   return (
@@ -69,7 +124,7 @@ const Checkout = () => {
 
         {/* Progress */}
         <div className="px-4 py-8 sm:py-10">
-          <ProgressSteps currentStep={2} />
+          <ProgressSteps currentStep={steps.length} steps={steps} />
         </div>
 
         {/* Content */}
@@ -83,8 +138,8 @@ const Checkout = () => {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="text-center mb-10"
             >
-              <p className="text-[#ee6983] font-bold text-xs uppercase tracking-[0.3em] mb-3">
-                — Etapa 2 de 3 —
+              <p className="text-[#ee6983] font-bold text-[10px] uppercase tracking-[0.4em] mb-4 opacity-80">
+                — QUASE LÁ —
               </p>
               <h1 className="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight leading-tight">
                 {userData?.nome ? (
@@ -156,6 +211,11 @@ const Checkout = () => {
                       "Já Realizei o Pagamento"
                     )}
                   </button>
+                  {verifyError && (
+                    <p className="text-center text-red-400 text-[11px] mt-3 bg-red-400/10 py-1.5 px-3 rounded-lg border border-red-400/20">
+                      {verifyError}
+                    </p>
+                  )}
                   <p className="text-center text-white/20 text-[11px] mt-3 flex items-center justify-center gap-1.5">
                     <ShieldCheck className="w-3 h-3" strokeWidth={1.5} />
                     Sua inscrição só será confirmada após a verificação do pagamento
@@ -170,7 +230,7 @@ const Checkout = () => {
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className="lg:sticky lg:top-8 space-y-4"
               >
-                <OrderSummary compact />
+                <OrderSummary compact ingresso_tipo={userData?.ingresso_tipo} />
 
                 {/* Payer info */}
                 {userData && (
