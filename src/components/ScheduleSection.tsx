@@ -3,10 +3,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 const fadeUp = {
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 15 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 },
+  viewport: { once: true, amount: 0.1 },
+  transition: { duration: 0.4 },
+};
+
+const getTimePeriod = (time: string) => {
+  const hour = parseInt(time.split(':')[0]);
+  if (hour < 12) return "Manhã";
+  if (hour < 18) return "Tarde";
+  return "Noite";
 };
 
 const schedule = {
@@ -106,9 +113,14 @@ const ScheduleSection = () => {
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-[100px_1fr] items-start py-6 sm:py-8 group-hover:bg-white/[0.01] transition-all duration-300 px-2 -mx-2 rounded-lg">
                     <div className="mb-2 sm:mb-0">
-                      <span className="text-lg sm:text-xl md:text-2xl font-light text-white/20 group-hover:text-[#ee6983] transition-colors duration-300 tabular-nums">
-                        {item.time}
-                      </span>
+                      <div className="flex flex-col items-start">
+                        <span className="text-lg sm:text-xl md:text-2xl font-light text-white/20 group-hover:text-[#ee6983] transition-colors duration-300 tabular-nums leading-none">
+                          {item.time}
+                        </span>
+                        <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white/40 group-hover:text-[#ee6983]/80 transition-colors duration-300 mt-1.5 ml-0.5">
+                          {getTimePeriod(item.time)}
+                        </span>
+                      </div>
                     </div>
 
                     <div className="flex flex-col gap-1.5 sm:gap-2.5">
@@ -157,9 +169,14 @@ const ScheduleSection = () => {
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-[100px_1fr] items-start py-6 sm:py-8 group-hover:bg-white/[0.01] transition-all duration-300 px-2 -mx-2 rounded-lg">
                     <div className="mb-2 sm:mb-0">
-                      <span className="text-lg sm:text-xl md:text-2xl font-light text-white/20 group-hover:text-[#ee6983] transition-colors duration-300 tabular-nums">
-                        {item.time}
-                      </span>
+                      <div className="flex flex-col items-start">
+                        <span className="text-lg sm:text-xl md:text-2xl font-light text-white/20 group-hover:text-[#ee6983] transition-colors duration-300 tabular-nums leading-none">
+                          {item.time}
+                        </span>
+                        <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white/40 group-hover:text-[#ee6983]/80 transition-colors duration-300 mt-1.5 ml-0.5">
+                          {getTimePeriod(item.time)}
+                        </span>
+                      </div>
                     </div>
 
                     <div className="flex flex-col gap-1.5 sm:gap-2.5">

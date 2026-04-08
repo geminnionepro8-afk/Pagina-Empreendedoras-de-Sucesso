@@ -64,26 +64,30 @@ const OrderSummary = ({ compact = false, ingresso_tipo = "profissional" }: Order
         </div>
 
         {/* Event details */}
-        <div className="flex flex-col gap-2.5">
-          <div className="flex items-center gap-3">
-            <Calendar className="w-4 h-4 text-[#ee6983] flex-shrink-0" strokeWidth={1.5} />
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-4 group">
+            <div className="w-9 h-9 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:border-[#ee6983]/30 transition-colors">
+              <Calendar className="w-4 h-4 text-[#ee6983]" strokeWidth={2} />
+            </div>
             <span className="text-white/70 text-sm font-medium">17 e 18 de Abril de 2026</span>
           </div>
-          <div className="flex items-center gap-3">
-            <MapPin className="w-4 h-4 text-[#ee6983] flex-shrink-0" strokeWidth={1.5} />
+          <div className="flex items-center gap-4 group">
+            <div className="w-9 h-9 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:border-[#ee6983]/30 transition-colors">
+              <MapPin className="w-4 h-4 text-[#ee6983]" strokeWidth={2} />
+            </div>
             <span className="text-white/70 text-sm font-medium">UNIFACEX · Natal, RN</span>
           </div>
         </div>
 
         {/* Benefits */}
         {!compact && (
-          <ul className="space-y-3">
+          <ul className="space-y-4">
             {benefits.map((b, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-md bg-[#ee6983]/10 border border-[#ee6983]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <b.icon className="w-3 h-3 text-[#ee6983]" strokeWidth={1.5} />
+              <li key={i} className="flex items-center gap-4 group">
+                <div className="w-9 h-9 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:border-[#ee6983]/30 transition-colors">
+                  <b.icon className="w-4 h-4 text-[#ee6983]/70 group-hover:text-[#ee6983] transition-colors" strokeWidth={2} />
                 </div>
-                <p className="text-white/55 text-[13px] leading-relaxed">{b.text}</p>
+                <p className="text-white/55 text-[13px] leading-relaxed group-hover:text-white/80 transition-colors">{b.text}</p>
               </li>
             ))}
           </ul>

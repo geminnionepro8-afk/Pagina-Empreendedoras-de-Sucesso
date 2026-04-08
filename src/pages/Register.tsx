@@ -72,9 +72,9 @@ const Register = () => {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="text-center mb-8 md:mb-10"
             >
-              <h1 className="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight leading-tight mb-2">
+              <h1 className="text-3xl sm:text-4xl font-black text-white uppercase tracking-tighter leading-tight mb-2">
                 Inscrição{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] to-[#850e35]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] via-[#f78298] to-[#ee6983]">
                   Página-Empreendedoras
                 </span>
               </h1>

@@ -152,6 +152,17 @@ const RegistrationForm = ({ onTicketChange }: RegistrationFormProps) => {
 
   return (
     <div className="w-full">
+      {/* Global Icon Gradient for the Form */}
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <linearGradient id="formIconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop stopColor="#ffcce0" offset="0%" />
+            <stop stopColor="#ee6983" offset="50%" />
+            <stop stopColor="#9b2d41" offset="100%" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       <div className="mb-10">
         <ProgressSteps currentStep={step} steps={steps} />
       </div>
@@ -159,28 +170,39 @@ const RegistrationForm = ({ onTicketChange }: RegistrationFormProps) => {
       <AnimatePresence mode="wait">
         {step === 1 && (
           <motion.div key="step1" {...fade} className="space-y-4 md:space-y-6">
-            <div className="flex flex-col gap-1 mb-1">
-              <span className="text-[#ee6983] font-black text-[9px] md:text-[10px] uppercase tracking-[0.2em]">Seleção</span>
-              <h2 className="text-white font-bold text-base md:text-lg">Qual o seu tipo de ingresso?</h2>
+            <div className="flex flex-col gap-1.5 mb-2">
+              <span className="text-[#ee6983] font-black text-[10px] uppercase tracking-[0.3em] opacity-90">Etapa 01</span>
+              <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-tighter leading-none">
+                Selecione seu <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] via-[#ffb1c1] to-[#ee6983]">Ingresso</span>
+              </h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
+            <div className="flex flex-col sm:flex-row gap-3">
               {ticketOptions.map(t => (
                 <button
                   key={t.id}
                   type="button"
                   onClick={() => handleTicketSelect(t.id)}
-                  className={`flex flex-col items-center p-5 xl:p-6 rounded-2xl border transition-all duration-500 relative group overflow-hidden ${
-                    form.ingresso_tipo === t.id ? "bg-[#ee6983]/10 border-[#ee6983] shadow-[0_0_20px_rgba(238,105,131,0.15)]" : "bg-white/[0.03] border-white/10 hover:border-white/20"
+                  className={`flex-1 flex flex-col items-center justify-center py-4 px-6 rounded-2xl border transition-all duration-500 relative overflow-hidden group active:scale-[0.98] ${
+                    form.ingresso_tipo === t.id 
+                      ? "bg-gradient-to-br from-[#ee6983] to-[#b6304b] border-[#ee6983]/60 shadow-[0_12px_24px_rgba(238,105,131,0.25)] z-10" 
+                      : "bg-gradient-to-br from-[#181818] to-[#050505] border-white/5 text-white/40 hover:border-white/20 hover:scale-[1.02]"
                   }`}
                 >
-                  {form.ingresso_tipo === t.id && (
-                     <div className="absolute top-2 right-2 md:top-3 md:right-3 w-4 h-4 md:w-5 md:h-5 bg-[#ee6983] rounded-full flex items-center justify-center">
-                        <Check className="text-white w-2.5 h-2.5 md:w-3 md:h-3" strokeWidth={3} />
-                     </div>
-                  )}
-                  <t.icon className={`w-6 h-6 md:w-8 md:h-8 mb-3 md:mb-4 transition-colors duration-300 ${form.ingresso_tipo === t.id ? "text-[#ee6983]" : "text-white/20 group-hover:text-white/40"}`} />
-                  <span className="text-[11px] md:text-xs font-black uppercase tracking-[0.1em] text-white mb-1">{t.label}</span>
-                  <span className="text-[9px] md:text-[10px] font-bold text-[#ee6983] opacity-80">{t.price}</span>
+                  <div className="mb-2 transition-all duration-500 group-hover:scale-110">
+                    <t.icon 
+                      stroke={form.ingresso_tipo === t.id ? "white" : "url(#formIconGradient)"} 
+                      strokeWidth={form.ingresso_tipo === t.id ? 2 : 1.5} 
+                      className="w-6 h-6 md:w-7 md:h-7" 
+                    />
+                  </div>
+                  <div className="flex flex-col items-center gap-0.5">
+                    <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-[0.1em] transition-colors duration-300 ${form.ingresso_tipo === t.id ? "text-white" : "text-white/90 group-hover:text-white"}`}>
+                      {t.label}
+                    </span>
+                    <span className={`text-[9px] md:text-[10px] font-bold ${form.ingresso_tipo === t.id ? "text-white/80" : "text-[#ee6983]/60"}`}>
+                      {t.price}
+                    </span>
+                  </div>
                 </button>
               ))}
             </div>
@@ -195,9 +217,11 @@ const RegistrationForm = ({ onTicketChange }: RegistrationFormProps) => {
 
         {step === 2 && (
           <motion.div key="step2" {...fade} className="space-y-4 md:space-y-6">
-            <div className="flex flex-col gap-1 mb-1">
-              <span className="text-[#ee6983] font-black text-[9px] md:text-[10px] uppercase tracking-[0.2em]">Dados</span>
-              <h2 className="text-white font-bold text-base md:text-lg">Suas informações de contato</h2>
+            <div className="flex flex-col gap-1.5 mb-2">
+              <span className="text-[#ee6983] font-black text-[10px] uppercase tracking-[0.3em] opacity-90">Etapa 02</span>
+              <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-tighter leading-none">
+                Dados do <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] via-[#ffb1c1] to-[#ee6983]">Participante</span>
+              </h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {[
@@ -256,9 +280,11 @@ const RegistrationForm = ({ onTicketChange }: RegistrationFormProps) => {
         {step === 3 && (
           <motion.div key="step3" {...fade} className="space-y-6">
             <div className="text-center space-y-2 mb-8">
-               <span className="text-[#ee6983] font-black text-[10px] uppercase tracking-[0.25em]">Validação</span>
-               <h3 className="text-white font-bold text-xl uppercase tracking-tight">Comprovação de Matrícula</h3>
-               <p className="text-white/40 text-sm max-w-sm mx-auto">Anexe sua carteirinha ou declaração para validar o benefício estudantil.</p>
+               <span className="text-[#ee6983] font-black text-[10px] uppercase tracking-[0.3em]">Etapa 03</span>
+               <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter leading-none">
+                 Comprovação de <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] via-[#ffb1c1] to-[#ee6983]">Matrícula</span>
+               </h3>
+               <p className="text-white/40 text-xs font-medium max-w-sm mx-auto uppercase tracking-widest">Anexe sua carteirinha ou declaração para validar o benefício estudantil.</p>
             </div>
             <div 
               className={`border-2 border-dashed rounded-3xl p-12 flex flex-col items-center justify-center transition-all duration-500 relative group overflow-hidden ${form.comprovante_file ? 'border-[#ee6983] bg-[#ee6983]/5' : 'border-white/10 hover:border-[#ee6983]/30 hover:bg-white/[0.04] bg-white/[0.02]'}`}
@@ -291,30 +317,37 @@ const RegistrationForm = ({ onTicketChange }: RegistrationFormProps) => {
 
         {step === 4 && (
           <motion.div key="step4" {...fade} className="space-y-8">
-            <div className="text-center space-y-2">
-               <span className="text-[#ee6983] font-black text-[10px] uppercase tracking-[0.25em]">Responsabilidade</span>
-               <h3 className="text-white font-bold text-xl uppercase tracking-tight">Sua Doação Social</h3>
-               <p className="text-white/40 text-sm max-w-sm mx-auto">Para liberar seu ingresso social, selecione o item (1kg) que entregará no credenciamento.</p>
+            <div className="text-center space-y-2 mb-8">
+               <span className="text-[#ee6983] font-black text-[10px] uppercase tracking-[0.3em]">Etapa 04</span>
+               <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter leading-none">
+                 Sua Doação <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] via-[#ffb1c1] to-[#ee6983]">Social</span>
+               </h3>
+               <p className="text-white/40 text-xs font-medium max-w-sm mx-auto uppercase tracking-widest">Selecione o item (1kg) que você entregará no credenciamento em 17/04.</p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
                {foodOptions.map(f => (
                  <button
                    key={f.id}
                    onClick={() => setForm({ ...form, alimento_tipo: f.id })}
-                   className={`flex flex-col items-center p-6 rounded-2xl border transition-all duration-500 group relative ${form.alimento_tipo === f.id ? 'bg-[#ee6983]/20 border-[#ee6983] scale-[1.05] shadow-[0_10px_30px_rgba(238,105,131,0.2)]' : 'bg-white/[0.03] border-white/5 hover:border-white/10 hover:bg-white/[0.05]'}`}
+                   className={`flex flex-col items-center p-5 rounded-2xl border transition-all duration-500 group relative active:scale-95 ${
+                     form.alimento_tipo === f.id 
+                       ? 'bg-gradient-to-br from-[#ee6983] to-[#b6304b] border-[#ee6983] shadow-[0_12px_24px_rgba(238,105,131,0.2)] scale-[1.03] z-10' 
+                       : 'bg-gradient-to-br from-[#181818] to-[#050505] border-white/5 text-white/40 hover:border-white/20 hover:scale-[1.02]'
+                   }`}
                  >
-                   <div className="absolute top-3 right-3">
-                     <span className={`text-[8px] font-black px-1.5 py-0.5 rounded-md border ${form.alimento_tipo === f.id ? 'bg-[#ee6983] text-white border-transparent' : 'bg-white/5 text-white/30 border-white/10'}`}>
+                   <div className="absolute top-2.5 right-2.5">
+                     <span className={`text-[7px] font-black px-1.5 py-0.5 rounded-md border ${form.alimento_tipo === f.id ? 'bg-white/10 text-white border-white/20' : 'bg-white/5 text-white/30 border-white/10'}`}>
                        {f.contribution}
                      </span>
                    </div>
-                   <f.icon className={`w-8 h-8 mb-4 transition-transform duration-500 ${form.alimento_tipo === f.id ? 'text-[#ee6983] scale-110' : 'text-white/20 group-hover:scale-110'}`} />
+                   <div className="mb-3">
+                     <f.icon 
+                       stroke={form.alimento_tipo === f.id ? "white" : "url(#formIconGradient)"} 
+                       strokeWidth={form.alimento_tipo === f.id ? 2 : 1.5} 
+                       className={`w-7 h-7 transition-transform duration-500 ${form.alimento_tipo === f.id ? 'scale-110' : 'group-hover:scale-110'}`} 
+                     />
+                   </div>
                    <span className={`text-[10px] font-black uppercase tracking-widest text-center leading-tight ${form.alimento_tipo === f.id ? 'text-white' : 'text-white/40 group-hover:text-white/60'}`}>{f.label}</span>
-                   {form.alimento_tipo === f.id && (
-                     <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="mt-3 w-5 h-5 bg-[#ee6983] rounded-full flex items-center justify-center">
-                        <Check className="text-white w-3 h-3" strokeWidth={4} />
-                     </motion.div>
-                   )}
                  </button>
                ))}
             </div>
@@ -379,14 +412,17 @@ const RegistrationForm = ({ onTicketChange }: RegistrationFormProps) => {
         <button
           onClick={handleNext}
           disabled={isLoading}
-          className="flex-1 h-16 rounded-2xl bg-gradient-to-r from-[#ee6983] via-[#d4566f] to-[#ee6983] bg-[length:200%_auto] hover:bg-right text-white font-black text-[10px] uppercase tracking-[0.3em] flex items-center justify-center gap-4 transition-all duration-500 shadow-[0_12px_24px_rgba(238,105,131,0.25)] hover:shadow-[0_16px_32px_rgba(238,105,131,0.35)] hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50"
+          className="flex-1 h-16 rounded-2xl bg-gradient-to-br from-[#ee6983] via-[#e24a6b] to-[#b6304b] text-white font-black text-[11px] uppercase tracking-[0.3em] flex items-center justify-center gap-4 transition-all duration-500 shadow-[0_12px_32px_rgba(238,105,131,0.3)] hover:shadow-[0_16px_40px_rgba(238,105,131,0.4)] hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 relative group overflow-hidden"
         >
+          {/* Shine effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+          
           {isLoading ? (
             <Loader2 className="w-5 h-5 animate-spin" />
           ) : (
             <>
               {step === steps.length ? "Finalizar e Ver QR Code" : "Avançar Próxima Etapa"}
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </>
           )}
         </button>

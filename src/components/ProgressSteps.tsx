@@ -31,7 +31,7 @@ const ProgressSteps = ({ currentStep, steps }: ProgressStepsProps) => {
                     ? "bg-[#ee6983] text-white shadow-[0_0_16px_rgba(238,105,131,0.5)]"
                     : isActive
                     ? "bg-[#ee6983]/20 border-2 border-[#ee6983] text-[#ee6983] shadow-[0_0_12px_rgba(238,105,131,0.3)]"
-                    : "bg-white/5 border border-white/15 text-white/30"
+                    : "bg-white/5 border border-white/10 text-white/50"
                 }`}
               >
                 {isCompleted ? (
@@ -45,7 +45,7 @@ const ProgressSteps = ({ currentStep, steps }: ProgressStepsProps) => {
               </motion.div>
               <span
                 className={`text-[9px] md:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap transition-colors duration-300 absolute -bottom-6 left-1/2 -translate-x-1/2 text-center w-max ${
-                  isActive ? "text-[#ee6983]" : isCompleted ? "text-white/60" : "text-white/20"
+                  isActive ? "text-[#ee6983]" : isCompleted ? "text-white/60" : "text-white/35"
                 }`}
               >
                 {step.label}

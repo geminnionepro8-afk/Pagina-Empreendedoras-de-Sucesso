@@ -182,10 +182,13 @@ const PricingSection = () => (
         </div>
       </div>
       
-      <div className="mt-12 text-center flex flex-col items-center gap-3">
-        <p className="text-white/30 text-xs flex items-center justify-center gap-1.5">
-          <ShieldCheck className="w-4 h-4" /> Pagamento Seguro (PIX)
-        </p>
+      <div className="mt-12 flex justify-center">
+        <div className="flex items-center gap-2 group cursor-default">
+          <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" strokeWidth={2.5} />
+          <span className="text-[10px] sm:text-[11px] font-black text-emerald-500 uppercase tracking-[0.2em] leading-none">
+            Transação via Pix Garantida
+          </span>
+        </div>
       </div>
     </div>
   </section>

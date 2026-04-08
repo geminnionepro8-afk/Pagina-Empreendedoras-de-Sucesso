@@ -13,18 +13,36 @@ import s7 from "@/assets/speakers/7.png";
 import s8 from "@/assets/speakers/8.png";
 import s9 from "@/assets/speakers/9.png";
 import s10 from "@/assets/speakers/10.png";
+import s11 from "@/assets/speakers/11.png";
+import s12 from "@/assets/speakers/12.png";
+import s13 from "@/assets/speakers/13.png";
+import s14 from "@/assets/speakers/14.png";
 
 const teamMembers = [
-  { name: "Prof. Dra. Alice Fuscella", role: "Coord. Odontologia UNIFACEX", bio: "Coordenadora de Odontologia e Práticas Integrativas no UNIFACEX, de forte liderança sistêmica.", img: s1 },
-  { name: "Dra. Eneida Carreiro", role: "Doutora em Biotecnologia", bio: "Fisioterapeuta focada em Dermatofuncional e estética, com amplo Doutorado em Biotecnologia.", img: s2 },
-  { name: "Dra. Bruna Covre", role: "Médica Endocrinologista", bio: "Médica Endocrinologista de grande referência em Medicina Funcional Integrativa e longevidade.", img: s3 },
-  { name: "Dr. Raphael Almeida", role: "Fisioterapeuta e Empreendedor", bio: "Especialista em Disfunções da Coluna e Ortopedia. Criador do Método EDP e Coordenador Unifasex.", img: s4 },
-  { name: "Mitia Montenegro", role: "Esp. Saúde Mental e Autismo", bio: "Psicóloga com profunda expertise em saúde mental, neurobiologia, TCC e tratamentos do autismo.", img: s5 },
-  { name: "Wanderley Cunha", role: "CEO Vectax Produtora", bio: "Diretor criativo e CEO da Vectax, produtora responsável por líderes de software como Clickmassa.", img: s6 },
-  { name: "Dra. Glenda Oliveira", role: "Mestre em Biotecnologia", bio: "Esteticista e Biomédica consolidada desde 1996, unindo a prática e o Mestrado em Biotecnologia.", img: s7 },
-  { name: "Danielle Mafra", role: "Superintendente SESI RN", bio: "Líder Executiva Regional do SESI RN, com mestrado em governança de sustentabilidade pela Nova SBE.", img: s8 },
-  { name: "Dra. Dani Maia", role: "Dermatologista e CEO", bio: "Médica Dermatologista de altíssimo nível, fundadora e gestora da renomada Clínica Daniela Maia.", img: s9 },
-  { name: "Marina Aragão", role: "Coord. Educação IEL RN", bio: "Especialista em Consultoria Empresarial e líder das frentes ativas de carreira no IEL RN.", img: s10 },
+  { 
+    name: "Prof. MSc. Lucia Leandro", 
+    role: "CEO Mulheres de Sucesso", 
+    bio: "CEO do Instituto Mulheres de Sucesso Brasileiras e Coordenadora do MBA em Gestão de Liderança Feminina UNIFACEX.", 
+    img: s14 
+  },
+  { 
+    name: "Candysse Figueiredo", 
+    role: "Reitora do UNIFACEX", 
+    bio: "Lidera a gestão acadêmica com excelência e inovação institucional, trazendo uma visão vibrante e acessível para a alta gestão educacional.", 
+    img: s13 
+  },
+  { 
+    name: "Prof. Celly Franck", 
+    role: "Pró Reitor Acadêmico", 
+    bio: "Pró Reitor Acadêmico do UNIFACEX, conciliando o rigor acadêmico com uma postura de liderança moderna, equilibrada e próxima.", 
+    img: s11 
+  },
+  { 
+    name: "Dra. Rossana Ferreira", 
+    role: "Advogada do Instituto", 
+    bio: "Advogada do Instituto Mulheres de Sucesso Brasileiras, combinando seriedade jurídica com elegância e sofisticação estratégica.", 
+    img: s12 
+  },
 ];
 
 const TeamSection = () => {
@@ -35,12 +53,12 @@ const TeamSection = () => {
           <div className="team-one-top-wrapper">
             <div className="team-one-top-grid-wrap">
               <div className="team-one-top-left-wrapper">
-                <SectionLabel text="Mentes de Alto Impacto" />
+                <SectionLabel text="Acesso de Alto Impacto" />
                 <div className="team-one-title-wrap">
                   <h2 className="team-title">
-                    Lideranças que moldam <br />
+                    Apresentação de <br />
                     <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">
-                      o próximo nível
+                      Alto Impacto
                     </span>
                   </h2>
                 </div>
@@ -238,16 +256,15 @@ const TeamSection = () => {
         }
 
         .team-cards-grid-wrap {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 20px 16px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 24px;
           margin: 0 auto;
+          width: 100%;
         }
 
         .team-cards-grid-wrap .w-dyn-item {
-          flex: 0 1 calc(20% - 16px);
-          min-width: 250px;
+          width: 100%;
         }
 
         .team-single-card {
@@ -258,7 +275,7 @@ const TeamSection = () => {
 
         .team-card-wrapper {
           width: 100%;
-          height: clamp(440px, 65vh, 520px);
+          height: clamp(500px, 75vh, 650px);
           position: relative;
           transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
           transform-style: preserve-3d;
@@ -300,13 +317,13 @@ const TeamSection = () => {
         .team-card-top-wrap {
           display: flex;
           justify-content: flex-end;
-          margin-bottom: 20px;
+          margin-bottom: 32px;
         }
 
         .team-card-image-wrap {
-          width: 120px;
-          height: 120px;
-          border-radius: 12px;
+          width: 180px;
+          height: 180px;
+          border-radius: 16px;
           overflow: hidden;
           background: #111;
           border: 1px solid rgba(255,255,255,0.1);
@@ -359,17 +376,14 @@ const TeamSection = () => {
         }
 
         @media screen and (max-width: 1400px) {
-          .team-cards-grid-wrap .w-dyn-item {
-            flex: 0 1 calc(25% - 16px);
+          .team-cards-grid-wrap {
+            grid-template-columns: repeat(2, 1fr);
           }
         }
 
         @media screen and (max-width: 1150px) {
-          .team-cards-grid-wrap .w-dyn-item {
-            flex: 0 1 calc(33.333% - 16px);
-          }
           .team-title {
-            font-size: 42px;
+            font-size: clamp(32px, 6vw, 42px);
           }
         }
 
@@ -394,19 +408,18 @@ const TeamSection = () => {
         }
 
         @media screen and (max-width: 850px) {
-          .team-cards-grid-wrap .w-dyn-item {
-            flex: 0 1 calc(50% - 16px);
-            min-width: 200px;
-          }
           .team-card-wrapper {
-            height: clamp(400px, 60vh, 480px);
+            height: 500px;
+          }
+        }
+
+        @media screen and (max-width: 640px) {
+          .team-cards-grid-wrap {
+            grid-template-columns: 1fr;
           }
         }
 
         @media screen and (max-width: 479px) {
-          .team-cards-grid-wrap .w-dyn-item {
-            flex: 0 1 100%;
-          }
           .team-title {
             font-size: 36px;
           }
