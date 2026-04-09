@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import SectionLabel from "@/components/ui/SectionLabel";
 import OptimizedImage from "@/components/ui/OptimizedImage";
+import { useSiteConfig } from "@/hooks/useSiteConfig";
 
 // Optimized WebP imports
 import s11 from "@/assets/speakers/11.webp";
@@ -16,38 +17,40 @@ import s12ph from "@/assets/speakers/12.placeholder.webp";
 import s13ph from "@/assets/speakers/13.placeholder.webp";
 import s14ph from "@/assets/speakers/14.placeholder.webp";
 
-const teamMembers = [
-  { 
-    name: "Prof. MSc. Lucia Leandro", 
-    role: "CEO Mulheres de Sucesso", 
-    bio: "CEO do Instituto Mulheres de Sucesso Brasileiras e Coordenadora do MBA em Gestão de Liderança Feminina UNIFACEX.", 
-    img: s14,
-    placeholder: s14ph
-  },
-  { 
-    name: "Candysse Figueiredo", 
-    role: "Reitora do UNIFACEX", 
-    bio: "Lidera a gestão acadêmica com excelência e inovação institucional, trazendo uma visão vibrante e acessível para a alta gestão educacional.", 
-    img: s13,
-    placeholder: s13ph
-  },
-  { 
-    name: "Prof. Celly Franck", 
-    role: "Pró Reitor Acadêmico", 
-    bio: "Pró Reitor Acadêmico do UNIFACEX, conciliando o rigor acadêmico com uma postura de liderança moderna, equilibrada e próxima.", 
-    img: s11,
-    placeholder: s11ph
-  },
-  { 
-    name: "Dra. Rossana Ferreira", 
-    role: "Advogada do Instituto", 
-    bio: "Advogada do Instituto Mulheres de Sucesso Brasileiras, combinando seriedade jurídica com elegância e sofisticação estratégica.", 
-    img: s12,
-    placeholder: s12ph
-  },
-];
-
 const TeamSection = () => {
+  const { data: configs } = useSiteConfig();
+
+  const teamMembers = [
+    { 
+      name: "Prof. MSc. Lucia Leandro", 
+      role: "CEO Mulheres de Sucesso", 
+      bio: "CEO do Instituto Mulheres de Sucesso Brasileiras e Coordenadora do MBA em Gestão de Liderança Feminina UNIFACEX.", 
+      img: configs?.team_1 || s14,
+      placeholder: s14ph
+    },
+    { 
+      name: "Candysse Figueiredo", 
+      role: "Reitora do UNIFACEX", 
+      bio: "Lidera a gestão acadêmica com excelência e inovação institucional, trazendo uma visão vibrante e acessível para a alta gestão educacional.", 
+      img: configs?.team_2 || s13,
+      placeholder: s13ph
+    },
+    { 
+      name: "Prof. Celly Franck", 
+      role: "Pró Reitor Acadêmico", 
+      bio: "Pró Reitor Acadêmico do UNIFACEX, conciliando o rigor acadêmico com uma postura de liderança moderna, equilibrada e próxima.", 
+      img: configs?.team_3 || s11,
+      placeholder: s11ph
+    },
+    { 
+      name: "Dra. Rossana Ferreira", 
+      role: "Advogada do Instituto", 
+      bio: "Advogada do Instituto Mulheres de Sucesso Brasileiras, combinando seriedade jurídica com elegância e sofisticação estratégica.", 
+      img: configs?.team_4 || s12,
+      placeholder: s12ph
+    },
+  ];
+
   return (
     <section className="team">
       <div className="container">

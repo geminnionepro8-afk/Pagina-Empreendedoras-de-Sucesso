@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import OptimizedImage from "@/components/ui/OptimizedImage";
+import { useSiteConfig } from "@/hooks/useSiteConfig";
 
 // Optimized WebP imports
 import laptopWebP from "@/assets/laptop_support.webp";
@@ -9,6 +10,8 @@ import cardWebP from "@/assets/service-card.webp";
 import cardPlaceholder from "@/assets/service-card.placeholder.webp";
 
 const InstitutionalSection = () => {
+  const { data: configs } = useSiteConfig();
+
   return (
     <section id="atendimento" className="bg-[#080808] py-12 md:py-16 relative overflow-hidden">
       {/* Linha Separadora Sutil */}
@@ -47,7 +50,7 @@ const InstitutionalSection = () => {
               >
                 <div className="w-full aspect-video rounded-[16px] overflow-hidden shrink-0 border border-white/10 relative">
                   <OptimizedImage
-                    src={cardWebP}
+                    src={configs?.support_card || cardWebP}
                     placeholderSrc={cardPlaceholder}
                     alt="Atendimento"
                     className="transition-all duration-700 group-hover:scale-[1.05]"
@@ -87,7 +90,7 @@ const InstitutionalSection = () => {
                 className="relative z-10 w-full flex justify-end"
               >
                 <img 
-                  src={laptopWebP} 
+                  src={configs?.support_laptop || laptopWebP} 
                   alt="Atendimento WhatsApp" 
                   className="w-full max-w-[900px] xl:max-w-[1100px] h-auto object-contain"
                   loading="lazy"

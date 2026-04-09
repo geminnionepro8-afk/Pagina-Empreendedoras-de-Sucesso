@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import Register from "./pages/Register.tsx";
 import Terms from "./pages/Terms.tsx";
+import Admin from "./pages/Admin.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { useContentProtection } from "./hooks/useContentProtection";
 
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/" element={<Index />} />
           <Route path="/inscricao" element={<Register />} />
           <Route path="/termos" element={<Terms />} />
+          <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

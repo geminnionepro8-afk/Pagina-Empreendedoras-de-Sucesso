@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { MoveRight, Calendar, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSiteConfig } from "@/hooks/useSiteConfig";
 
 // Optimized WebP versions
 import heroSpeakerWebP from "@/assets/hero-speaker.webp";
@@ -8,27 +9,15 @@ import heroSpeakerPlaceholder from "@/assets/hero-speaker.placeholder.webp";
 
 import OptimizedImage from "@/components/ui/OptimizedImage";
 
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const },
-};
-
-const fadeRight = {
-  initial: { opacity: 0, x: -30 },
-  whileInView: { opacity: 1, x: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const },
-};
-
 const HeroSection = () => {
+  const { data: configs } = useSiteConfig();
+  
   return (
     <section className="relative min-h-[90vh] md:min-h-screen flex items-center pt-24 md:pt-32 pb-12 md:pb-20 overflow-hidden bg-black">
       {/* Background Original Image filling the whole section */}
       <div className="absolute inset-0 z-0">
         <OptimizedImage
-          src={heroSpeakerWebP}
+          src={configs?.hero_bg || heroSpeakerWebP}
           placeholderSrc={heroSpeakerPlaceholder}
           alt="Palestrante Evento"
           priority={true}
@@ -47,10 +36,16 @@ const HeroSection = () => {
         <div className="flex flex-col items-start text-left space-y-6 md:space-y-8 max-w-2xl py-8 md:py-12">
 
           {/* Logo/Brand */}
-          <motion.div {...fadeRight} className="flex flex-col gap-4">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col gap-4"
+          >
             <div className="flex items-center gap-4 w-fit">
               <img 
-                src="/images/logo-instituto-trimmed.webp" 
+                src={configs?.hero_logo || "/images/logo-instituto-trimmed.webp"} 
                 alt="Instituto Mulheres de Sucesso" 
                 className="h-12 sm:h-16 md:h-20 w-auto object-left object-contain brightness-110 drop-shadow-[0_0_15px_rgba(238,105,131,0.2)]" 
                 loading="eager"
@@ -72,7 +67,10 @@ const HeroSection = () => {
  
           {/* Main Title */}
           <motion.h1
-            {...fadeRight} transition={{ delay: 0.2 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl sm:text-6xl xl:text-[clamp(3rem,6vw,4.75rem)] font-light text-white leading-[1.05] tracking-tight uppercase"
           >
             O Fórum da Mulher <br className="hidden sm:block" />
@@ -83,14 +81,23 @@ const HeroSection = () => {
  
           {/* Description */}
           <motion.p
-            {...fadeRight} transition={{ delay: 0.3 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="text-sm md:text-lg text-white/80 max-w-lg font-normal leading-relaxed tracking-wide drop-shadow-lg"
           >
             Onde estética, psique e medicina integrativa se unem para blindar a sua saúde e acelerar o crescimento do seu CNPJ.
           </motion.p>
  
           {/* CTA Button */}
-          <motion.div {...fadeUp} transition={{ delay: 0.5 }} className="w-full sm:w-auto pt-4 relative z-20">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full sm:w-auto pt-4 relative z-20"
+          >
             <Link
               to="/inscricao"
               className="group relative overflow-hidden bg-gradient-to-r from-[#ee6983] via-[#f493a7] to-[#ee6983] text-white px-10 py-4 rounded-xl font-bold text-xs md:text-sm uppercase tracking-[0.2em] w-full sm:w-auto flex items-center justify-center gap-3 shadow-[0_20px_50px_rgba(238,105,131,0.2)] hover:shadow-[0_25px_60px_rgba(238,105,131,0.35)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"

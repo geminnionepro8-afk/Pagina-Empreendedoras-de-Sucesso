@@ -1,6 +1,10 @@
-import { ShieldCheck, Mail, MapPin, Phone, Lock, ChevronRight } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
+import { useSiteConfig } from "@/hooks/useSiteConfig";
 
-const FooterSection = () => (
+const FooterSection = () => {
+  const { data: configs } = useSiteConfig();
+  
+  return (
   <footer className="bg-[#050505] relative overflow-hidden border-t border-white/5">
     {/* Refined lighting effects */}
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-screen-xl h-[1px] bg-gradient-to-r from-transparent via-[#ee6983]/30 to-transparent" />
@@ -15,7 +19,7 @@ const FooterSection = () => (
           <div className="space-y-8 lg:col-span-5 pr-0 lg:pr-12 border-r-0 lg:border-r border-white/[0.02]">
             <div className="flex flex-col gap-4">
               <img 
-                src="/images/logo-instituto-trimmed.webp" 
+                src={configs?.logo_instituto || "/images/logo-instituto-trimmed.webp"} 
                 alt="Instituto Mulheres de Sucesso Brasileiras" 
                 className="h-20 md:h-24 w-auto object-left object-contain" 
                 loading="lazy"
@@ -77,7 +81,11 @@ const FooterSection = () => (
 
             <div className="flex pt-3">
               <div className="w-24 h-24 relative">
-                 <img src="/images/selo-upsiden.png" alt="Selo Upsiden - Marca de Excelência" className="w-full h-full object-contain" />
+                 <img 
+                    src={configs?.selo_footer || "/images/selo-upsiden.png"} 
+                    alt="Selo Upsiden - Marca de Excelência" 
+                    className="w-full h-full object-contain" 
+                 />
               </div>
             </div>
           </div>
@@ -110,6 +118,7 @@ const FooterSection = () => (
       </div>
     </section>
   </footer>
-);
+  );
+};
 
 export default FooterSection;

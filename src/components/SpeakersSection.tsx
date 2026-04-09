@@ -4,6 +4,7 @@ import { Quote, Star, Stethoscope, Activity, Brain, Briefcase, TestTube, Leaf, S
 import SectionLabel from "@/components/ui/SectionLabel";
 import OptimizedImage from "@/components/ui/OptimizedImage";
 import { useImagePreloader } from "@/hooks/useImagePreloader";
+import { useSiteConfig } from "@/hooks/useSiteConfig";
 
 // Optimized WebP imports
 import s1 from "@/assets/speakers/1.webp";
@@ -29,120 +30,122 @@ import s8ph from "@/assets/speakers/8.placeholder.webp";
 import s9ph from "@/assets/speakers/9.placeholder.webp";
 import s10ph from "@/assets/speakers/10.placeholder.webp";
 
-const speakers = [
-  { 
-    id: "s1",
-    name: "Alice Fuscella", 
-    fullName: "Prof. Dra. Alice Fuscella",
-    role: "Coordenadora de Odontologia e Práticas Integrativas", 
-    shortRole: "Coord. Odontologia",
-    description: "Referência na área educacional e de bem-estar corporativo. É a principal Coordenadora de Odontologia e Núcleo de Práticas Integrativas no UNIFACEX, atuando com liderança formativa.",
-    img: s1,
-    placeholder: s1ph,
-    Icon: GraduationCap
-  },
-  { 
-    id: "s2",
-    name: "Eneida Carreiro", 
-    fullName: "Dra. Eneida Carreiro",
-    role: "Doutora em Biotecnologia e Fisioterapeuta", 
-    shortRole: "Fisioterapeuta",
-    description: "Fisioterapeuta amplamente especializada em Dermatofuncional e estética. Traz a inovação dos seus estudos de Mestrado e Doutorado em Biotecnologia diretamente para a estética aplicada.",
-    img: s2,
-    placeholder: s2ph,
-    Icon: Activity
-  },
-  { 
-    id: "s3",
-    name: "Bruna Covre", 
-    fullName: "Dra. Bruna Covre",
-    role: "Médica Endocrinologista Integrativa", 
-    shortRole: "Médica Endocrinologista",
-    description: "Médica Endocrinologista altamente especializada em Medicina Funcional Integrativa. O seu super foco é a excelência clínica aliada à longevidade hormonal da mulher de sucesso.",
-    img: s3,
-    placeholder: s3ph,
-    Icon: Stethoscope
-  },
-  { 
-    id: "s4",
-    name: "Raphael Almeida", 
-    fullName: "Dr. Raphael Almeida",
-    role: "Fisioterapeuta, Docente e Empreendedor", 
-    shortRole: "Fisioterapeuta",
-    description: "Especialista clínico renomado em Disfunções da Coluna Vertebral e Traumato-Ortopedia. É o idealizador por trás do Método EDP (É de Propósito) e atual Coordenador.",
-    img: s4,
-    placeholder: s4ph,
-    Icon: Dumbbell
-  },
-  { 
-    id: "s5",
-    name: "Mitia Montenegro", 
-    fullName: "Mitia Montenegro",
-    role: "Psicóloga Esp. em TCC e Neurobiologia", 
-    shortRole: "Psicóloga",
-    description: "Profissional de atuação ímpar em Arquitetura e Psicologia. Detém forte autoridade no tratamento executivo focando em saúde mental, neurobiologia avançada e neuro-adequações da TCC.",
-    img: s5,
-    placeholder: s5ph,
-    Icon: Brain
-  },
-  { 
-    id: "s6",
-    name: "Wanderley Cunha", 
-    fullName: "Wanderley Cunha",
-    role: "Gestor e CEO da Vectax Produtora", 
-    shortRole: "CEO Vectax",
-    description: "Empreendedor que atua na linha de frente como CEO, guiando e escalando os grandes softwares comerciais que aceleram a comunicação corporativa do país de ponta a ponta.",
-    img: s6,
-    placeholder: s6ph,
-    Icon: Building2
-  },
-  { 
-    id: "s7",
-    name: "Glenda Oliveira", 
-    fullName: "Dra. Glenda Oliveira",
-    role: "Mestre em Biotecnologia e Biomédica", 
-    shortRole: "Biomédica",
-    description: "Sólida na área de estética e cosmética. É Esteticista, Biomédica e Fisioterapeuta, mantendo sua atuação com um rigoroso Mestrado internacional em Biotecnologia e Docência em mercado livre.",
-    img: s7,
-    placeholder: s7ph,
-    Icon: Microscope
-  },
-  { 
-    id: "s8",
-    name: "Danielle Mafra", 
-    fullName: "Danielle Mafra",
-    role: "Superintendente do SESI RN em ESG", 
-    shortRole: "Executiva em ESG",
-    description: "Atual líder e Superintendente Regional do SESI RN, Danielle dita o mercado após certificar seu exato poder de impacto em seu Mestrado em Governança Executiva de ESG na Nova SBE.",
-    img: s8,
-    placeholder: s8ph,
-    Icon: Leaf
-  },
-  { 
-    id: "s9",
-    name: "Dani Maia", 
-    fullName: "Dra. Dani Maia",
-    role: "Dermatologista Clínica e CEO Corporativa", 
-    shortRole: "Dermatologista",
-    description: "Muito mais que Médica Dermatologista, é empresária que fundou e concebeu a marca Clínica Daniela Maia, cruzando a prestação de alto padrão com serviços operacionais irretocáveis na gestão.",
-    img: s9,
-    placeholder: s9ph,
-    Icon: Sparkles
-  },
-  { 
-    id: "s10",
-    name: "Marina Aragão", 
-    fullName: "Marina Aragão",
-    role: "Coordenadora de Educação IEL RN", 
-    shortRole: "Cons. Empresarial",
-    description: "Atua ativamente como Coordenadora de Carreiras do IEL RN. Sua visão executiva agrupa sua formação em Administração em alto nível somado a sua grande força em soluções empresariais escaláveis.",
-    img: s10,
-    placeholder: s10ph,
-    Icon: Target
-  },
-];
-
 const SpeakersSection = () => {
+  const { data: configs } = useSiteConfig();
+
+  const speakers = [
+    { 
+      id: "s1",
+      name: "Alice Fuscella", 
+      fullName: "Prof. Dra. Alice Fuscella",
+      role: "Coordenadora de Odontologia e Práticas Integrativas", 
+      shortRole: "Coord. Odontologia",
+      description: "Referência na área educacional e de bem-estar corporativo. É a principal Coordenadora de Odontologia e Núcleo de Práticas Integrativas no UNIFACEX, atuando com liderança formativa.",
+      img: configs?.speaker_1 || s1,
+      placeholder: s1ph,
+      Icon: GraduationCap
+    },
+    { 
+      id: "s2",
+      name: "Eneida Carreiro", 
+      fullName: "Dra. Eneida Carreiro",
+      role: "Doutora em Biotecnologia e Fisioterapeuta", 
+      shortRole: "Fisioterapeuta",
+      description: "Fisioterapeuta amplamente especializada em Dermatofuncional e estética. Traz a inovação dos seus estudos de Mestrado e Doutorado em Biotecnologia diretamente para a estética aplicada.",
+      img: configs?.speaker_2 || s2,
+      placeholder: s2ph,
+      Icon: Activity
+    },
+    { 
+      id: "s3",
+      name: "Bruna Covre", 
+      fullName: "Dra. Bruna Covre",
+      role: "Médica Endocrinologista Integrativa", 
+      shortRole: "Médica Endocrinologista",
+      description: "Médica Endocrinologista altamente especializada em Medicina Funcional Integrativa. O seu super foco é a excelência clínica aliada à longevidade hormonal da mulher de sucesso.",
+      img: configs?.speaker_3 || s3,
+      placeholder: s3ph,
+      Icon: Stethoscope
+    },
+    { 
+      id: "s4",
+      name: "Raphael Almeida", 
+      fullName: "Dr. Raphael Almeida",
+      role: "Fisioterapeuta, Docente e Empreendedor", 
+      shortRole: "Fisioterapeuta",
+      description: "Especialista clínico renomado em Disfunções da Coluna Vertebral e Traumato-Ortopedia. É o idealizador por trás do Método EDP (É de Propósito) e atual Coordenador.",
+      img: configs?.speaker_4 || s4,
+      placeholder: s4ph,
+      Icon: Dumbbell
+    },
+    { 
+      id: "s5",
+      name: "Mitia Montenegro", 
+      fullName: "Mitia Montenegro",
+      role: "Psicóloga Esp. em TCC e Neurobiologia", 
+      shortRole: "Psicóloga",
+      description: "Profissional de atuação ímpar em Arquitetura e Psicologia. Detém forte autoridade no tratamento executivo focando em saúde mental, neurobiologia avançada e neuro-adequações da TCC.",
+      img: configs?.speaker_5 || s5,
+      placeholder: s5ph,
+      Icon: Brain
+    },
+    { 
+      id: "s6",
+      name: "Wanderley Cunha", 
+      fullName: "Wanderley Cunha",
+      role: "Gestor e CEO da Vectax Produtora", 
+      shortRole: "CEO Vectax",
+      description: "Empreendedor que atua na linha de frente como CEO, guiando e escalando os grandes softwares comerciais que aceleram a comunicação corporativa do país de ponta a ponta.",
+      img: configs?.speaker_6 || s6,
+      placeholder: s6ph,
+      Icon: Building2
+    },
+    { 
+      id: "s7",
+      name: "Glenda Oliveira", 
+      fullName: "Dra. Glenda Oliveira",
+      role: "Mestre em Biotecnologia e Biomédica", 
+      shortRole: "Biomédica",
+      description: "Sólida na área de estética e cosmética. É Esteticista, Biomédica e Fisioterapeuta, mantendo sua atuação com um rigoroso Mestrado internacional em Biotecnologia e Docência em mercado livre.",
+      img: configs?.speaker_7 || s7,
+      placeholder: s7ph,
+      Icon: Microscope
+    },
+    { 
+      id: "s8",
+      name: "Danielle Mafra", 
+      fullName: "Danielle Mafra",
+      role: "Superintendente do SESI RN em ESG", 
+      shortRole: "Executiva em ESG",
+      description: "Atual líder e Superintendente Regional do SESI RN, Danielle dita o mercado após certificar seu exato poder de impacto em seu Mestrado em Governança Executiva de ESG na Nova SBE.",
+      img: configs?.speaker_8 || s8,
+      placeholder: s8ph,
+      Icon: Leaf
+    },
+    { 
+      id: "s9",
+      name: "Dani Maia", 
+      fullName: "Dra. Dani Maia",
+      role: "Dermatologista Clínica e CEO Corporativa", 
+      shortRole: "Dermatologista",
+      description: "Muito mais que Médica Dermatologista, é empresária que fundou e concebeu a marca Clínica Daniela Maia, cruzando a prestação de alto padrão com serviços operacionais irretocáveis na gestão.",
+      img: configs?.speaker_9 || s9,
+      placeholder: s9ph,
+      Icon: Sparkles
+    },
+    { 
+      id: "s10",
+      name: "Marina Aragão", 
+      fullName: "Marina Aragão",
+      role: "Coordenadora de Educação IEL RN", 
+      shortRole: "Cons. Empresarial",
+      description: "Atua ativamente como Coordenadora de Carreiras do IEL RN. Sua visão executiva agrupa sua formação em Administração em alto nível somado a sua grande força em soluções empresariais escaláveis.",
+      img: configs?.speaker_10 || s10,
+      placeholder: s10ph,
+      Icon: Target
+    },
+  ];
+
   const [activeTab, setActiveTab] = useState(speakers[0].id);
   const activeSpeaker = speakers.find(s => s.id === activeTab) || speakers[0];
 

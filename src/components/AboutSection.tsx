@@ -4,8 +4,11 @@ import OptimizedImage from "@/components/ui/OptimizedImage";
 import eventInfoWebP from "@/assets/event-info-image.webp";
 import eventInfoPlaceholder from "@/assets/event-info-image.placeholder.webp";
 import { Link } from "react-router-dom";
+import { useSiteConfig } from "@/hooks/useSiteConfig";
 
 const AboutSection = () => {
+  const { data: configs } = useSiteConfig();
+
   return (
     <section className="about-section">
       <div className="about-container">
@@ -98,7 +101,7 @@ const AboutSection = () => {
             <div className="about-top-right-wrapper h-full">
               <div className="about-image-card h-[550px] border border-[rgba(238,105,131,0.15)] shadow-[0_0_40px_rgba(0,0,0,0.8)] relative group">
                 <OptimizedImage
-                  src={eventInfoWebP}
+                  src={configs?.about_image || eventInfoWebP}
                   placeholderSrc={eventInfoPlaceholder}
                   alt="Auditório do evento Unifacex"
                   className="about-image transition-transform duration-[2s] group-hover:scale-105"

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import OptimizedImage from "@/components/ui/OptimizedImage";
+import { useSiteConfig } from "@/hooks/useSiteConfig";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -10,31 +11,33 @@ const fadeUp = {
   transition: { duration: 0.6 },
 };
 
-const audiences = [
-  {
-    tag: "CORPO & MENTE",
-    title: "Fim do Esgotamento",
-    text: "Aprenda métodos que blindam sua saúde física e mental para focar no que dá lucro.",
-    image: "/images/audience/saude.webp",
-    placeholder: "/images/audience/saude.placeholder.webp"
-  },
-  {
-    tag: "CONEXÕES",
-    title: "Networking Real",
-    text: "Sente à mesa com lideranças femininas focadas em crescer de verdade, sem máscaras.",
-    image: "/images/audience/conexoes.webp",
-    placeholder: "/images/audience/conexoes.placeholder.webp"
-  },
-  {
-    tag: "IMAGEM CLÍNICA",
-    title: "Posicionamento",
-    text: "Descubra como a estética refinada e a saúde postural elevam o valor do negócio.",
-    image: "/images/audience/lideranca.webp",
-    placeholder: "/images/audience/lideranca.placeholder.webp"
-  },
-];
-
 const AudienceSection = () => {
+  const { data: configs } = useSiteConfig();
+
+  const audiences = [
+    {
+      tag: "CORPO & MENTE",
+      title: "Fim do Esgotamento",
+      text: "Aprenda métodos que blindam sua saúde física e mental para focar no que dá lucro.",
+      image: configs?.audience_img_1 || "/images/audience/saude.webp",
+      placeholder: "/images/audience/saude.placeholder.webp"
+    },
+    {
+      tag: "CONEXÕES",
+      title: "Networking Real",
+      text: "Sente à mesa com lideranças femininas focadas em crescer de verdade, sem máscaras.",
+      image: configs?.audience_img_2 || "/images/audience/conexoes.webp",
+      placeholder: "/images/audience/conexoes.placeholder.webp"
+    },
+    {
+      tag: "IMAGEM CLÍNICA",
+      title: "Posicionamento",
+      text: "Descubra como a estética refinada e a saúde postural elevam o valor do negócio.",
+      image: configs?.audience_img_3 || "/images/audience/lideranca.webp",
+      placeholder: "/images/audience/lideranca.placeholder.webp"
+    },
+  ];
+
   return (
     <section className="bg-[#080808] py-16 md:py-24 relative overflow-visible border-t border-[#ee6983]/10">
       
