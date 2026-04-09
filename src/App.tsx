@@ -5,8 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import Register from "./pages/Register.tsx";
-import Checkout from "./pages/Checkout.tsx";
-import Success from "./pages/Success.tsx";
+import Terms from "./pages/Terms.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { useContentProtection } from "./hooks/useContentProtection";
 
@@ -24,8 +23,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/inscricao" element={<Register />} />
-          <Route path="/pagamento" element={<Checkout />} />
-          <Route path="/confirmacao" element={<Success />} />
+          <Route path="/termos" element={<Terms />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

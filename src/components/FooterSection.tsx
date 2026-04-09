@@ -15,9 +15,11 @@ const FooterSection = () => (
           <div className="space-y-8 lg:col-span-5 pr-0 lg:pr-12 border-r-0 lg:border-r border-white/[0.02]">
             <div className="flex flex-col gap-4">
               <img 
-                src="/images/logo-instituto-trimmed.png" 
+                src="/images/logo-instituto-trimmed.webp" 
                 alt="Instituto Mulheres de Sucesso Brasileiras" 
                 className="h-20 md:h-24 w-auto object-left object-contain" 
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="space-y-4">
@@ -62,27 +64,20 @@ const FooterSection = () => (
             </ul>
           </div>
 
-          {/* Security & Trust */}
-          <div className="space-y-8 lg:col-span-3">
-            <div className="space-y-3">
-              <h4 className="text-white font-bold tracking-[0.2em] uppercase text-[11px] opacity-80">Transação Segura</h4>
+          {/* Upsiden Quality Seal */}
+          <div className="space-y-6 lg:col-span-3">
+            <div className="space-y-3 hidden lg:block">
+              <h4 className="text-white font-bold tracking-[0.2em] uppercase text-[11px] opacity-80">Marca de Excelência</h4>
               <div className="w-10 h-[1px] bg-gradient-to-r from-[#ee6983] to-transparent" />
             </div>
             
-            <p className="text-white/40 text-[13px] leading-relaxed font-light">
-              Ambiente protegido com criptografia de ponta a ponta. Seus dados estão 100% seguros.
+            <p className="hidden lg:block text-white/40 text-[12px] leading-relaxed font-light">
+              Desenhada, projetada e estruturada com foco em alta conversão e experiência de usuário de ponta.
             </p>
-            
-            <div className="flex flex-col gap-3 pt-2">
-              <div className="group relative overflow-hidden flex items-center gap-4 bg-[#0a0a0a] border border-white/[0.05] hover:border-white/10 px-4 py-3.5 rounded-xl transition-all duration-500 shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#ee6983]/0 via-[#ee6983]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                <Lock className="w-4 h-4 text-[#ee6983] relative z-10" />
-                <span className="text-white/80 text-[11px] font-bold uppercase tracking-[0.15em] relative z-10">Certificado SSL</span>
-              </div>
-              <div className="group relative overflow-hidden flex items-center gap-4 bg-[#0a0a0a] border border-white/[0.05] hover:border-[#ee6983]/30 px-4 py-3.5 rounded-xl transition-all duration-500 shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#ee6983]/0 via-[#ee6983]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                <ShieldCheck className="w-4 h-4 text-[#ee6983] relative z-10" />
-                <span className="text-white/80 text-[11px] font-bold uppercase tracking-[0.15em] relative z-10">Compra Garantida</span>
+
+            <div className="flex pt-3">
+              <div className="w-24 h-24 relative">
+                 <img src="/images/selo-upsiden.png" alt="Selo Upsiden - Marca de Excelência" className="w-full h-full object-contain" />
               </div>
             </div>
           </div>
@@ -94,16 +89,20 @@ const FooterSection = () => (
     {/* Footer Bottom */}
     <section className="bg-[#020202] py-8 border-t border-white/[0.02]">
       <div className="section-container">
-        <div className="flex flex-col items-center gap-1.5 text-center">
+        <div className="flex flex-col items-center gap-1.5 text-center mb-6">
           <p className="text-[12px] text-white/50 tracking-[0.05em] font-medium">
-            &copy; {new Date().getFullYear()} <span className="text-white/70">Instituto Mulheres de Sucesso Brasileiras</span>
+            &copy; {new Date().getFullYear()} <span className="text-white/70">I Fórum da Mulher Empreendedora</span> – Todos os direitos reservados.
           </p>
-          <p className="text-[11px] text-white/30 font-light tracking-wide">
-            CNPJ: 59.418.846/0001-99 • Todos os direitos reservados.
+          <p className="text-[11px] text-white/30 font-light tracking-wide mt-1">
+             Estratégia e Tecnologia por <span className="text-white/60 font-medium tracking-widest uppercase">Upsiden</span>
           </p>
         </div>
         
-        <div className="mt-8 border-t border-white/[0.02] pt-6 flex justify-center">
+        <div className="flex gap-6 justify-center mt-2 mb-6">
+          <a href="/termos" className="text-white/40 hover:text-[#ee6983] text-xs uppercase font-bold tracking-widest transition-colors">Termos de Uso e Privacidade</a>
+        </div>
+
+        <div className="border-t border-white/[0.02] pt-6 flex justify-center">
            <p className="text-[10px] text-white/20 font-light leading-relaxed max-w-4xl text-center text-balance">
             Este site não faz parte do website do Facebook / Meta ou do Facebook Inc. Além disso, este site NÃO é endossado pelo Facebook de nenhuma maneira. FACEBOOK é uma marca comercial independente da FACEBOOK, Inc.
            </p>

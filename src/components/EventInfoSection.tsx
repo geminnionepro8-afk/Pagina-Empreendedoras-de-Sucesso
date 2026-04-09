@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Calendar, MapPin } from "lucide-react";
-import eventInfoImg from "@/assets/event-info-image.jpg";
+import OptimizedImage from "@/components/ui/OptimizedImage";
+import eventInfoWebP from "@/assets/event-info-image.webp";
+import eventInfoPlaceholder from "@/assets/event-info-image.placeholder.webp";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -22,10 +24,11 @@ const EventInfoSection = () => {
           >
             <div className="absolute -inset-3 bg-[#ee6983]/10 rounded-2xl blur-[60px] group-hover:bg-[#ee6983]/15 transition-all duration-700" />
             <div className="relative rounded-2xl overflow-hidden border-2 border-[#ee6983]/50 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.7)] aspect-[16/10]">
-              <img
-                src={eventInfoImg}
+              <OptimizedImage
+                src={eventInfoWebP}
+                placeholderSrc={eventInfoPlaceholder}
                 alt="Imagem Oficial do Evento Unifacex"
-                className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105"
+                className="transition-transform duration-[2000ms] group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
             </div>

@@ -1,18 +1,33 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote, Star, Stethoscope, Activity, Brain, Briefcase, TestTube, Leaf, Sparkles, Target, GraduationCap, Dumbbell, Building2, Microscope } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
+import OptimizedImage from "@/components/ui/OptimizedImage";
+import { useImagePreloader } from "@/hooks/useImagePreloader";
 
-import s1 from "@/assets/speakers/1.png";
-import s2 from "@/assets/speakers/2.png";
-import s3 from "@/assets/speakers/3.png";
-import s4 from "@/assets/speakers/4.png";
-import s5 from "@/assets/speakers/5.png";
-import s6 from "@/assets/speakers/6.png";
-import s7 from "@/assets/speakers/7.png";
-import s8 from "@/assets/speakers/8.png";
-import s9 from "@/assets/speakers/9.png";
-import s10 from "@/assets/speakers/10.png";
+// Optimized WebP imports
+import s1 from "@/assets/speakers/1.webp";
+import s2 from "@/assets/speakers/2.webp";
+import s3 from "@/assets/speakers/3.webp";
+import s4 from "@/assets/speakers/4.webp";
+import s5 from "@/assets/speakers/5.webp";
+import s6 from "@/assets/speakers/6.webp";
+import s7 from "@/assets/speakers/7.webp";
+import s8 from "@/assets/speakers/8.webp";
+import s9 from "@/assets/speakers/9.webp";
+import s10 from "@/assets/speakers/10.webp";
+
+// Tiny placeholders for blur-up
+import s1ph from "@/assets/speakers/1.placeholder.webp";
+import s2ph from "@/assets/speakers/2.placeholder.webp";
+import s3ph from "@/assets/speakers/3.placeholder.webp";
+import s4ph from "@/assets/speakers/4.placeholder.webp";
+import s5ph from "@/assets/speakers/5.placeholder.webp";
+import s6ph from "@/assets/speakers/6.placeholder.webp";
+import s7ph from "@/assets/speakers/7.placeholder.webp";
+import s8ph from "@/assets/speakers/8.placeholder.webp";
+import s9ph from "@/assets/speakers/9.placeholder.webp";
+import s10ph from "@/assets/speakers/10.placeholder.webp";
 
 const speakers = [
   { 
@@ -23,6 +38,7 @@ const speakers = [
     shortRole: "Coord. Odontologia",
     description: "Referência na área educacional e de bem-estar corporativo. É a principal Coordenadora de Odontologia e Núcleo de Práticas Integrativas no UNIFACEX, atuando com liderança formativa.",
     img: s1,
+    placeholder: s1ph,
     Icon: GraduationCap
   },
   { 
@@ -33,6 +49,7 @@ const speakers = [
     shortRole: "Fisioterapeuta",
     description: "Fisioterapeuta amplamente especializada em Dermatofuncional e estética. Traz a inovação dos seus estudos de Mestrado e Doutorado em Biotecnologia diretamente para a estética aplicada.",
     img: s2,
+    placeholder: s2ph,
     Icon: Activity
   },
   { 
@@ -43,6 +60,7 @@ const speakers = [
     shortRole: "Médica Endocrinologista",
     description: "Médica Endocrinologista altamente especializada em Medicina Funcional Integrativa. O seu super foco é a excelência clínica aliada à longevidade hormonal da mulher de sucesso.",
     img: s3,
+    placeholder: s3ph,
     Icon: Stethoscope
   },
   { 
@@ -53,6 +71,7 @@ const speakers = [
     shortRole: "Fisioterapeuta",
     description: "Especialista clínico renomado em Disfunções da Coluna Vertebral e Traumato-Ortopedia. É o idealizador por trás do Método EDP (É de Propósito) e atual Coordenador.",
     img: s4,
+    placeholder: s4ph,
     Icon: Dumbbell
   },
   { 
@@ -63,6 +82,7 @@ const speakers = [
     shortRole: "Psicóloga",
     description: "Profissional de atuação ímpar em Arquitetura e Psicologia. Detém forte autoridade no tratamento executivo focando em saúde mental, neurobiologia avançada e neuro-adequações da TCC.",
     img: s5,
+    placeholder: s5ph,
     Icon: Brain
   },
   { 
@@ -73,6 +93,7 @@ const speakers = [
     shortRole: "CEO Vectax",
     description: "Empreendedor que atua na linha de frente como CEO, guiando e escalando os grandes softwares comerciais que aceleram a comunicação corporativa do país de ponta a ponta.",
     img: s6,
+    placeholder: s6ph,
     Icon: Building2
   },
   { 
@@ -83,6 +104,7 @@ const speakers = [
     shortRole: "Biomédica",
     description: "Sólida na área de estética e cosmética. É Esteticista, Biomédica e Fisioterapeuta, mantendo sua atuação com um rigoroso Mestrado internacional em Biotecnologia e Docência em mercado livre.",
     img: s7,
+    placeholder: s7ph,
     Icon: Microscope
   },
   { 
@@ -93,6 +115,7 @@ const speakers = [
     shortRole: "Executiva em ESG",
     description: "Atual líder e Superintendente Regional do SESI RN, Danielle dita o mercado após certificar seu exato poder de impacto em seu Mestrado em Governança Executiva de ESG na Nova SBE.",
     img: s8,
+    placeholder: s8ph,
     Icon: Leaf
   },
   { 
@@ -103,6 +126,7 @@ const speakers = [
     shortRole: "Dermatologista",
     description: "Muito mais que Médica Dermatologista, é empresária que fundou e concebeu a marca Clínica Daniela Maia, cruzando a prestação de alto padrão com serviços operacionais irretocáveis na gestão.",
     img: s9,
+    placeholder: s9ph,
     Icon: Sparkles
   },
   { 
@@ -113,6 +137,7 @@ const speakers = [
     shortRole: "Cons. Empresarial",
     description: "Atua ativamente como Coordenadora de Carreiras do IEL RN. Sua visão executiva agrupa sua formação em Administração em alto nível somado a sua grande força em soluções empresariais escaláveis.",
     img: s10,
+    placeholder: s10ph,
     Icon: Target
   },
 ];
@@ -120,6 +145,10 @@ const speakers = [
 const SpeakersSection = () => {
   const [activeTab, setActiveTab] = useState(speakers[0].id);
   const activeSpeaker = speakers.find(s => s.id === activeTab) || speakers[0];
+
+  // Preload all speaker WebP images in background (they're tiny now ~50-80KB each)
+  const allSpeakerUrls = useMemo(() => speakers.map(s => s.img), []);
+  useImagePreloader(allSpeakerUrls);
 
   return (
     <section className="bg-[#0a0a0a] py-16 md:py-20 relative overflow-hidden border-t border-[#ee6983]/10">
@@ -169,7 +198,13 @@ const SpeakersSection = () => {
                 {/* Top Section: Avatar e Ícone */}
                 <div className="flex items-start justify-between w-full mb-1">
                   <div className={`relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden shrink-0 border border-white/10 transition-all duration-300 ${activeTab === speaker.id ? 'border-white/30' : 'group-hover:border-white/20'}`}>
-                    <img src={speaker.img} alt={speaker.name} className={`w-full h-full object-cover transition-all duration-500 scale-105 ${activeTab === speaker.id ? "opacity-100" : "opacity-50 group-hover:opacity-100"}`} />
+                    <img 
+                      src={speaker.placeholder} 
+                      alt={speaker.name} 
+                      className={`w-full h-full object-cover transition-all duration-500 scale-105 ${activeTab === speaker.id ? "opacity-100" : "opacity-50 group-hover:opacity-100"}`} 
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                   <div className={`mt-0 transition-all duration-300 ${activeTab === speaker.id ? "opacity-100 scale-100" : "opacity-100 scale-95 group-hover:scale-100"}`}>
                     {speaker.Icon && <speaker.Icon stroke={activeTab === speaker.id ? "white" : "url(#iconGradient)"} strokeWidth={activeTab === speaker.id ? 1.5 : 1} className="w-5 h-5 sm:w-6 sm:h-6" />}
@@ -204,12 +239,13 @@ const SpeakersSection = () => {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="relative w-full h-full rounded-2xl overflow-hidden border border-white/5 shadow-2xl bg-[#080808]"
               >
-                <img 
-                  src={activeSpeaker.img} 
-                  alt={activeSpeaker.fullName} 
-                  className="absolute inset-0 w-full h-full object-cover object-top"
+                <OptimizedImage
+                  src={activeSpeaker.img}
+                  placeholderSrc={activeSpeaker.placeholder}
+                  alt={activeSpeaker.fullName}
+                  objectPosition="top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
               </motion.div>
             </AnimatePresence>
           </div>

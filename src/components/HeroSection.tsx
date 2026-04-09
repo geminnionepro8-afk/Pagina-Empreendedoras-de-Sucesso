@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { MoveRight, Calendar, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
-import audienceBg from "@/assets/audience-bg.jpg";
-import heroSpeakerUrl from "@/assets/hero-speaker.png";
+
+// Optimized WebP versions
+import heroSpeakerWebP from "@/assets/hero-speaker.webp";
+import heroSpeakerPlaceholder from "@/assets/hero-speaker.placeholder.webp";
+
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -23,17 +27,20 @@ const HeroSection = () => {
     <section className="relative min-h-[90vh] md:min-h-screen flex items-center pt-24 md:pt-32 pb-12 md:pb-20 overflow-hidden bg-black">
       {/* Background Original Image filling the whole section */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroSpeakerUrl}
+        <OptimizedImage
+          src={heroSpeakerWebP}
+          placeholderSrc={heroSpeakerPlaceholder}
           alt="Palestrante Evento"
-          className="w-full h-full object-cover object-[70%_top] lg:object-right"
+          priority={true}
+          objectPosition="70% top"
+          className="w-full h-full lg:!object-[right_top]"
         />
         {/* Gradiente protegendo o texto na esquerda, sem sumir com a mulher na direita */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 lg:via-black/30 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 lg:via-black/30 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent pointer-events-none z-10" />
         
         {/* Subtle Glow behind the text */}
-        <div className="absolute top-1/2 left-[5%] md:left-[10%] -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#ee6983] opacity-[0.15] blur-[120px] md:blur-[150px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/2 left-[5%] md:left-[10%] -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#ee6983] opacity-[0.15] blur-[120px] md:blur-[150px] rounded-full pointer-events-none z-10" />
       </div>
 
       <div className="section-container relative z-10 w-full">
@@ -43,9 +50,11 @@ const HeroSection = () => {
           <motion.div {...fadeRight} className="flex flex-col gap-4">
             <div className="flex items-center gap-4 w-fit">
               <img 
-                src="/images/logo-instituto-trimmed.png" 
+                src="/images/logo-instituto-trimmed.webp" 
                 alt="Instituto Mulheres de Sucesso" 
                 className="h-12 sm:h-16 md:h-20 w-auto object-left object-contain brightness-110 drop-shadow-[0_0_15px_rgba(238,105,131,0.2)]" 
+                loading="eager"
+                fetchPriority="high"
               />
             </div>
 

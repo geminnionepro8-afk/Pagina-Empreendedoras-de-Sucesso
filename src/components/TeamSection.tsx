@@ -2,46 +2,48 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import SectionLabel from "@/components/ui/SectionLabel";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
-import s1 from "@/assets/speakers/1.png";
-import s2 from "@/assets/speakers/2.png";
-import s3 from "@/assets/speakers/3.png";
-import s4 from "@/assets/speakers/4.png";
-import s5 from "@/assets/speakers/5.png";
-import s6 from "@/assets/speakers/6.png";
-import s7 from "@/assets/speakers/7.png";
-import s8 from "@/assets/speakers/8.png";
-import s9 from "@/assets/speakers/9.png";
-import s10 from "@/assets/speakers/10.png";
-import s11 from "@/assets/speakers/11.png";
-import s12 from "@/assets/speakers/12.png";
-import s13 from "@/assets/speakers/13.png";
-import s14 from "@/assets/speakers/14.png";
+// Optimized WebP imports
+import s11 from "@/assets/speakers/11.webp";
+import s12 from "@/assets/speakers/12.webp";
+import s13 from "@/assets/speakers/13.webp";
+import s14 from "@/assets/speakers/14.webp";
+
+// Placeholders for blur-up
+import s11ph from "@/assets/speakers/11.placeholder.webp";
+import s12ph from "@/assets/speakers/12.placeholder.webp";
+import s13ph from "@/assets/speakers/13.placeholder.webp";
+import s14ph from "@/assets/speakers/14.placeholder.webp";
 
 const teamMembers = [
   { 
     name: "Prof. MSc. Lucia Leandro", 
     role: "CEO Mulheres de Sucesso", 
     bio: "CEO do Instituto Mulheres de Sucesso Brasileiras e Coordenadora do MBA em Gestão de Liderança Feminina UNIFACEX.", 
-    img: s14 
+    img: s14,
+    placeholder: s14ph
   },
   { 
     name: "Candysse Figueiredo", 
     role: "Reitora do UNIFACEX", 
     bio: "Lidera a gestão acadêmica com excelência e inovação institucional, trazendo uma visão vibrante e acessível para a alta gestão educacional.", 
-    img: s13 
+    img: s13,
+    placeholder: s13ph
   },
   { 
     name: "Prof. Celly Franck", 
     role: "Pró Reitor Acadêmico", 
     bio: "Pró Reitor Acadêmico do UNIFACEX, conciliando o rigor acadêmico com uma postura de liderança moderna, equilibrada e próxima.", 
-    img: s11 
+    img: s11,
+    placeholder: s11ph
   },
   { 
     name: "Dra. Rossana Ferreira", 
     role: "Advogada do Instituto", 
     bio: "Advogada do Instituto Mulheres de Sucesso Brasileiras, combinando seriedade jurídica com elegância e sofisticação estratégica.", 
-    img: s12 
+    img: s12,
+    placeholder: s12ph
   },
 ];
 
@@ -53,12 +55,12 @@ const TeamSection = () => {
           <div className="team-one-top-wrapper">
             <div className="team-one-top-grid-wrap">
               <div className="team-one-top-left-wrapper">
-                <SectionLabel text="Acesso de Alto Impacto" />
+                <SectionLabel text="Governança Executiva" />
                 <div className="team-one-title-wrap">
                   <h2 className="team-title">
-                    Apresentação de <br />
+                    A Força por Trás <br />
                     <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">
-                      Alto Impacto
+                      Do Instituto
                     </span>
                   </h2>
                 </div>
@@ -94,14 +96,25 @@ const TeamSection = () => {
                     <div className="team-single-card">
                       <div className="team-card-wrapper">
                         <div className="team-card-content-wrap">
-                          <img src={member.img} loading="lazy" alt={member.name} className="team-member-image" />
+                          <OptimizedImage
+                            src={member.img}
+                            placeholderSrc={member.placeholder}
+                            alt={member.name}
+                            objectPosition="top"
+                          />
                         </div>
                         <div className="team-card-content-wrap back">
                           <div className="flex flex-col h-full justify-between">
                             <div>
                               <div className="team-card-top-wrap">
                                 <div className="team-card-image-wrap">
-                                  <img src={member.img} loading="lazy" alt="" className="team-member-image" style={{ borderRadius: '8px' }}/>
+                                  <OptimizedImage
+                                    src={member.img}
+                                    placeholderSrc={member.placeholder}
+                                    alt={member.name}
+                                    objectPosition="top"
+                                    style={{ borderRadius: '8px' }}
+                                  />
                                 </div>
                               </div>
                               <div className="team-maember-info-wrapper">

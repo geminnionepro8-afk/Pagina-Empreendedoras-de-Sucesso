@@ -1,6 +1,8 @@
 import { CalendarFold, MapPin, Clock, ArrowUpRight, Sparkles } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
-import eventInfoImg from "@/assets/event-info-image.jpg";
+import OptimizedImage from "@/components/ui/OptimizedImage";
+import eventInfoWebP from "@/assets/event-info-image.webp";
+import eventInfoPlaceholder from "@/assets/event-info-image.placeholder.webp";
 import { Link } from "react-router-dom";
 
 const AboutSection = () => {
@@ -95,7 +97,12 @@ const AboutSection = () => {
             {/* ══ COLUNA DA DIREITA (NOVA IMAGEM AUDITÓRIO) ══ */}
             <div className="about-top-right-wrapper h-full">
               <div className="about-image-card h-[550px] border border-[rgba(238,105,131,0.15)] shadow-[0_0_40px_rgba(0,0,0,0.8)] relative group">
-                <img src={eventInfoImg} alt="Auditório do evento Unifacex" className="about-image transition-transform duration-[2s] group-hover:scale-105" />
+                <OptimizedImage
+                  src={eventInfoWebP}
+                  placeholderSrc={eventInfoPlaceholder}
+                  alt="Auditório do evento Unifacex"
+                  className="about-image transition-transform duration-[2s] group-hover:scale-105"
+                />
                 <div className="about-image-overlay" />
               </div>
             </div>

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -14,19 +15,22 @@ const audiences = [
     tag: "CORPO & MENTE",
     title: "Fim do Esgotamento",
     text: "Aprenda métodos que blindam sua saúde física e mental para focar no que dá lucro.",
-    image: "/images/audience/saude.png"
+    image: "/images/audience/saude.webp",
+    placeholder: "/images/audience/saude.placeholder.webp"
   },
   {
     tag: "CONEXÕES",
     title: "Networking Real",
     text: "Sente à mesa com lideranças femininas focadas em crescer de verdade, sem máscaras.",
-    image: "/images/audience/conexoes.png"
+    image: "/images/audience/conexoes.webp",
+    placeholder: "/images/audience/conexoes.placeholder.webp"
   },
   {
     tag: "IMAGEM CLÍNICA",
     title: "Posicionamento",
     text: "Descubra como a estética refinada e a saúde postural elevam o valor do negócio.",
-    image: "/images/audience/lideranca.png"
+    image: "/images/audience/lideranca.webp",
+    placeholder: "/images/audience/lideranca.placeholder.webp"
   },
 ];
 
@@ -111,12 +115,13 @@ const AudienceSection = () => {
 
                 {/* Imagem Menor do Card (Transformação Limitada) */}
                 <div className="w-full h-[250px] sm:h-[300px] lg:h-[140px] xl:h-[200px] rounded-[20px] sm:rounded-[24px] bg-[#0c0c0c] border border-white/5 overflow-hidden group cursor-pointer relative mt-6 lg:mt-auto">
-                    {/* Imagem Representativa */}
-                    <img 
-                       src={item.image} 
-                       alt={item.title} 
-                       className="absolute inset-0 w-full h-full object-cover object-top brightness-100 transition-all duration-700 ease-out z-10" 
-                    />
+                  <OptimizedImage
+                    src={item.image}
+                    placeholderSrc={item.placeholder}
+                    alt={item.title}
+                    objectPosition="top"
+                    className="brightness-100 transition-all duration-700 ease-out"
+                  />
                 </div>
               </motion.div>
             ))}
