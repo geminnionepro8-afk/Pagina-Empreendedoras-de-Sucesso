@@ -66,7 +66,7 @@ export default {
         flf: {
           dark: "#000000",
           green: "#00C853",
-          pink: "#ee6983",
+          pink: "#b51a42",
           gold: "#D4AF37",
           gray: "#333333",
           lightGray: "#888888"
@@ -76,6 +76,9 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "calc(var(--radius) + 4px)",
+        "2xl": "calc(var(--radius) + 8px)",
+        "3xl": "calc(var(--radius) + 12px)",
       },
       keyframes: {
         "accordion-down": {

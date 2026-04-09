@@ -13,7 +13,7 @@ const HeroSection = () => {
   const { data: configs } = useSiteConfig();
   
   return (
-    <section className="relative min-h-[90vh] md:min-h-screen flex items-center pt-24 md:pt-32 pb-12 md:pb-20 overflow-hidden bg-black">
+    <section className="relative min-h-[90vh] md:min-h-screen flex items-center pt-[clamp(3rem,10vh,6rem)] md:pt-[clamp(4rem,12vh,7.5rem)] pb-12 md:pb-20 overflow-hidden bg-black">
       {/* Background Original Image filling the whole section */}
       <div className="absolute inset-0 z-0">
         <OptimizedImage

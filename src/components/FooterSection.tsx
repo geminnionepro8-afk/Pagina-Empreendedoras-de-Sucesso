@@ -80,13 +80,18 @@ const FooterSection = () => {
             </p>
 
             <div className="flex pt-3">
-              <div className="w-24 h-24 relative">
+              <a 
+                href="https://upsidenco.com/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-24 h-24 relative hover:scale-105 transition-transform duration-300"
+              >
                  <img 
                     src={configs?.selo_footer || "/images/selo-upsiden.png"} 
                     alt="Selo Upsiden - Marca de Excelência" 
                     className="w-full h-full object-contain" 
                  />
-              </div>
+              </a>
             </div>
           </div>
 
@@ -107,7 +112,7 @@ const FooterSection = () => {
         </div>
         
         <div className="flex gap-6 justify-center mt-2 mb-6">
-          <a href="/termos" className="text-white/40 hover:text-[#ee6983] text-xs uppercase font-bold tracking-widest transition-colors">Termos de Uso e Privacidade</a>
+          {/* Termos removidos conforme solicitação */}
         </div>
 
         <div className="border-t border-white/[0.02] pt-6 flex justify-center">

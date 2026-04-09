@@ -213,9 +213,9 @@ const Admin = () => {
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-[#050505] flex items-center justify-center p-6 bg-[radial-gradient(circle_at_50%_50%,rgba(238,105,131,0.05)_0%,transparent_50%)]">
-        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="w-full max-w-md bg-[#0a0a0a] border border-white/5 rounded-[32px] p-8 shadow-2xl">
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="w-full max-w-md bg-[#0a0a0a] border border-white/5 rounded-2xl p-8 shadow-2xl">
           <div className="flex flex-col items-center mb-10">
-            <div className="w-14 h-14 bg-gradient-to-br from-[#ee6983] to-[#d64765] rounded-2xl flex items-center justify-center mb-6 shadow-xl shadow-[#ee6983]/20">
+            <div className="w-14 h-14 bg-gradient-to-br from-[#b51a42] to-[#9d173d] rounded-xl flex items-center justify-center mb-6 shadow-xl shadow-[#b51a42]/20">
               <Shield className="text-white w-7 h-7" />
             </div>
             <h1 className="text-xl font-black text-white tracking-[0.3em] uppercase">Upsiden Admin</h1>
@@ -225,11 +225,11 @@ const Admin = () => {
               <label className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em] ml-1">Master Key</label>
               <input 
                 type="password" value={password} onChange={(e) => setPassword(e.target.value)} 
-                className="w-full bg-black border border-white/10 rounded-2xl py-4 px-6 text-white focus:border-[#ee6983]/50 outline-none transition-all font-mono tracking-widest"
+                className="w-full bg-black border border-white/10 rounded-xl py-4 px-6 text-white focus:border-[#b51a42]/50 outline-none transition-all font-mono tracking-widest"
                 placeholder="••••••••"
               />
             </div>
-            <button type="submit" className="w-full bg-[#ee6983] text-white py-4 rounded-2xl font-black uppercase tracking-[0.2em] hover:brightness-110 transition-all shadow-xl shadow-[#ee6983]/20">Entrar</button>
+            <button type="submit" className="w-full bg-[#b51a42] text-white py-4 rounded-xl font-black uppercase tracking-[0.2em] hover:brightness-110 transition-all shadow-xl shadow-[#b51a42]/20">Entrar</button>
           </form>
         </motion.div>
       </div>
@@ -245,16 +245,16 @@ const Admin = () => {
              <p className="text-[9px] text-white/30 font-bold tracking-[0.3em] uppercase">Upsiden Ops</p>
           </div>
           <div className="flex md:flex-col gap-2 flex-1">
-             <button onClick={() => setActiveTab('metrics')} className={`flex items-center gap-3 px-4 py-3.5 rounded-2xl transition-all ${activeTab === 'metrics' ? 'bg-[#ee6983] text-white shadow-lg shadow-[#ee6983]/10' : 'text-white/40 hover:bg-white/5'}`}>
+             <button onClick={() => setActiveTab('metrics')} className={`flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all ${activeTab === 'metrics' ? 'bg-[#b51a42] text-white shadow-lg shadow-[#b51a42]/10' : 'text-white/40 hover:bg-white/5'}`}>
                 <BarChart3 className="w-5 h-5 shrink-0" />
                 <span className="text-[11px] font-black uppercase tracking-widest hidden lg:block">Métricas</span>
              </button>
-             <button onClick={() => setActiveTab('content')} className={`flex items-center gap-3 px-4 py-3.5 rounded-2xl transition-all ${activeTab === 'content' ? 'bg-[#ee6983] text-white shadow-lg shadow-[#ee6983]/10' : 'text-white/40 hover:bg-white/5'}`}>
+             <button onClick={() => setActiveTab('content')} className={`flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all ${activeTab === 'content' ? 'bg-[#b51a42] text-white shadow-lg shadow-[#b51a42]/10' : 'text-white/40 hover:bg-white/5'}`}>
                 <LayoutGrid className="w-5 h-5 shrink-0" />
                 <span className="text-[11px] font-black uppercase tracking-widest hidden lg:block">Gestão de Mídia</span>
              </button>
           </div>
-          <button onClick={() => setIsAuthenticated(false)} className="px-4 py-4 text-white/30 hover:text-[#ee6983] flex items-center gap-3 mt-auto border-t border-white/5">
+          <button onClick={() => setIsAuthenticated(false)} className="px-4 py-4 text-white/30 hover:text-[#b51a42] flex items-center gap-3 mt-auto border-t border-white/5">
              <LogOut className="w-5 h-5 shrink-0" />
              <span className="text-[10px] font-black uppercase tracking-widest hidden lg:block">Sair</span>
           </button>
@@ -266,7 +266,7 @@ const Admin = () => {
               <motion.div key="metrics" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="p-6 md:p-10 lg:p-16 space-y-10">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                   <div className="space-y-1">
-                    <h1 className="text-3xl md:text-4xl font-black uppercase tracking-tighter">Performance de <span className="text-[#ee6983]">Conversão</span></h1>
+                    <h1 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white">Performance de Conversão</h1>
                     <p className="text-white/40 text-[10px] font-black uppercase tracking-[0.3em]">Monitoramento de intenção e vendas em tempo real</p>
                   </div>
                   <button onClick={fetchAllData} className="flex items-center gap-2 bg-white/5 hover:bg-white/10 px-6 py-3 rounded-full border border-white/5 transition-all text-[10px] font-black uppercase tracking-widest">
@@ -275,9 +275,9 @@ const Admin = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                   <div className="bg-[#0a0a0a] border border-white/5 p-8 rounded-[32px] space-y-4 shadow-2xl relative overflow-hidden group">
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-[#ee6983]/10 blur-3xl rounded-full" />
-                      <div className="w-10 h-10 bg-[#ee6983]/10 rounded-xl flex items-center justify-center text-[#ee6983]">
+                   <div className="bg-[#0a0a0a] border border-white/5 p-8 rounded-2xl space-y-4 shadow-2xl relative overflow-hidden group">
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-[#b51a42]/10 blur-3xl rounded-full" />
+                      <div className="w-10 h-10 bg-[#b51a42]/10 rounded-xl flex items-center justify-center text-[#b51a42]">
                         <Copy className="w-5 h-5" />
                       </div>
                       <div className="space-y-1">
@@ -285,7 +285,7 @@ const Admin = () => {
                          <h3 className="text-4xl font-black tracking-tighter">{stats.loading ? '...' : stats.pix}</h3>
                       </div>
                    </div>
-                   <div className="bg-[#0a0a0a] border border-white/5 p-8 rounded-[32px] space-y-4 shadow-2xl relative overflow-hidden group">
+                   <div className="bg-[#0a0a0a] border border-white/5 p-8 rounded-2xl space-y-4 shadow-2xl relative overflow-hidden group">
                       <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/10 blur-3xl rounded-full" />
                       <div className="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-500">
                         <MessageCircle className="w-5 h-5" />
@@ -295,7 +295,7 @@ const Admin = () => {
                          <h3 className="text-4xl font-black tracking-tighter">{stats.loading ? '...' : stats.wpp}</h3>
                       </div>
                    </div>
-                   <div className="bg-[#0a0a0a] border border-white/5 p-8 rounded-[32px] space-y-4 shadow-2xl relative overflow-hidden group">
+                   <div className="bg-[#0a0a0a] border border-white/5 p-8 rounded-2xl space-y-4 shadow-2xl relative overflow-hidden group">
                       <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 blur-3xl rounded-full" />
                       <div className="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500">
                         <TrendingUp className="w-5 h-5" />
@@ -308,7 +308,7 @@ const Admin = () => {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                   <div className="bg-[#0a0a0a] border border-white/5 p-10 rounded-[40px] shadow-2xl flex flex-col">
+                   <div className="bg-[#0a0a0a] border border-white/5 p-10 rounded-2xl shadow-2xl flex flex-col">
                       <div className="flex items-center justify-between mb-10">
                         <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">Funil de Intenção</h4>
                         <div className="flex items-center gap-4">
@@ -324,7 +324,7 @@ const Admin = () => {
                               <XAxis dataKey="name" stroke="#ffffff20" fontSize={9} axisLine={false} tickLine={false} />
                               <YAxis stroke="#ffffff20" fontSize={9} axisLine={false} tickLine={false} />
                               <Tooltip contentStyle={{background: '#0a0a0a', border: '1px solid #ffffff10', borderRadius: '16px', padding: '12px'}} cursor={{fill: '#ffffff05'}} />
-                              <Bar dataKey="value" fill="#ee6983" radius={[12, 12, 0, 0]} barSize={60}>
+                              <Bar dataKey="value" fill="#b51a42" radius={[6, 6, 0, 0]} barSize={60}>
                                 {chartData.map((e, i) => <Cell key={i} fill={e.color} />)}
                               </Bar>
                            </BarChart>
@@ -337,7 +337,7 @@ const Admin = () => {
                       </div>
                    </div>
 
-                   <div className="bg-[#0a0a0a] border border-white/5 p-10 rounded-[40px] shadow-2xl flex flex-col">
+                   <div className="bg-[#0a0a0a] border border-white/5 p-10 rounded-2xl shadow-2xl flex flex-col">
                       <h4 className="text-[10px] font-black uppercase tracking-[0.3em] mb-10 text-white/40">Distribuição por Plano</h4>
                       <div className="h-[300px] w-full mt-auto">
                          {(window as any)._pieData?.length > 0 ? (
@@ -353,7 +353,7 @@ const Admin = () => {
                                  dataKey="value"
                                >
                                  {((window as any)._pieData).map((entry: any, index: number) => (
-                                   <Cell key={`cell-${index}`} fill={['#ee6983', '#f493a7', '#b6304b', '#25D366'][index % 4]} />
+                                   <Cell key={`cell-${index}`} fill={['#b51a42', '#f493a7', '#7c132d', '#25D366'][index % 4]} />
                                  ))}
                                </Pie>
                                <Tooltip contentStyle={{background: '#0a0a0a', border: '1px solid #ffffff10', borderRadius: '16px', padding: '12px'}} />
@@ -368,13 +368,13 @@ const Admin = () => {
                    </div>
                 </div>
 
-                <div className="bg-[#0a0a0a] border border-white/5 p-10 rounded-[40px] shadow-2xl">
+                <div className="bg-[#0a0a0a] border border-white/5 p-10 rounded-2xl shadow-2xl">
                    <h4 className="text-[10px] font-black uppercase tracking-[0.3em] mb-10 text-white/40">Atividade Recente</h4>
                    <div className="h-[400px] overflow-y-auto space-y-4 pr-2 custom-scrollbar">
                       {logs.length > 0 ? logs.slice(0, 30).map((log, i) => (
                         <div key={i} className="flex items-center justify-between p-5 bg-white/[0.02] border border-white/5 rounded-2xl hover:bg-white/[0.04] transition-all group">
                            <div className="flex items-center gap-5">
-                              <div className={`w-3 h-3 rounded-full ${log.tipo_evento?.includes('pix') ? 'bg-[#ee6983] shadow-[0_0_10px_rgba(238,105,131,0.5)]' : 'bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]'}`} />
+                              <div className={`w-3 h-3 rounded-full ${log.tipo_evento?.includes('pix') ? 'bg-[#b51a42] shadow-[0_0_10px_rgba(181,26,66,0.5)]' : 'bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]'}`} />
                               <div>
                                  <p className="text-[11px] font-black uppercase tracking-wider text-white/90">
                                     {log.tipo_evento === 'intent_pix' ? 'Intenção de Pagamento PIX' : 
@@ -400,15 +400,15 @@ const Admin = () => {
               <motion.div key="content" initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.98 }} className="p-6 md:p-10 lg:p-16 space-y-12">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
                   <div className="space-y-1">
-                    <h1 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-[#ee6983]">Gestão de <span className="text-white">Mídia</span></h1>
+                    <h1 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white">Gestão de Mídia</h1>
                     <p className="text-white/40 text-[10px] font-black uppercase tracking-[0.3em]">Sobrescrita dinâmica de ativos fixos do projeto</p>
                   </div>
                   
                   <div className="flex bg-black p-1.5 rounded-2xl border border-white/10 self-start">
-                    <button onClick={() => setViewMode('grid')} className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 ${viewMode === 'grid' ? 'bg-[#ee6983] text-white shadow-lg shadow-[#ee6983]/20' : 'text-white/40 hover:text-white'}`}>
+                    <button onClick={() => setViewMode('grid')} className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 ${viewMode === 'grid' ? 'bg-[#b51a42] text-white shadow-lg shadow-[#b51a42]/20' : 'text-white/40 hover:text-white'}`}>
                        <LayoutGrid className="w-4 h-4" /> <span className="text-[10px] font-black uppercase tracking-widest">Galeria</span>
                     </button>
-                    <button onClick={() => setViewMode('table')} className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 ${viewMode === 'table' ? 'bg-[#ee6983] text-white shadow-lg shadow-[#ee6983]/20' : 'text-white/40 hover:text-white'}`}>
+                    <button onClick={() => setViewMode('table')} className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 ${viewMode === 'table' ? 'bg-[#b51a42] text-white shadow-lg shadow-[#b51a42]/20' : 'text-white/40 hover:text-white'}`}>
                        <BarChart3 className="w-4 h-4 rotate-90" /> <span className="text-[10px] font-black uppercase tracking-widest">Lista</span>
                     </button>
                   </div>
@@ -423,12 +423,12 @@ const Admin = () => {
                    ))}
                 </div>
 
-                <div className="bg-[#0a0a0a]/50 border border-white/5 rounded-[40px] overflow-hidden">
+                <div className="bg-[#0a0a0a]/50 border border-white/5 rounded-2xl overflow-hidden">
                   {viewMode === 'grid' ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 p-8 md:p-10">
                        {filteredAssets.map((asset) => (
-                         <div key={asset.key} className="bg-black border border-white/10 rounded-3xl p-6 space-y-6 hover:border-[#ee6983]/40 transition-all group shadow-2xl">
-                            <div className="aspect-video bg-[#050505] rounded-2xl border border-white/5 overflow-hidden flex items-center justify-center relative">
+                         <div key={asset.key} className="bg-black border border-white/10 rounded-2xl p-6 space-y-6 hover:border-[#b51a42]/40 transition-all group shadow-2xl">
+                            <div className="aspect-video bg-[#050505] rounded-xl border border-white/5 overflow-hidden flex items-center justify-center relative">
                                {formValues[asset.key] ? (
                                  <img src={formValues[asset.key]} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s]" crossOrigin="anonymous" alt="Preview" />
                                ) : (
@@ -450,7 +450,7 @@ const Admin = () => {
                                   <input 
                                     type="text" value={formValues[asset.key] || ""} onChange={(e) => setFormValues({...formValues, [asset.key]: e.target.value})}
                                     placeholder="Nova URL da imagem..."
-                                    className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3.5 text-[11px] focus:border-[#ee6983]/30 outline-none transition-all placeholder:text-white/5"
+                                    className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3.5 text-[11px] focus:border-[#b51a42]/30 outline-none transition-all placeholder:text-white/5"
                                   />
                                   <div className="grid grid-cols-2 gap-2">
                                      <button 
@@ -463,7 +463,7 @@ const Admin = () => {
                                      <button 
                                         onClick={() => saveConfig(asset.key)} 
                                         disabled={savingKey === asset.key} 
-                                        className="flex-1 bg-white text-black py-3 rounded-xl hover:bg-[#ee6983] hover:text-white transition-all text-[9px] font-black uppercase tracking-widest flex items-center justify-center gap-2"
+                                        className="flex-1 bg-white text-black py-3 rounded-xl hover:bg-[#b51a42] hover:text-white transition-all text-[9px] font-black uppercase tracking-widest flex items-center justify-center gap-2"
                                      >
                                        <Save className="w-3 h-3" /> Salvar
                                      </button>
@@ -496,7 +496,7 @@ const Admin = () => {
                                 <input 
                                   type="text" value={formValues[asset.key] || ""} onChange={(e) => setFormValues({...formValues, [asset.key]: e.target.value})}
                                   placeholder="Cole o novo link aqui..."
-                                  className="w-full bg-transparent border-b border-white/10 rounded-none py-2 text-xs focus:border-[#ee6983]/50 outline-none transition-all font-mono"
+                                  className="w-full bg-transparent border-b border-white/10 rounded-none py-2 text-xs focus:border-[#b51a42]/50 outline-none transition-all font-mono"
                                 />
                               </td>
                               <td className="py-7 px-10 text-right">
@@ -504,7 +504,7 @@ const Admin = () => {
                                     <button onClick={() => resetConfig(asset.key)} disabled={savingKey === asset.key || !formValues[asset.key]} className="p-3 bg-white/5 hover:bg-white/10 text-white rounded-lg transition-all disabled:opacity-20 translate-y-0 hover:-translate-y-0.5">
                                         <RefreshCw className={`w-4 h-4 ${savingKey === asset.key && 'animate-spin'}`} />
                                     </button>
-                                    <button onClick={() => saveConfig(asset.key)} disabled={savingKey === asset.key} className="p-3 bg-white text-black hover:bg-[#ee6983] hover:text-white rounded-lg transition-all translate-y-0 hover:-translate-y-0.5 shadow-lg">
+                                    <button onClick={() => saveConfig(asset.key)} disabled={savingKey === asset.key} className="p-3 bg-white text-black hover:bg-[#b51a42] hover:text-white rounded-lg transition-all translate-y-0 hover:-translate-y-0.5 shadow-lg">
                                         <Save className="w-4 h-4" />
                                     </button>
                                 </div>
@@ -517,13 +517,13 @@ const Admin = () => {
                   )}
                 </div>
 
-                <div className="bg-[#ee6983]/5 border border-[#ee6983]/15 p-8 rounded-[40px] flex items-start gap-6 max-w-4xl shadow-2xl relative overflow-hidden">
-                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#ee6983]/10 blur-3xl rounded-full" />
-                   <div className="bg-[#ee6983]/10 p-4 rounded-2xl relative">
-                     <Shield className="w-6 h-6 text-[#ee6983]" />
+                <div className="bg-[#b51a42]/5 border border-[#b51a42]/15 p-8 rounded-2xl flex items-start gap-6 max-w-4xl shadow-2xl relative overflow-hidden">
+                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#b51a42]/10 blur-3xl rounded-full" />
+                   <div className="bg-[#b51a42]/10 p-4 rounded-xl relative">
+                     <Shield className="w-6 h-6 text-[#b51a42]" />
                    </div>
                    <div className="space-y-3 relative">
-                      <h4 className="text-[11px] font-black uppercase tracking-[0.3em] text-[#ee6983]">Protocolo de Sincronização Global</h4>
+                      <h4 className="text-[11px] font-black uppercase tracking-[0.3em] text-[#b51a42]">Protocolo de Sincronização Global</h4>
                       <p className="text-white/40 text-[11px] leading-relaxed font-bold uppercase tracking-widest">
                         O sistema detecta automaticamente se uma midia foi removida (Reset) e carrega o arquivo local original do repositório. Para novas mídias, utilize links permanentes de CDNs estáveis.
                       </p>
