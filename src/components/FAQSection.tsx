@@ -25,8 +25,8 @@ const faqs = [
     a: "No dia 17 de Abril iniciaremos às 17:00 com o credenciamento e palestras até as 21:30. No dia 18 de Abril, a programação será o dia todo, iniciando as 08:00 e finalizando o evento oficial às 17:00.",
   },
   {
-    q: "Haverá emissão de certificado?",
-    a: "Sim! Todos os participantes receberão um certificado digital de participação emitido pelo Instituto Mulheres de Sucesso, que reforça seu engajamento em saúde integrativa e gestão de alta performance.",
+    q: "Haverá emissão de certificado e horas complementares?",
+    a: "Sim! Todos os participantes receberão um certificado digital de participação emitido pelo Instituto Mulheres de Sucesso, que reforça seu engajamento em saúde integrativa e gestão de alta performance. Além disso, estudantes do UNIFACEX 🎓 terão direito a 20 horas de atividades complementares para o seu currículo acadêmico.",
   },
   {
     q: "A quem se destina o Fórum?",

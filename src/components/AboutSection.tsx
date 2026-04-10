@@ -99,11 +99,11 @@ const AboutSection = () => {
 
             {/* ══ COLUNA DA DIREITA (NOVA IMAGEM AUDITÓRIO) ══ */}
             <div className="about-top-right-wrapper h-full">
-              <div className="about-image-card h-[550px] border border-[rgba(238,105,131,0.15)] shadow-[0_0_40px_rgba(0,0,0,0.8)] relative group">
+              <div className="about-image-card h-auto aspect-[1/1.6] border border-[rgba(238,105,131,0.15)] shadow-[0_0_40px_rgba(0,0,0,0.8)] relative group">
                 <OptimizedImage
                   src={configs?.about_image || eventInfoWebP}
                   placeholderSrc={eventInfoPlaceholder}
-                  alt="Auditório do evento Unifacex"
+                  alt="Banner do Fórum Mulheres de Sucesso"
                   className="about-image transition-transform duration-[2s] group-hover:scale-105"
                 />
                 <div className="about-image-overlay" />
@@ -143,7 +143,7 @@ const AboutSection = () => {
           grid-column-gap: clamp(24px, 4vw, 56px);
           grid-row-gap: 32px; 
           grid-template-rows: auto;
-          grid-template-columns: 1.15fr 0.85fr;
+          grid-template-columns: 1.4fr 0.6fr;
           display: grid;
           align-items: stretch;
         }
@@ -294,8 +294,11 @@ const AboutSection = () => {
         /* ══ IMAGEM (ESTREITA E SINCRONIZADA) ══ */
         .about-image-card {
           width: 100%;
-          height: 100%;
-          min-height: clamp(350px, 50vh, 550px);
+          max-width: 420px;
+          margin-left: auto;
+          height: auto;
+          aspect-ratio: 1 / 1.8;
+          min-height: clamp(350px, 50vh, 650px);
           max-height: none;
           border-radius: 20px;
           overflow: hidden;

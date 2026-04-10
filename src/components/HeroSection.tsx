@@ -71,11 +71,11 @@ const HeroSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-6xl xl:text-[clamp(3rem,6vw,4.75rem)] font-light text-white leading-[1.05] tracking-tight uppercase"
+            className="text-4xl sm:text-7xl xl:text-[clamp(3.5rem,7vw,5.5rem)] font-light text-white leading-[1.05] tracking-tight uppercase"
           >
-            O Fórum da Mulher <br className="hidden sm:block" />
+            Fórum <br className="hidden sm:block" />
             <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-[#ee6983] via-[#f493a7] to-[#ee6983] drop-shadow-sm">
-              Empreendedora
+              Mulheres de Sucesso
             </span>
           </motion.h1>
  
