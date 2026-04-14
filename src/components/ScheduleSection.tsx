@@ -48,7 +48,7 @@ const schedule = {
     { 
       time: "15:30", 
       title: "Encerramento: Transformação em Dobro", 
-      speakers: ["Dra. Débora Ricque", "Pollyana Chacon", "Suyane Melre", "Sávio Maxwell"] 
+      speakers: ["Dra. Débora Ricque", "Pollyana Chacon", "Suyane Melre", "Maxwell Sterling"] 
     },
   ]
 };
